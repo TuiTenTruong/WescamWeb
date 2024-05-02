@@ -93,7 +93,6 @@ form.addEventListener("submit", function (e) {
 
 //  đăng nhập và nút "Đăng xuất"
 function displayLoggedInUser() {
-
   const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
   console.log(loggedInUser);
 
@@ -112,9 +111,7 @@ function displayLoggedInUser() {
 
     document.querySelector("#logout-btn").setAttribute("href", "#");
   }
-
 }
-
 
 // "Đăng xuất"
 logoutBtn.addEventListener("click", function () {
@@ -122,26 +119,26 @@ logoutBtn.addEventListener("click", function () {
   if (logoutBtn.textContent == "Đăng xuất") {
     if (confirm("Bạn có chắc muốn đăng xuất không?")) {
       localStorage.removeItem("loggedInUser");
-    } 
+    }
     window.location.href = "trangchu.html";
   }
 });
 
-usernameDisplay.addEventListener("click",function(){
+usernameDisplay.addEventListener("click", function () {
   const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-  if( usernameDisplay.textContent === `${loggedInUser.username} |`){
-    var userlogin = JSON.parse(localStorage.getItem('loggedInUser'));
-    console.log(userlogin.username)
-      if(userlogin.username === 'admin123' && userlogin.password ==='Admin@123'){
-          window.open('/Admin/index_list_account.html','_self');
-      }
-      else {
-        window.open('user.html','_self');
-      
-      }
+  if (usernameDisplay.textContent === `${loggedInUser.username} |`) {
+    var userlogin = JSON.parse(localStorage.getItem("loggedInUser"));
+    console.log(userlogin.username);
+    if (
+      userlogin.username === "admin123" &&
+      userlogin.password === "Admin@123"
+    ) {
+      window.open("/Admin/index_list_account.html", "_self");
+    } else {
+      window.open("user.html", "_self");
+    }
   }
 });
-
 
 //check đăng nhập bên trang chi tiết
 // buy_bnt.addEventListener("click", function () {

@@ -117,18 +117,17 @@ body{
     width: 200px;
     height: 40px;
     margin: 20px 0 12px 0;
-    border: 1px solid #028415;
+    border: 1px solid #e9cf0c;
     cursor: pointer;
-    background-color: #00ff26;
+    background-color: #e9cf0c;
 }
-.product-detail-content-right-button button:first-child{
+/* .product-detail-content-right-button button:first-child{
     background-color: #845f31;
     border: 1px solid #BF8A49;
     color: #fff;
-}
+} */
 .product-detail-content-right-button button:hover {
-    background-color: #000;
-    color: #fff;
+    background-color: #edb50e;
 }
 .product-detail-content-right-bottom{
     position: relative;

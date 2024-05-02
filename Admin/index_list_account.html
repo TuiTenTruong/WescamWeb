@@ -15,7 +15,11 @@
       <div class="row-grid">
         <div class="admin-sidebar">
           <div class="admin-sidebar-top">
-            <img src="assects_admin/image/image.png" alt="" />
+            <img
+              onclick="window.open('../trangchu.html','_self')"
+              src="assects_admin/image/image.png"
+              alt=""
+            />
           </div>
           <div class="admin-sidebar-content">
             <!-- <div class="admin-sidebar-head">
@@ -23,29 +27,8 @@
             </div> -->
             <ul>
               <li>
-                <a href="index_list_order.html">
+                <a href="">
                   <i class="fa fa-list-ul"></i> Đơn hàng
-                  <i class="fa-solid fa fa-plus"></i>
-                </a>
-                <ul class="sub-menu">
-                  <div class="sub-menu-items">
-                    <li>
-                      <a href="#"
-                        ><i class="fa-solid fa fa-chevron-right"></i> Danh
-                        sách</a
-                      >
-                    </li>
-                    <li>
-                      <a href="#"
-                        ><i class="fa-solid fa fa-chevron-right"></i> Xóa</a
-                      >
-                    </li>
-                  </div>
-                </ul>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fa fa-list-ul"></i> Sản Phẩm
                   <i class="fa-solid fa fa-plus"></i>
                 </a>
                 <ul class="sub-menu">
@@ -60,6 +43,27 @@
                       <a href="index_list_order_detail.html"
                         ><i class="fa-solid fa fa-chevron-right"></i> Chi tiết
                         sản phẩm</a
+                      >
+                    </li>
+                  </div>
+                </ul>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fa fa-list-ul"></i> Sản Phẩm
+                  <i class="fa-solid fa fa-plus"></i>
+                </a>
+                <ul class="sub-menu">
+                  <div class="sub-menu-items">
+                    <li>
+                      <a href="index_list_product.html"
+                        ><i class="fa-solid fa fa-chevron-right"></i> Danh
+                        sách</a
+                      >
+                    </li>
+                    <li>
+                      <a href="index_add.html"
+                        ><i class="fa-solid fa fa-chevron-right"></i> Thêm</a
                       >
                     </li>
                   </div>
@@ -142,9 +146,10 @@
 
         // Hiển thị dữ liệu trong bảng
         users.forEach(function (user, index) {
-          var newRow = document.createElement("tr");
-          newRow.innerHTML = `
-              <td >${index + 1}</td>
+          if (user.username !== "admin123") {
+            var newRow = document.createElement("tr");
+            newRow.innerHTML = `
+              <td >${index}</td>
               <td>${user.fullname}</td>
               <td>${user.email}</td>
               <td class="accountId">${user.username}</td>
@@ -154,7 +159,8 @@
                   <a class="delete-class" href="">Xóa</a>
               </td>
           `;
-          tableBody.appendChild(newRow);
+            tableBody.appendChild(newRow);
+          }
         });
       });
 

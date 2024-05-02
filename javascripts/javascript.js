@@ -1,8 +1,8 @@
 
 
 
-localStorage.setItem('list_phone',list_phones);
-  localStorage.setItem('list_lap',list_laps);
+// localStorage.setItem('list_phone',list_phones);
+//   localStorage.setItem('list_lap',list_laps);
 
 var list_products_lap = JSON.parse(localStorage.getItem("list_lap"));
 var list_products_phone = JSON.parse(localStorage.getItem("list_phone"));

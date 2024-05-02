@@ -102,7 +102,7 @@
           </div>
           <div class="admin-content-main-content">
             <div class="admin-content-main-content-product-list">
-              <table id="account-table">
+              <table id="order-table">
                 <thead>
                   <tr>
                     <th>STT</th>
@@ -110,6 +110,7 @@
                     <th>Mã khách hàng</th>
                     <th>Họ và tên</th>
                     <th>Sản phẩm</th>
+                    <th>Giá tiền</th>
                     <th>Trạng thái</th>
                     <th>Tùy chỉnh</th>
                     <!-- <th>Địa chỉ</th> -->
@@ -138,24 +139,26 @@
     </section>
     <script src="assects_admin/assets_admin/js/script.js"></script>
 
-    <!-- <script>
+    <script>
       document.addEventListener("DOMContentLoaded", function () {
-        var tableBody = document.querySelector("#account-table tbody");
+        var tableBody = document.querySelector("#order-table tbody");
 
         // Lấy dữ liệu từ localStorage
-        var users = JSON.parse(localStorage.getItem("users")) || [];
+        var listOrder = JSON.parse(localStorage.getItem("listOrder")) || [];
 
         // Hiển thị dữ liệu trong bảng
-        users.forEach(function (user, index) {
+        listOrder.forEach(function (listOrder, index) {
           var newRow = document.createElement("tr");
           newRow.innerHTML = `
               <td >${index + 1}</td>
-              <td>${user.fullname}</td>
-              <td>${user.email}</td>
-              <td class="accountId">${user.username}</td>
-              <td>${user.phone}</td>
+              <td class="orderID">${listOrder.maDonHang}</td>
+              <td>${listOrder.maKH}</td>
+              <td>${listOrder.hoTen} </td>
+              <td>${listOrder.TenSP}</td>
+              <td>${listOrder.Gia}</td>
+              <td>${listOrder.fullname}</td>
               <td>
-                  <a class="edit-class" href="index_add_account.html">Sửa</a> |
+                 
                   <a class="delete-class" href="">Xóa</a>
               </td>
           `;
@@ -188,6 +191,7 @@
           });
         });
       });
-    </script> -->
+    </script>
+    <script src="assects_admin/assets_admin/js/detail_product.js"></script>
   </body>
 </html>

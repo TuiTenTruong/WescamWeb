@@ -578,14 +578,28 @@ var cart = JSON.parse(localStorage.getItem("cart"))
 localStorage.setItem("cart", JSON.stringify(cart));
 var add_product = (value) => {
     var data = JSON.parse(localStorage.getItem("cart"));
-    data.push(value);
+    var found = 0;
+
+    for (var i = 0; i < data.length; i++) {
+        console.log(JSON.parse(data[i].hang).maSP);
+        if (JSON.parse(value).maSP === JSON.parse(data[i].hang).maSP) {
+            data[i].soluong++;
+            found = 1;
+            break;
+        }
+    }
+    if (found == 0) data.push({ hang: value, soluong: 1 });
     localStorage.setItem("cart", JSON.stringify(data));
+    var loginuser = JSON.parse(localStorage.getItem("loggedInUser"));
+    var tmp2 = data;
+    var tmp = { user: loginuser, hang: tmp2 };
+    console.log(JSON.stringify(tmp));
+    localStorage.setItem("listOrder", JSON.stringify(tmp));
 };
 
 function add_cart() {
     var hanghoa = window.localStorage.getItem("key_product");
     add_product(hanghoa);
-    console.log(hanghoa);
 }
 
 var show_user = function () {

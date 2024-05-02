@@ -554,4 +554,3 @@ function open_cart() {
 function close_cart() {
     document.getElementById("cart").style.right = "-100%";
 }
-hihihihih;

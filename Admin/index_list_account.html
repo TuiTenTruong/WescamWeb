@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WesCam_Admin</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="assects_admin/css/style.css" />
+  </head>
+  <body>
+    <section class="admin">
+      <div class="row-grid">
+        <div class="admin-sidebar">
+          <div class="admin-sidebar-top">
+            <img src="assects_admin/image/image.png" alt="" />
+          </div>
+          <div class="admin-sidebar-content">
+            <!-- <div class="admin-sidebar-head">
+              <a href="index.html"><i class="fa fa-th-list"></i> Dashboard</a>
+            </div> -->
+            <ul>
+              <li>
+                <a href="#">
+                  <i class="fa fa-list-ul"></i> Đơn hàng
+                  <i class="fa-solid fa fa-plus"></i>
+                </a>
+                <ul class="sub-menu">
+                  <div class="sub-menu-items">
+                    <li>
+                      <a href="#"
+                        ><i class="fa-solid fa fa-chevron-right"></i> Danh
+                        sách</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#"
+                        ><i class="fa-solid fa fa-chevron-right"></i> Xóa</a
+                      >
+                    </li>
+                  </div>
+                </ul>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fa fa-list-ul"></i> Sản Phẩm
+                  <i class="fa-solid fa fa-plus"></i>
+                </a>
+                <ul class="sub-menu">
+                  <div class="sub-menu-items">
+                    <li>
+                      <a href="index_list_product.html"
+                        ><i class="fa-solid fa fa-chevron-right"></i> Danh
+                        sách</a
+                      >
+                    </li>
+                    <li>
+                      <a href="index_add.html"
+                        ><i class="fa-solid fa fa-chevron-right"></i> Thêm</a
+                      >
+                    </li>
+                  </div>
+                </ul>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fa fa-list-ul"></i> Tài khoản
+                  <i class="fa-solid fa fa-plus"></i>
+                </a>
+                <ul class="sub-menu">
+                  <div class="sub-menu-items">
+                    <li>
+                      <a href="index_list_account.html"
+                        ><i class="fa-solid fa fa-chevron-right"></i> Danh
+                        sách</a
+                      >
+                    </li>
+                    <li>
+                      <a href="index_add_account.html"
+                        ><i class="fa-solid fa fa-chevron-right"></i> Thêm</a
+                      >
+                    </li>
+                  </div>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="admin-content">
+          <div class="admin-content-top"></div>
+          <div class="admin-content-main">
+            <div class="admin-content-main-title">
+              <h1>Tài khoản</h1>
+            </div>
+          </div>
+          <div class="admin-content-main-content">
+            <div class="admin-content-main-content-product-list">
+              <table id="account-table">
+                <thead>
+                  <tr>
+                    <th>STT</th>
+                    <th>Họ tên</th>
+                    <th>Email</th>
+                    <th>Tài khoản</th>
+                    <th>Số điện thoại</th>
+                    <!-- <th>Địa chỉ</th> -->
+                    <th>Tùy chỉnh</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- <tr>
+                    <td>1</td>
+                    <td>Mai khang</td>
+                    <td>khang@gmail.com</td>
+                    <td>mai khang</td>gg
+                    <td>0987654321</td>
+                    <td>Hỏa Tiến, Vị Thanh, Hậu Giang</td>
+                    <td>
+                      <a class="edit-class edit-class-1" href="">Khóa</a> |
+                      <a class="edit-class" href="index_add.html">Sửa</a> |
+                      <a class="delete-class" href="">Xóa</a>
+                    </td>
+                  </tr> -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="assects_admin/assets_admin/js/script.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var tableBody = document.querySelector("#account-table tbody");
+
+        // Lấy dữ liệu từ localStorage
+        var users = JSON.parse(localStorage.getItem("users")) || [];
+
+        // Hiển thị dữ liệu trong bảng
+        users.forEach(function (user, index) {
+          var newRow = document.createElement("tr");
+          newRow.innerHTML = `
+              <td >${index + 1}</td>
+              <td>${user.fullname}</td>
+              <td>${user.email}</td>
+              <td class="accountId">${user.username}</td>
+              <td>${user.phone}</td>
+              <td>
+                  <a class="edit-class" href="index_add_account.html">Sửa</a> |
+                  <a class="delete-class" href="">Xóa</a>
+              </td>
+          `;
+          tableBody.appendChild(newRow);
+        });
+      });
+
+      // xóa tài khoản
+      document.addEventListener("DOMContentLoaded", function () {
+        var deleteButtons = document.querySelectorAll(".delete-class");
+
+        deleteButtons.forEach(function (button) {
+          button.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            var row = e.target.closest("tr");
+            var accountId = row.querySelector(".accountId").textContent;
+            var users = JSON.parse(localStorage.getItem("users")) || [];
+            var index = users.find(function (user) {
+              return user.user === accountId.trim();
+            });
+
+            if (index !== -1) {
+              console.log("hello");
+              users.splice(index, 1); // Xóa người dùng khỏi mảng
+              localStorage.setItem("users", JSON.stringify(users));
+            }
+            row.parentNode.removeChild(row); // Xóa hàng khỏi bảng
+            location.reload();
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

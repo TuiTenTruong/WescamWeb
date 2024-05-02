@@ -130,7 +130,7 @@ form.addEventListener("submit", function (e) {
       localStorage.setItem("users", JSON.stringify(users));
 
       alert("Đăng ký thành công");
-      window.location.href = "trangchu.html";
+      window.location.href = "dangnhap.html";
     }
   }
 });

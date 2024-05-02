@@ -2,6 +2,8 @@ var usernameInput = document.querySelector("#username");
 var passwordInput = document.querySelector("#password");
 var form = document.querySelector("form");
 // Trang chủ
+// var taikhoan = [{ taikhoan: "admin123",matkhau : "Admin@123"}]
+// localStorage.setItem('users',JSON.stringify(taikhoan));
 var usernameDisplay = document.getElementById("username-display");
 var logoutBtn = document.getElementById("logout-btn");
 
@@ -91,13 +93,13 @@ form.addEventListener("submit", function (e) {
 
 //  đăng nhập và nút "Đăng xuất"
 function displayLoggedInUser() {
-  console.log(1);
+
   const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
   console.log(loggedInUser);
 
   if (loggedInUser) {
     usernameDisplay.textContent = loggedInUser.username;
-    logoutBtn.textContent = "Đăng xuất";
+    logoutBtn.textContent = "| Đăng xuất";
     usernameDisplay.style.display = "block"; // Hiển thị tên người dùng
     logoutBtn.style.display = "block"; // Hiển thị nút "Đăng xuất"
 
@@ -110,6 +112,7 @@ function displayLoggedInUser() {
 
     document.querySelector("#logout-btn").setAttribute("href", "#");
   }
+  
 }
 
 console.log(localStorage.getItem("signed") === "1");
@@ -127,9 +130,7 @@ logoutBtn.addEventListener("click", function () {
   }
 });
 
-window.onload = function () {
-  displayLoggedInUser();
-};
+
 
 //check đăng nhập bên trang chi tiết
 // buy_bnt.addEventListener("click", function () {

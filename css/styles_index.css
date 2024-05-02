@@ -281,3 +281,28 @@ article {
     display: block;
     margin: 0 auto;
 }
+.user__table table {
+    margin: 0 auto;
+    width: 100%;
+    padding: 12px 0;
+  }
+  
+  .user__table table,
+  th,
+  td {
+    text-align: center;
+  }
+  
+  .user__table table th {
+    background-color: #b4d4ff;
+    color: black;
+    padding: 10px 0px;
+  }
+  
+  .user__table table tr td {
+    padding-top: 10px;
+  }
+  .user__table table img {
+    width: 70px;
+    height: 100%;
+  }

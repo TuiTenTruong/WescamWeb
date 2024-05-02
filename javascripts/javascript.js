@@ -546,4 +546,9 @@ var show_user = function() {
   var taikhoan = document.querySelector('.taikhoan span');
   var email = document.querySelector('.email span');
   var sdt = document.querySelector('.sdt span');
+   console.log(hoten)
+  taikhoan.innerText = userlogin.username;
+  email.innerText = userlogin.email;
+  hoten.innerText = userlogin.fullname;
+  sdt.innerText = userlogin.phone;
 }

@@ -1,52 +1,5 @@
-const list_products_lap = [
-  {
-    maSP: "sp012",
-    NhuCau: "VanPhong",
-    Brand: "Macbook",
-    TenSP: "Macbook Air M2 2022 13 inch",
-    Coupon: 25,
-    Gia: 34990000,
-    img: [
-      "https://cdn.media.amplience.net/i/xcite/646173-01?img404=default&w=2048&qlt=75&fmt=auto",
-      "https://sm.pcmag.com/t/pcmag_au/review/a/apple-macb/apple-macbook-air-2022-m2_yqte.1920.jpg",
-      "https://92130magazine.com/wp-content/uploads/2022/01/M2_Apple_MacBook_Pro_14_Mac_Air_2022_drdNBC.jpg",
-    ],
-    ManHinh: "13.6 inch  ( 2560 x 1664 ) | Liquid Retina FHD webcam",
-    CPU: "Apple M2 ( 8 - Core CPU / 8 - Core GPU )",
-    RAM: "16GB",
-    TrongLuong: "1,2kg",
-    OCung: "512GB SSD",
-    HDH: "macOS",
-    KichThuoc: "30.41 x 21.5 x 1.13 cm",
-    XuatXu: "Mỹ",
-    DanhGia:
-      "MacBook Air M2 2022 13 inch (16GB/512GB SSD) là chiếc MacBook đến từ thương hiệu Apple - một trong những nhà sản xuất nổi tiếng với sự đẳng cấp trong thế giới công nghệ. MacBook Air M2 2022 13 inch mang đến hiệu suất vượt trội và thiết kế sang trọng, luôn sẵn sàng chinh phục bất kỳ người dùng nào đang tìm kiếm một sản phẩm đẳng cấp để làm việc hiệu năng cao.",
-  },
-];
-
-const list_products_phone = [
-  {
-    maSP: "sp013",
-    Brand: "Samsung",
-    TenSP: "Galaxy S23 Ultra",
-    Gia: 24990000,
-    Coupon: 26,
-    img: [
-      "https://telefonika.com/wp-content/uploads/2023/02/Samsung-Galaxy-S23-Ultra.jpg",
-      "https://jersuindica.com/wp-content/uploads/2023/03/s23-ultraa.jpg",
-      "https://images.hothardware.com/contentimages/article/3281/content/small_S23-Ultra-03.jpg",
-    ],
-    ManHinh: "6.8 inch Dynamic AMOLED 2X; Quad HD+ (2K+) (3088 x 1440)",
-    CPU: "Snapdragon 8 Gen 2",
-    RAM: "8GB (256GB ROM)",
-    TrongLuong: "233g",
-    HDH: "Android",
-    KichThuoc: "78.1 x 163.4 x 8.9 mm",
-    XuatXu: "Hàn Quốc",
-    DanhGia:
-      "Samsung S23 Ultra là một trong những sản phẩm smartphone cao cấp đến từ nhà Samsung mang vẻ ngoài sang trọng, camera tuyệt đỉnh. Với đầy đủ tính năng mới, hơn thế nữa là chất liệu bền vững kết hợp với thiết kế tối giản và tối ưu hóa năng lượng là những yếu tố giúp S23 Ultra không chỉ là một chiếc điện thoại mà còn trở thành một sản phẩm tốt cho người tiêu dùng.",
-  },
-];
+var list_products_lap = JSON.parse(localStorage.getItem("list_lap"));
+var list_products_phone = JSON.parse(localStorage.getItem("list_phone"));
 
 var check_loai = function (vlue) {
   var brand = document.querySelector(".brand_sp");
@@ -189,3 +142,4 @@ var nhaphang = function (form) {
 
 // console.log(list_products_phone);
 // console.log(list_products_lap);
+// cập nhật sản phẩm

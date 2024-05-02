@@ -101,8 +101,16 @@
                       </div>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="javascript:void(0)"
-                        >Đăng Nhập / Đăng kí</a
+                      <a
+                        id="username-display"
+                        class="nav-link"
+                        href="./dangnhap.html"
+                        >Đăng Nhập/</a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a id="logout-btn" class="nav-link" href="./dangky.html"
+                        >Đăng kí</a
                       >
                     </li>
                     <li class="nav-item">
@@ -554,8 +562,9 @@
       <!-- Grid container -->
     </footer>
 
-    <!-- check dang nhap chưa
     <script src="javascripts/dangky_dangnhap_js/dangnhap.js"></script>
+    <!-- check dang nhap chưa -->
+
     <script>
       displayLoggedInUser();
       //check đăng nhập bên trang chi tiết
@@ -591,7 +600,7 @@
         alert("Sản phẩm đã được thêm vào giỏ hàng!");
         window.location.href = "muahang.html";
       }
-    </script> -->
+    </script>
     <script>
       var GiamGia = function (Gia, Coupn) {
         return Gia * (1 - Coupn / 100);

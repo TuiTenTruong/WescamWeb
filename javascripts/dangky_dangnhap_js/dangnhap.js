@@ -78,9 +78,9 @@ form.addEventListener("submit", function (e) {
 
       // Kiểm tra trạng thái trang trước đó từ localStorage
       const currentPage = localStorage.getItem("currentPage");
-      if (currentPage === "chitiet.html") {
+      if (currentPage === "test.html") {
         // Nếu trước đó đang ở trang chi tiết, chuyển hướng đến trang chi tiết
-        window.location.href = "chitiet.html";
+        window.location.href = "test.html";
       } else {
         // Ngược lại, chuyển hướng về trang chính
         window.location.href = "trangchu.html";
@@ -128,7 +128,7 @@ usernameDisplay.addEventListener("click", function () {
   const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
   if (usernameDisplay.textContent === `${loggedInUser.username} |`) {
     var userlogin = JSON.parse(localStorage.getItem("loggedInUser"));
-    console.log(userlogin.username);
+
     if (
       userlogin.username === "admin123" &&
       userlogin.password === "Admin@123"

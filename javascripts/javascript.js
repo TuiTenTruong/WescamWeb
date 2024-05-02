@@ -539,3 +539,11 @@ function open_cart() {
 function close_cart() {
   document.getElementById("cart").style.right = "-100%";
 }
+
+var show_user = function() {
+  var userlogin = JSON.parse(localStorage.getItem("loggedInUser"));
+  var hoten = document.querySelector('.hoten span');
+  var taikhoan = document.querySelector('.taikhoan span');
+  var email = document.querySelector('.email span');
+  var sdt = document.querySelector('.sdt span');
+}

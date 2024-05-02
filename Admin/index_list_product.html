@@ -120,6 +120,7 @@
     </section>
     <script src="assects_admin/assets_admin/js/script.js"></script>
     <script>
+      //hiển thị lap top
       document.addEventListener("DOMContentLoaded", function () {
         var tableBody = document.querySelector("#product-table tbody");
 
@@ -137,7 +138,7 @@
 
               <td>${list.Gia}</td>
               <td>
-                  <a class="edit-class" href="index_add_account.html">Sửa</a> |
+                
                   <a class="delete-class" href="">Xóa</a>
               </td>
           `;
@@ -145,6 +146,32 @@
         });
       });
 
+      //hiển thị điện thoại
+      document.addEventListener("DOMContentLoaded", function () {
+        var tableBody = document.querySelector("#product-table tbody");
+
+        // Lấy dữ liệu từ localStorage
+        var list_phone = JSON.parse(localStorage.getItem("list_phone")) || [];
+        console.log(list_phone);
+        // Hiển thị dữ liệu trong bảng
+        list_phone.forEach(function (list, index) {
+          var newRow = document.createElement("tr");
+          newRow.innerHTML = `
+              <td >${index + 1}</td>
+              <td class="productID">${list.maSP}</td>
+              <td><img src="${list.img[0]}" alt="img"></td>
+              <td>${list.TenSP}</td>
+
+              <td>${list.Gia}</td>
+              <td>
+                 
+                  <a class="delete-class" href="">Xóa</a>
+              </td>
+          `;
+          tableBody.appendChild(newRow);
+        });
+      });
+      // <a class="edit-class" href="index_add_account.html">Sửa</a> |
       // xóa sản phẩm
       document.addEventListener("DOMContentLoaded", function () {
         var deleteButtons = document.querySelectorAll(".delete-class");

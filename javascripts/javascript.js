@@ -453,7 +453,7 @@ var call_funtion = function (local) {
 function showproduct() {
   var products = list_products_lap;
   var str = '<div class="owl-carousel">';
-  for (var i = 0; i < 9; ++i) {
+  for (var i = 0; i < products.length; ++i) {
     var obj = JSON.stringify(products[i]);
 
     str += `<div class="product" style="height: 300px;">
@@ -484,7 +484,7 @@ function showproduct() {
 
   products = list_products_phone;
   str = '<div class="owl-carousel">';
-  for (var i = 0; i < 9; ++i) {
+  for (var i = 0; i < products.length; ++i) {
     var obj = JSON.stringify(products[i]);
 
     str += `<div class="product" style="height: 300px;">

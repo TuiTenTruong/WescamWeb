@@ -66,7 +66,8 @@ li {
 
 /*silebar*/
 .admin-sidebar {
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   background-color: var(--main-bg-color);
 }
 .admin-sidebar-top {
@@ -77,8 +78,8 @@ li {
   margin-right: 15px;
 }
 .admin-sidebar-top img {
- max-width: 150px;
- width: 100%;
+  max-width: 150px;
+  width: 100%;
 }
 /* .admin-sidebar-content > ul > li > a {
   width: 100%;

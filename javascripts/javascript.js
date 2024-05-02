@@ -578,17 +578,7 @@ var cart = JSON.parse(localStorage.getItem("cart"))
 localStorage.setItem("cart", JSON.stringify(cart));
 var add_product = (value) => {
     var data = JSON.parse(localStorage.getItem("cart"));
-    var found = 0;
-
-    for (var i = 0; i < data.length; i++) {
-        console.log(JSON.parse(data[i].hang).maSP);
-        if (JSON.parse(value).maSP === JSON.parse(data[i].hang).maSP) {
-            data[i].soluong++;
-            found = 1;
-            break;
-        }
-    }
-    if (found == 0) data.push({ hang: value, soluong: 1 });
+    data.push(value);
     localStorage.setItem("cart", JSON.stringify(data));
     var loginuser = JSON.parse(localStorage.getItem("loggedInUser"));
     var tmp2 = data;

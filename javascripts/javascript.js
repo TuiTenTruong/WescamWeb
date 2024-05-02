@@ -576,15 +576,17 @@ var cart = JSON.parse(localStorage.getItem("cart"))
     ? JSON.parse(localStorage.getItem("cart"))
     : [];
 localStorage.setItem("cart", JSON.stringify(cart));
-var add_cart = (value) => {
+var add_product = (value) => {
     var data = JSON.parse(localStorage.getItem("cart"));
     data.push(value);
     localStorage.setItem("cart", JSON.stringify(data));
 };
 
-var hanghoa = window.localStorage.getItem("key_product");
-add_cart(hanghoa);
-console.log(hanghoa);
+function add_cart() {
+    var hanghoa = window.localStorage.getItem("key_product");
+    add_product(hanghoa);
+    console.log(hanghoa);
+}
 
 var show_user = function () {
     var userlogin = JSON.parse(localStorage.getItem("loggedInUser"));

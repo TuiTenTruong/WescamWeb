@@ -464,7 +464,7 @@ var call_funtion = function (local) {
     // window.localStorage.clear();
 
     window.localStorage.setItem("key_product", JSON.stringify(local));
-    window.open("test.html", "_self");
+    window.open("chitiet.html", "_self");
     // console.log( JSON.stringify(local));
     // console.log( JSON.parse(JSON.stringify(local)));
 };

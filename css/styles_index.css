@@ -274,3 +274,10 @@ article {
     cursor: pointer;
     color: #ff0000;
 }
+
+.user_img{
+    max-width: 200px;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+}

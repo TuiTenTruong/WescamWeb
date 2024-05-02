@@ -128,7 +128,7 @@ usernameDisplay.addEventListener("click", function () {
   const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
   if (usernameDisplay.textContent === `${loggedInUser.username} |`) {
     var userlogin = JSON.parse(localStorage.getItem("loggedInUser"));
-    console.log(userlogin.username);
+
     if (
       userlogin.username === "admin123" &&
       userlogin.password === "Admin@123"

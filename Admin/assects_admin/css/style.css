@@ -1,0 +1,237 @@
+:root {
+  --main-bg-color: #414e66;
+  --sub-bg-color: #f2f7fb;
+  --top-height: 70px;
+  --main-transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+li {
+  list-style: none;
+}
+.row-grid {
+  display: grid;
+  justify-content: space-between;
+}
+
+.main-btn {
+  padding: 6px 12px;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid black;
+  cursor: pointer;
+  margin-left: 20px;
+  margin-top: 20px;
+  height: 50px;
+  width: 200px;
+}
+
+.delete-class {
+  padding: 3px;
+  background-color: red;
+  color: white;
+  border-radius: 4px;
+}
+.edit-class {
+  padding: 3px;
+  background-color: gray;
+  color: white;
+  border-radius: 4px;
+}
+
+.edit-class-1 {
+  padding: 3px;
+  background-color: gray;
+  color: white;
+  border-radius: 4px;
+}
+.admin-sidebar-head a {
+  padding: 20px 0 10px 5px;
+}
+/* main content */
+.admin .row-grid {
+  grid-template-columns: 20% 80%;
+}
+
+/*silebar*/
+.admin-sidebar {
+  height: 100vh;
+  background-color: var(--main-bg-color);
+}
+.admin-sidebar-top {
+  text-align: center;
+  height: var(--top-height);
+  border-bottom: 1px solid rgb(175, 244, 96);
+  margin-top: 25px;
+  margin-right: 15px;
+}
+.admin-sidebar-top img {
+  width: 100px;
+}
+/* .admin-sidebar-content > ul > li > a {
+  width: 100%;
+  display: flex;
+  display: block;
+  justify-content: flex-start;
+} */
+.admin-sidebar-content > ul > li > a .fa-plus {
+  margin-right: auto;
+  float: right;
+}
+
+.admin-sidebar-content ul li a i {
+  margin-right: 6px;
+}
+.admin-sidebar-content {
+  padding: 30px 0 0 30px;
+  color: aliceblue;
+}
+.admin-sidebar-content ul li {
+  padding: 6px;
+  transition: var(--main-transition);
+}
+
+.admin-sidebar-content ul li:hover {
+  background-color: rgb(49, 111, 246);
+}
+
+.sub-menu {
+  height: 0px;
+  overflow: hidden;
+  transition: var(--main-transition);
+}
+
+.sub-menu.active {
+  height: 60px;
+}
+
+.sub-menu li:hover a {
+  color: bisque;
+}
+
+/* admin-content */
+.admin-content {
+  background-color: var(--sub-bg-color);
+}
+
+.admin-content-main-title h1 {
+  padding: 12px;
+  font-weight: 500;
+  position: relative;
+}
+
+.admin-content-main-title h1::before {
+  position: absolute;
+  display: block;
+  content: "";
+  height: 4px;
+  width: 105px;
+  background-color: gray;
+  left: 12px;
+  bottom: 6px;
+}
+
+/*  */
+.admin-content-main-content {
+  display: grid;
+  grid-template-columns: 70% 25%;
+}
+
+.admin-content-main-content-left input {
+  height: 30px;
+  border: none;
+  background-color: aliceblue;
+  margin: 20px;
+  outline: none;
+  border-radius: 5px;
+  color: black;
+  padding-left: 6px;
+  border: 1px solid black;
+}
+
+.admin-content-main-content-two-input-1 {
+  margin-top: 10px;
+  margin-left: 25px;
+}
+
+.admin-content-main-content-two-input input {
+  width: 40%;
+  height: 40px;
+}
+
+.admin-content-main-content-left textarea {
+  height: 100px;
+  width: 100%;
+  margin-top: 10px;
+  margin-left: 20px;
+  padding-left: 6px;
+  padding-top: 6px;
+}
+.admin-content-main-content-right {
+  margin-top: 60px;
+}
+
+.admin-content-main-content-right textarea {
+  height: 100px;
+  width: 100%;
+  margin-top: 20px;
+  margin-left: 10px;
+  padding-left: 6px;
+  padding-top: 6px;
+}
+
+/* .admin-content-main-content-right {
+  margin-top: 20px;
+  padding: 6px 12px;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid black;
+  cursor: pointer;
+  height: 50px;
+  width: 140px;
+  padding-top: 16px;
+  padding-left: 20px;
+}
+
+.admin-content-main-content-right-image input {
+  display: none;
+} */
+
+/* product list */
+.admin-content-main-content-product-list table {
+  margin: 0 auto;
+  width: 100%;
+  padding: 12px 0;
+}
+
+.admin-content-main-content-product-list table,
+th,
+td {
+  text-align: center;
+}
+
+.admin-content-main-content-product-list table th {
+  background-color: black;
+  color: #f2f7fb;
+  padding: 10px 0px;
+}
+
+.admin-content-main-content-product-list table tr td {
+  padding-top: 10px;
+}
+.admin-content-main-content-product-list table img {
+  width: 70px;
+  height: 100%;
+}

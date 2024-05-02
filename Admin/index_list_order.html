@@ -149,19 +149,19 @@
         var listOrder = JSON.parse(localStorage.getItem("listOrder")) || [];
 
         // Hiển thị dữ liệu trong bảng
-        users.forEach(function (listOrder, index) {
+        listOrder.forEach(function (listOrder, index) {
           var newRow = document.createElement("tr");
           newRow.innerHTML = `
               <td >${index + 1}</td>
-              <td>${listOrder.maDonHang}</td>
+              <td class="accountId">${listOrder.maDonHang}</td>
               <td>${listOrder.maKH}</td>
-              <td class="accountId">${listOrder.username}</td>
+              <td>${listOrder.hoTen}</td>
               <td>${listOrder.diachi}</td>
               <td>${listOrder.soDT}</td>
-              <td>${listOrder.diachi}</td>
+              
               <td>
-                  <a class="edit-class" href="index_add_account.html">Sửa</a> |
-                  <a class="delete-class" href="">Xóa</a>
+                  <a style="background-color:green" class="edit-class" href="index_list_order_detail.html">Xem</a> 
+
               </td>
           `;
           tableBody.appendChild(newRow);

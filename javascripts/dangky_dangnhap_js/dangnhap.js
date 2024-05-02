@@ -83,7 +83,6 @@ form.addEventListener("submit", function (e) {
         // Ngược lại, chuyển hướng về trang chính
         window.location.href = "trangchu.html";
       }
-      displayLoggedInUser();
     } else {
       alert("Đăng nhập thất bại, tài khoản chưa tồn tại!");
     }
@@ -92,9 +91,12 @@ form.addEventListener("submit", function (e) {
 
 //  đăng nhập và nút "Đăng xuất"
 function displayLoggedInUser() {
+  console.log(1);
   const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+  console.log(loggedInUser);
+
   if (loggedInUser) {
-    usernameDisplay.textContent = "Xin chào, " + loggedInUser.username;
+    usernameDisplay.textContent = loggedInUser.username;
     logoutBtn.textContent = "Đăng xuất";
     usernameDisplay.style.display = "block"; // Hiển thị tên người dùng
     logoutBtn.style.display = "block"; // Hiển thị nút "Đăng xuất"
@@ -110,6 +112,7 @@ function displayLoggedInUser() {
   }
 }
 
+console.log(localStorage.getItem("signed") === "1");
 // "Đăng xuất"
 logoutBtn.addEventListener("click", function () {
   // Hiển thị hộp thoại xác nhận
@@ -129,12 +132,12 @@ window.onload = function () {
 };
 
 //check đăng nhập bên trang chi tiết
-buy_bnt.addEventListener("click", function () {
-  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+// buy_bnt.addEventListener("click", function () {
+//   const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
-  if (!loggedInUser) {
-    // Lưu trạng thái trang vào localStorage -> trang đăng nhập
-    localStorage.setItem("currentPage", "chitiet.html");
-    window.location.href = "dangnhap.html";
-  }
-});
+//   if (!loggedInUser) {
+//     // Lưu trạng thái trang vào localStorage -> trang đăng nhập
+//     localStorage.setItem("currentPage", "chitiet.html");
+//     window.location.href = "dangnhap.html";
+//   }
+// });

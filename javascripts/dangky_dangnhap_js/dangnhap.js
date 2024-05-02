@@ -2,7 +2,7 @@ var usernameInput = document.querySelector("#username");
 var passwordInput = document.querySelector("#password");
 var form = document.querySelector("form");
 // Trang chủ
-// var taikhoan = [{ taikhoan: "admin123",matkhau : "Admin@123"}]
+// var taikhoan = [{ username: "admin123",password : "Admin@123"}]
 // localStorage.setItem('users',JSON.stringify(taikhoan));
 var usernameDisplay = document.getElementById("username-display");
 var logoutBtn = document.getElementById("logout-btn");
@@ -98,8 +98,8 @@ function displayLoggedInUser() {
   console.log(loggedInUser);
 
   if (loggedInUser) {
-    usernameDisplay.textContent = loggedInUser.username;
-    logoutBtn.textContent = "| Đăng xuất";
+    usernameDisplay.textContent = `${loggedInUser.username} |`;
+    logoutBtn.textContent = "Đăng xuất";
     usernameDisplay.style.display = "block"; // Hiển thị tên người dùng
     logoutBtn.style.display = "block"; // Hiển thị nút "Đăng xuất"
 
@@ -112,21 +112,18 @@ function displayLoggedInUser() {
 
     document.querySelector("#logout-btn").setAttribute("href", "#");
   }
-  
+
 }
 
-console.log(localStorage.getItem("signed") === "1");
+
 // "Đăng xuất"
 logoutBtn.addEventListener("click", function () {
   // Hiển thị hộp thoại xác nhận
   if (logoutBtn.textContent == "Đăng xuất") {
     if (confirm("Bạn có chắc muốn đăng xuất không?")) {
       localStorage.removeItem("loggedInUser");
-
-      window.location.href = "trangchu.html";
-    }
-  } else {
-    window.location.href = "dangky.html";
+    } 
+    window.location.href = "trangchu.html";
   }
 });
 

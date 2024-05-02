@@ -2,8 +2,8 @@ var usernameInput = document.querySelector("#username");
 var passwordInput = document.querySelector("#password");
 var form = document.querySelector("form");
 // Trang chủ
-// var taikhoan = [{ username: "admin123", password: "Admin@123" }];
-// localStorage.setItem("users", JSON.stringify(taikhoan));
+// var taikhoan = [{ username: "admin123",password : "Admin@123"}]
+// localStorage.setItem('users',JSON.stringify(taikhoan));
 var usernameDisplay = document.getElementById("username-display");
 var logoutBtn = document.getElementById("logout-btn");
 
@@ -121,6 +121,22 @@ logoutBtn.addEventListener("click", function () {
       localStorage.removeItem("loggedInUser");
     }
     window.location.href = "trangchu.html";
+  }
+});
+
+usernameDisplay.addEventListener("click", function () {
+  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+  if (usernameDisplay.textContent === `${loggedInUser.username} |`) {
+    var userlogin = JSON.parse(localStorage.getItem("loggedInUser"));
+    console.log(userlogin.username);
+    if (
+      userlogin.username === "admin123" &&
+      userlogin.password === "Admin@123"
+    ) {
+      window.open("/Admin/index_list_account.html", "_self");
+    } else {
+      window.open("user.html", "_self");
+    }
   }
 });
 

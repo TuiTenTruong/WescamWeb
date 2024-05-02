@@ -156,6 +156,7 @@
               <td>${listOrder.hoTen} </td>
               <td>${listOrder.TenSP}</td>
               <td>${listOrder.Gia}</td>
+
               
               <td> 
                 <select name="brand" class="brand_sp">
@@ -164,6 +165,8 @@
                       <option value="trangthai">Chưa giao</option>
                   </select>
               </td>
+
+
               <td>
                   <a class="delete-class" href="">Xóa</a>
               </td>
@@ -172,7 +175,7 @@
         });
       });
 
-      // xóa tài khoản
+      // xóa don hang
       document.addEventListener("DOMContentLoaded", function () {
         var deleteButtons = document.querySelectorAll(".delete-class");
 
@@ -182,12 +185,12 @@
 
             var row = e.target.closest("tr");
             var orderID = row.querySelector(".orderID").textContent;
-            
-            var listOrder = JSON.parse(localStorage.getItem("listOrder")) || [];
 
+            console.log(orderID.value);
+            var listOrder = JSON.parse(localStorage.getItem("listOrder")) || [];
             var index = listOrder.find(function (maDonHang) {
-              console.log(maDonHang)
-              return maDonHang.maDonHang === orderID.trim();
+              return listOrder.maDonHang === orderID.trim();
+
             });
 
             if (index !== -1) {

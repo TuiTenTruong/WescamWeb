@@ -168,31 +168,31 @@
         });
       });
 
-      // xóa tài khoản
-      document.addEventListener("DOMContentLoaded", function () {
-        var deleteButtons = document.querySelectorAll(".delete-class");
+      //   // xóa tài khoản
+      //   document.addEventListener("DOMContentLoaded", function () {
+      //     var deleteButtons = document.querySelectorAll(".delete-class");
 
-        deleteButtons.forEach(function (button) {
-          button.addEventListener("click", function (e) {
-            e.preventDefault();
+      //     deleteButtons.forEach(function (button) {
+      //       button.addEventListener("click", function (e) {
+      //         e.preventDefault();
 
-            var row = e.target.closest("tr");
-            var accountId = row.querySelector(".accountId").textContent;
-            var users = JSON.parse(localStorage.getItem("users")) || [];
-            var index = users.find(function (user) {
-              return user.user === accountId.trim();
-            });
+      //         var row = e.target.closest("tr");
+      //         var accountId = row.querySelector(".accountId").textContent;
+      //         var users = JSON.parse(localStorage.getItem("users")) || [];
+      //         var index = users.find(function (user) {
+      //           return user.user === accountId.trim();
+      //         });
 
-            if (index !== -1) {
-              console.log("hello");
-              users.splice(index, 1); // Xóa người dùng khỏi mảng
-              localStorage.setItem("users", JSON.stringify(users));
-            }
-            row.parentNode.removeChild(row); // Xóa hàng khỏi bảng
-            location.reload();
-          });
-        });
-      });
+      //         if (index !== -1) {
+      //           console.log("hello");
+      //           users.splice(index, 1); // Xóa người dùng khỏi mảng
+      //           localStorage.setItem("users", JSON.stringify(users));
+      //         }
+      //         row.parentNode.removeChild(row); // Xóa hàng khỏi bảng
+      //         location.reload();
+      //       });
+      //     });
+      //   });
     </script>
   </body>
 </html>

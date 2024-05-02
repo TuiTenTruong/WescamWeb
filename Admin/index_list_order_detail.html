@@ -106,7 +106,7 @@
                 <thead>
                   <tr>
                     <th>STT</th>
-                    <th>Mã đơn hàng</th>
+                    <th class="orderID">Mã đơn hàng</th>
                     <th>Mã khách hàng</th>
                     <th>Họ và tên</th>
                     <th>Sản phẩm</th>
@@ -156,9 +156,18 @@
               <td>${listOrder.hoTen} </td>
               <td>${listOrder.TenSP}</td>
               <td>${listOrder.Gia}</td>
-              <td>${listOrder.fullname}</td>
+
+              
+              <td> 
+                <select name="brand" class="brand_sp">
+                      <option value="">--select--</option>
+                      <option value="trangthai">Đã giao</option>
+                      <option value="trangthai">Chưa giao</option>
+                  </select>
+              </td>
+
+
               <td>
-                 
                   <a class="delete-class" href="">Xóa</a>
               </td>
           `;
@@ -166,7 +175,7 @@
         });
       });
 
-      // xóa tài khoản
+      // xóa don hang
       document.addEventListener("DOMContentLoaded", function () {
         var deleteButtons = document.querySelectorAll(".delete-class");
 
@@ -175,16 +184,19 @@
             e.preventDefault();
 
             var row = e.target.closest("tr");
-            var accountId = row.querySelector(".accountId").textContent;
-            var users = JSON.parse(localStorage.getItem("users")) || [];
-            var index = users.find(function (user) {
-              return user.user === accountId.trim();
+            var orderID = row.querySelector(".orderID").textContent;
+
+            console.log(orderID.value);
+            var listOrder = JSON.parse(localStorage.getItem("listOrder")) || [];
+            var index = listOrder.find(function (maDonHang) {
+              return listOrder.maDonHang === orderID.trim();
+
             });
 
             if (index !== -1) {
               console.log("hello");
-              users.splice(index, 1); // Xóa người dùng khỏi mảng
-              localStorage.setItem("users", JSON.stringify(users));
+              listOrder.splice(index, 1); // Xóa người dùng khỏi mảng
+              localStorage.setItem("listOrder", JSON.stringify(listOrder));
             }
             row.parentNode.removeChild(row); // Xóa hàng khỏi bảng
             location.reload();

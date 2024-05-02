@@ -149,50 +149,50 @@
         var listOrder = JSON.parse(localStorage.getItem("listOrder")) || [];
 
         // Hiển thị dữ liệu trong bảng
-        users.forEach(function (listOrder, index) {
+        listOrder.forEach(function (listOrder, index) {
           var newRow = document.createElement("tr");
           newRow.innerHTML = `
               <td >${index + 1}</td>
-              <td>${listOrder.maDonHang}</td>
+              <td class="accountId">${listOrder.maDonHang}</td>
               <td>${listOrder.maKH}</td>
-              <td class="accountId">${listOrder.username}</td>
+              <td>${listOrder.hoTen}</td>
               <td>${listOrder.diachi}</td>
               <td>${listOrder.soDT}</td>
-              <td>${listOrder.diachi}</td>
+              
               <td>
-                  <a class="edit-class" href="index_add_account.html">Sửa</a> |
-                  <a class="delete-class" href="">Xóa</a>
+                  <a style="background-color:green" class="edit-class" href="index_list_order_detail.html">Xem</a> 
+
               </td>
           `;
           tableBody.appendChild(newRow);
         });
       });
 
-      // xóa tài khoản
-      document.addEventListener("DOMContentLoaded", function () {
-        var deleteButtons = document.querySelectorAll(".delete-class");
+      //   // xóa tài khoản
+      //   document.addEventListener("DOMContentLoaded", function () {
+      //     var deleteButtons = document.querySelectorAll(".delete-class");
 
-        deleteButtons.forEach(function (button) {
-          button.addEventListener("click", function (e) {
-            e.preventDefault();
+      //     deleteButtons.forEach(function (button) {
+      //       button.addEventListener("click", function (e) {
+      //         e.preventDefault();
 
-            var row = e.target.closest("tr");
-            var accountId = row.querySelector(".accountId").textContent;
-            var users = JSON.parse(localStorage.getItem("users")) || [];
-            var index = users.find(function (user) {
-              return user.user === accountId.trim();
-            });
+      //         var row = e.target.closest("tr");
+      //         var accountId = row.querySelector(".accountId").textContent;
+      //         var users = JSON.parse(localStorage.getItem("users")) || [];
+      //         var index = users.find(function (user) {
+      //           return user.user === accountId.trim();
+      //         });
 
-            if (index !== -1) {
-              console.log("hello");
-              users.splice(index, 1); // Xóa người dùng khỏi mảng
-              localStorage.setItem("users", JSON.stringify(users));
-            }
-            row.parentNode.removeChild(row); // Xóa hàng khỏi bảng
-            location.reload();
-          });
-        });
-      });
+      //         if (index !== -1) {
+      //           console.log("hello");
+      //           users.splice(index, 1); // Xóa người dùng khỏi mảng
+      //           localStorage.setItem("users", JSON.stringify(users));
+      //         }
+      //         row.parentNode.removeChild(row); // Xóa hàng khỏi bảng
+      //         location.reload();
+      //       });
+      //     });
+      //   });
     </script>
   </body>
 </html>

@@ -578,7 +578,7 @@ var cart = JSON.parse(localStorage.getItem("cart"))
 localStorage.setItem("cart", JSON.stringify(cart));
 var add_product = (value) => {
     var data = JSON.parse(localStorage.getItem("cart"));
-    data.push(value);
+    data.push({value,soluong:'1'});
     localStorage.setItem("cart", JSON.stringify(data));
 };
 

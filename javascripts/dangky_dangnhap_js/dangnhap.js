@@ -127,6 +127,20 @@ logoutBtn.addEventListener("click", function () {
   }
 });
 
+usernameDisplay.addEventListener("click",function(){
+  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+  if( usernameDisplay.textContent === `${loggedInUser.username} |`){
+    var userlogin = JSON.parse(localStorage.getItem('loggedInUser'));
+    console.log(userlogin.username)
+      if(userlogin.username === 'admin123' && userlogin.password ==='Admin@123'){
+          window.open('/Admin/index_list_account.html','_self');
+      }
+      else {
+        window.open('user.html','_self');
+      
+      }
+  }
+});
 
 
 //check đăng nhập bên trang chi tiết

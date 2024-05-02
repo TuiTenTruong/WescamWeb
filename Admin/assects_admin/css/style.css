@@ -77,7 +77,8 @@ li {
   margin-right: 15px;
 }
 .admin-sidebar-top img {
-  width: 100px;
+ max-width: 150px;
+ width: 100%;
 }
 /* .admin-sidebar-content > ul > li > a {
   width: 100%;

@@ -23,21 +23,22 @@
             </div> -->
             <ul>
               <li>
-                <a href="#">
+                <a href="index_list_order.html">
                   <i class="fa fa-list-ul"></i> Đơn hàng
                   <i class="fa-solid fa fa-plus"></i>
                 </a>
                 <ul class="sub-menu">
                   <div class="sub-menu-items">
                     <li>
-                      <a href="index_list_order.html"
+                      <a href="#"
                         ><i class="fa-solid fa fa-chevron-right"></i> Danh
                         sách</a
                       >
                     </li>
                     <li>
                       <a href="#"
-                        ><i class="fa-solid fa fa-chevron-right"></i> Xóa</a
+                        ><i class="fa-solid fa fa-chevron-right"></i> Chi tiết
+                        sản phẩm</a
                       >
                     </li>
                   </div>
@@ -88,29 +89,43 @@
             </ul>
           </div>
         </div>
-
         <div class="admin-content">
           <div class="admin-content-top"></div>
           <div class="admin-content-main">
             <div class="admin-content-main-title">
-              <h1>Danh sách sản phẩm</h1>
+              <h1>Tài khoản</h1>
             </div>
           </div>
           <div class="admin-content-main-content">
             <div class="admin-content-main-content-product-list">
-              <table id="product-table">
+              <table id="account-table">
                 <thead>
                   <tr>
                     <th>STT</th>
-                    <th>Mã sản phẩm</th>
-                    <th>Ảnh</th>
-                    <th>Tên sản phẩm</th>
-                    <th>Giá bán</th>
+                    <th>Mã đơn hàng</th>
+                    <th>Họ và tên</th>
+                    <th>Địa chỉ</th>
+                    <th>Số điện thoại</th>
+                    <th>Sản phẩm</th>
+                    <th>Trạng thái</th>
                     <th>Tùy chỉnh</th>
+                    <!-- <th>Địa chỉ</th> -->
                   </tr>
                 </thead>
                 <tbody>
-                  <!-- phan than -->
+                  <!-- <tr>
+                    <td>1</td>
+                    <td>Mai khang</td>
+                    <td>khang@gmail.com</td>
+                    <td>mai khang</td>gg
+                    <td>0987654321</td>
+                    <td>Hỏa Tiến, Vị Thanh, Hậu Giang</td>
+                    <td>
+                      <a class="edit-class edit-class-1" href="">Khóa</a> |
+                      <a class="edit-class" href="index_add.html">Sửa</a> |
+                      <a class="delete-class" href="">Xóa</a>
+                    </td>
+                  </tr> -->
                 </tbody>
               </table>
             </div>
@@ -119,26 +134,25 @@
       </div>
     </section>
     <script src="assects_admin/assets_admin/js/script.js"></script>
+
     <script>
-      //hiển thị lap top
       document.addEventListener("DOMContentLoaded", function () {
-        var tableBody = document.querySelector("#product-table tbody");
+        var tableBody = document.querySelector("#account-table tbody");
 
         // Lấy dữ liệu từ localStorage
-        var list_lap = JSON.parse(localStorage.getItem("list_lap")) || [];
-        console.log(list_lap);
+        var users = JSON.parse(localStorage.getItem("users")) || [];
+
         // Hiển thị dữ liệu trong bảng
-        list_lap.forEach(function (list, index) {
+        users.forEach(function (user, index) {
           var newRow = document.createElement("tr");
           newRow.innerHTML = `
               <td >${index + 1}</td>
-              <td class="productID">${list.maSP}</td>
-              <td><img src="${list.img[0]}" alt="img"></td>
-              <td>${list.TenSP}</td>
-
-              <td>${list.Gia}</td>
+              <td>${user.fullname}</td>
+              <td>${user.email}</td>
+              <td class="accountId">${user.username}</td>
+              <td>${user.phone}</td>
               <td>
-                
+                  <a class="edit-class" href="index_add_account.html">Sửa</a> |
                   <a class="delete-class" href="">Xóa</a>
               </td>
           `;
@@ -146,33 +160,7 @@
         });
       });
 
-      //hiển thị điện thoại
-      document.addEventListener("DOMContentLoaded", function () {
-        var tableBody = document.querySelector("#product-table tbody");
-
-        // Lấy dữ liệu từ localStorage
-        var list_phone = JSON.parse(localStorage.getItem("list_phone")) || [];
-        console.log(list_phone);
-        // Hiển thị dữ liệu trong bảng
-        list_phone.forEach(function (list, index) {
-          var newRow = document.createElement("tr");
-          newRow.innerHTML = `
-              <td >${index + 1}</td>
-              <td class="productID">${list.maSP}</td>
-              <td><img src="${list.img[0]}" alt="img"></td>
-              <td>${list.TenSP}</td>
-
-              <td>${list.Gia}</td>
-              <td>
-                 
-                  <a class="delete-class" href="">Xóa</a>
-              </td>
-          `;
-          tableBody.appendChild(newRow);
-        });
-      });
-      // <a class="edit-class" href="index_add_account.html">Sửa</a> |
-      // xóa sản phẩm
+      // xóa tài khoản
       document.addEventListener("DOMContentLoaded", function () {
         var deleteButtons = document.querySelectorAll(".delete-class");
 
@@ -181,16 +169,16 @@
             e.preventDefault();
 
             var row = e.target.closest("tr");
-            var productID = row.querySelector(".productID").textContent;
-            var list_lap = JSON.parse(localStorage.getItem("list_lap")) || [];
-            var index = list_lap.find(function (maSP) {
-              return list_lap.maSP === productID.trim();
+            var accountId = row.querySelector(".accountId").textContent;
+            var users = JSON.parse(localStorage.getItem("users")) || [];
+            var index = users.find(function (user) {
+              return user.user === accountId.trim();
             });
 
             if (index !== -1) {
               console.log("hello");
-              list_lap.splice(index, 1); // Xóa người dùng khỏi mảng
-              localStorage.setItem("list_lap", JSON.stringify(list_lap));
+              users.splice(index, 1); // Xóa người dùng khỏi mảng
+              localStorage.setItem("users", JSON.stringify(users));
             }
             row.parentNode.removeChild(row); // Xóa hàng khỏi bảng
             location.reload();
@@ -198,7 +186,5 @@
         });
       });
     </script>
-    <script src="assects_admin/assets_admin/js/script.js"></script>
-    <script src="assects_admin/assets_admin/js/javascript.js"></script>
   </body>
 </html>

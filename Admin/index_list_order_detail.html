@@ -166,15 +166,17 @@
               <td >${index + 1}</td>
               <td class="accountId">MADH0${index}</td>
               <td>${order.user.username}</td>
+              <td>${order.user.fullname}</td>
               <td>${JSON.parse(order.hang[0].hang).TenSP}</td>
-              <td></td>
-              <td></td>
+              <td>${formatNumberWithCommas(GiamGia(JSON.parse(order.hang[0].hang).Gia,JSON.parse(order.hang[0].hang).Coupon))}</td>
+              
               
               <td> 
-                <select name="brand" class="brand_sp trangthai-select">
-                      <option value="">--select--</option>
-                      <option value="trangthai">Đã giao</option>
-                      <option value="trangthai">Chưa giao</option>
+                <select name="brand" class="brand_sp trangthai-select" onchange="trangthai(this.value)">
+                  <option value="">--select--</option>
+                  <option value="cbhang">Chuẩn bị hàng</option>
+                  <option value="danggiao">Đang trên đường giao hàng</option>
+                      <option value="dagiao">Đã giao hàng</option>
                   </select>
               </td>
 

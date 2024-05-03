@@ -797,15 +797,18 @@ var show_order = function () {
     var listOrder = JSON.parse(localStorage.getItem("listOrder"));
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
     listOrder.forEach(function (order, index) {
+       
         if (
             order.user.username === loggedInUser.username &&
             order.user.password === loggedInUser.password
         ) {
            
             for (i = 0; i < order.hang.length; i++) {
-                if (order.hang[i].trangthai === undefined) {
+                var hienthi =order.hang[i].trangthai;
+                if (order.hang[i].trangthai == null) {
                     order.hang[i].trangthai = "Chuẩn bị hàng";
-                  hienthi = "Chuẩn bị hàng";
+                    hienthi = "Chuẩn bị hàng";
+                    console.log(order.hang[i].trangthai)
                 }
                 if (order.hang[i].trangthai === "Đã Nhận hàng"){
                     hienthi = `<button type="button" onclick="check_accepted(${index},${i})">Đã nhận Hàng</button>`;

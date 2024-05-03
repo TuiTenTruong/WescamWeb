@@ -8,7 +8,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
+
+    <link rel="stylesheet" href="/bootstrap/bootstrap.min.css" />
     <link rel="stylesheet" href="assects_admin/css/style.css" />
+    <script src="/javascripts/bootstrap.bundle.min.js"></script>
   </head>
   <body>
     <section class="admin">
@@ -155,18 +158,23 @@
         var listOrder = JSON.parse(localStorage.getItem("listOrder")) || [];
 
         // Hiển thị dữ liệu trong bảng
-        listOrder.forEach(function (listOrder, index) {
+        listOrder.forEach(function (order, index) {
+          var tmp =`<a  class="btn btn-success" href="#"  onclick="chitiet(${index})">Xem chi tiết</a>`;
+          if (order.hang.length== 0){
+           
+              tmp = `<a  class="btn btn-secondary  disabled" href="#">Hoàn thành</a> `;
+          }
           var newRow = document.createElement("tr");
           newRow.innerHTML = `
               <td >${index + 1}</td>
               <td class="accountId">MADH0${index}</td>
-              <td>${listOrder.user.username}</td>
-              <td>${listOrder.user.fullname}</td>
-              <td>${listOrder.user.diachi}</td>
-              <td>${listOrder.user.phone}</td>
+              <td>${order.user.username}</td>
+              <td>${order.user.fullname}</td>
+              <td>${order.user.diachi}</td>
+              <td>${order.user.phone}</td>
               
-              <td>
-                  <a style="background-color:green" class="edit-class" href="#"  onclick="chitiet(${index})">Xem</a> 
+              <td >
+                  ${tmp}
               </td>
           `;
           tableBody.appendChild(newRow);

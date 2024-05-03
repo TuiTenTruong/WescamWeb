@@ -133,12 +133,24 @@
                 </tbody>
               </table>
             </div>
+            <!-- thêm nút home -->
+            <div class="home mb-2" onclick="currentpage()">
+              <a class="text-black">
+                <i class="fas fa-chevron-left"></i
+                ><i class="fa fa-home ms-4"></i
+              ></a>
+            </div>
           </div>
         </div>
       </div>
     </section>
     <script src="assects_admin/assets_admin/js/script.js"></script>
-
+    <script>
+      function currentpage() {
+        const currentPage = localStorage.getItem("currentPage");
+        window.location.href = `${currentPage}`;
+      }
+    </script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         var tableBody = document.querySelector("#order-table tbody");
@@ -190,7 +202,6 @@
             var listOrder = JSON.parse(localStorage.getItem("listOrder")) || [];
             var index = listOrder.find(function (maDonHang) {
               return listOrder.maDonHang === orderID.trim();
-
             });
 
             if (index !== -1) {

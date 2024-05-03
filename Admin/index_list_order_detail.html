@@ -172,7 +172,7 @@
               
               
               <td> 
-                <select name="brand" class="brand_sp trangthai-select" onchange="trangthai(this.value)">
+                <select name="brand" class="brand_sp trangthai-select" onchange="trangthai(this.value,${index})">
                   <option value="">--select--</option>
                   <option value="cbhang">Chuẩn bị hàng</option>
                   <option value="danggiao">Đang trên đường giao hàng</option>
@@ -185,8 +185,10 @@
                   <a class="delete-class" href="">Xóa</a>
               </td>
           `;
-          tableBody.appendChild(newRow);
+          tableBody.appendChild(newRow); 
+          // show_order(index);
         });
+      
       });
 
       // xóa don hang

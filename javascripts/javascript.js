@@ -640,6 +640,9 @@ var cart = JSON.parse(localStorage.getItem("cart"))
     : [];
 localStorage.setItem("cart", JSON.stringify(cart));
 var add_product = (value) => {
+    if (!localStorage.getItem('loggedInUser')){
+        return;
+    }
     var data = JSON.parse(localStorage.getItem("cart"));
     var found = 0;
 

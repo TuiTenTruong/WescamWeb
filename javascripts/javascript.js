@@ -757,10 +757,6 @@ localStorage.setItem("listOrder", JSON.stringify(listOrder));
 
 function addListOrder(order) {
   var listOrder1 = JSON.parse(localStorage.getItem("listOrder"));
-
-  listOrder.push(order);
-  localStorage.setItem("listOrder", JSON.stringify(listOrder));
-  var listOrder1 = JSON.parse(localStorage.getItem("listOrder"));
   listOrder1.push(order);
   localStorage.setItem("listOrder", JSON.stringify(listOrder1));
 }

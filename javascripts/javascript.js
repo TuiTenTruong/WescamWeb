@@ -750,10 +750,12 @@ function removeitem(btn_rm) {
 
 //Đơn hàng
 
-var listOrder = JSON.parse(localStorage.getItem("listOrder"))
-  ? JSON.parse(localStorage.getItem("listOrder"))
-  : [];
-localStorage.setItem("listOrder", JSON.stringify(listOrder));
+// var tmp = [];
+// console.log(tmp.length === 0)
+if (localStorage.getItem("listOrder") === null) {
+  var tmp = [];
+  localStorage.setItem("listOrder", JSON.stringify(tmp));
+}
 
 function addListOrder(order) {
   var listOrder1 = JSON.parse(localStorage.getItem("listOrder"));

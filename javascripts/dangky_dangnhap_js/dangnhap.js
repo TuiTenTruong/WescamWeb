@@ -119,15 +119,17 @@ function displayLoggedInUser() {
 
 // "Đăng xuất"
 logoutBtn.addEventListener("click", function () {
-  // Hiển thị hộp thoại xác nhận
-  if (logoutBtn.textContent == "Đăng xuất") {
-    if (confirm("Bạn có chắc muốn đăng xuất không?")) {
-      localStorage.removeItem("loggedInUser");
-      var cart = document.querySelector("#cart-icon");
-      cart.classList.remove("disabled");
+    // Hiển thị hộp thoại xác nhận
+    if (logoutBtn.textContent == "Đăng xuất") {
+        if (confirm("Bạn có chắc muốn đăng xuất không?")) {
+
+            localStorage.removeItem("loggedInUser");
+            var cart = document.querySelector('#cart-icon');
+            cart.classList.remove('disabled');
+          
+        }
+        window.location.href = "trangchu.html";
     }
-    window.location.href = "trangchu.html";
-  }
 });
 
 usernameDisplay.addEventListener("click", function () {

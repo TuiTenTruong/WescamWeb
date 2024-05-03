@@ -36,12 +36,8 @@
     min-width: 60%;
     border-radius: 50px;
 }
-header,
-footer {
-    background-color: #b4d4ff;
-}
 body {
-    background-color: #eef5ff;
+    background-image: linear-gradient(to bottom right, #fff, #c5fff8, #5fbdff);
 }
 .home {
     /* margin: 0.25rem;
@@ -52,8 +48,6 @@ body {
     margin-right: auto;
     margin-left: auto;
     width: 100%;
-    --bs-bg-opacity: 1;
-    background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity));
 }
 .logo {
     max-width: 200px;
@@ -251,7 +245,10 @@ article {
     text-align: left;
     font-size: 14px;
 }
-
+.cart_empty {
+    height: 50vh;
+    text-align: center;
+}
 #cart-icon {
     cursor: pointer;
 }

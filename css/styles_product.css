@@ -1,4 +1,6 @@
-*,*::before,*::after{
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 .box {
@@ -35,80 +37,62 @@
     border-radius: 50px;
 }
 
-
-footer {
-    background-color: #b4d4ff;
-}
-header{
-    background-color: #b4d4ff;
-}
-main {
-    background-color: #eef5ff;
-}
-.home{
+.home {
     /* margin: 0.25rem;
     padding: .5rem;
     padding-left: 0;
     margin: 0; */
     max-width: 1400px;
-    margin-right:  auto;
+    margin-right: auto;
     margin-left: auto;
     width: 100%;
-    --bs-bg-opacity:1;
-    background-color: rgba(var(--bs-light-rgb),var(--bs-bg-opacity));
-    
 }
 
-
-.bg-white{
+.bg-white {
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
-
 }
 
-.main-product.container{
+.main-product.container {
     max-width: 1400px;
     margin: 0 auto;
     /* min-height: 50vh; */
- }
-.main-product .products{
+}
+.main-product .products {
     margin: 0;
     padding: 0;
     /* min-height: 100vh; */
- }
+}
 
 .search--title h6,
-.search--title button{
+.search--title button {
     font-size: 12px;
 }
 
-
-.fillter button{
+.fillter button {
     border-radius: 20px;
 }
-.fillter button  i {
+.fillter button i {
     border-radius: 50%;
 }
-.card--contents{
+.card--contents {
     padding: 8px;
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
-.card__contents--title{
+.card__contents--title {
     padding: 0;
     font-size: 14px;
     font-weight: 400;
-
 }
 .card__contents--prices {
     color: red;
     font-size: medium;
     font-weight: 500;
     border-radius: 0;
-    
 }
-div.product .card{   
+div.product .card {
     max-width: 100%;
     /* max-height: 39vh; */
     width: 100%;
@@ -117,7 +101,7 @@ div.product .card{
     position: relative;
     border-radius: 0;
 }
-.NO_RESULT{
+.NO_RESULT {
     border-radius: 50%;
     /* padding-top: 10%; */
     display: block;
@@ -125,24 +109,23 @@ div.product .card{
     height: 70%;
     object-fit: cover;
 }
-.img-max{
+.img-max {
     height: 150px;
 }
-.card img{
+.card img {
     display: block;
     margin: 5px auto;
     width: 90%;
     height: 100%;
     object-fit: contain;
-    transition: transform .2s;
+    transition: transform 0.2s;
 }
-.card img:hover{
+.card img:hover {
     transform: scale(1.1);
 }
-.card__contents--prices .Goc{
+.card__contents--prices .Goc {
     display: flex;
     font-size: 12px;
     text-decoration: line-through;
     color: #000;
 }
-

@@ -677,52 +677,56 @@ var total = function () {
     var list_incart = JSON.parse(localStorage.getItem("cart"));
     var position = document.querySelector(".total-price");
     var sum = 0;
-    // if (list_incart.length === 0) {
-    //     return;
-    // }
-    list_incart.forEach(function (product) {
-        //    console.log(JSON.parse(product.hang).Gia)
-        sum =
-            sum +
-            GiamGia(
-                JSON.parse(product.hang).Gia,
-                JSON.parse(product.hang).Coupon
-            ) *
-                JSON.parse(product.soluong);
-    });
-    position.innerText = ` ${formatNumberWithCommas(sum)} đ`;
-    var str = "";
-    list_incart.forEach(function (product, index) {
-        str += `<div class="cart-box">
-            <img
-                src="${JSON.parse(product.hang).img[0]}"
-                alt=""
-                class="cart-img"
-            />
-            <div class="detail">
-                <div class="product-name product_name">
-                    ${JSON.parse(product.hang).TenSP}
-                </div>
-                <div class="product-price">${formatNumberWithCommas(
-                    GiamGia(
-                        JSON.parse(product.hang).Gia,
-                        JSON.parse(product.hang).Coupon
-                    )
-                )}</div>
-                <input
-                    type="number"
-                    value="${JSON.parse(product.soluong)}"
-                    class="cart-quality"
-                    min="1" 
-                    max="99"
-                    onchange = "check_input(); set_soluong(value,${index})"
-                />
-            </div>
-            <button class="btn_remove" onclick="removeitem(value)" value="${
-                JSON.parse(product.hang).maSP
-            }"><i class="fa-solid fa-trash"></i></button>
+    if (list_incart.length === 0) {
+        var str = `<div class="cart_empty">
+        <img src="./images/index/empty-cart.png" alt="" />
         </div>`;
-    });
+    } else {
+        list_incart.forEach(function (product) {
+            //    console.log(JSON.parse(product.hang).Gia)
+            sum =
+                sum +
+                GiamGia(
+                    JSON.parse(product.hang).Gia,
+                    JSON.parse(product.hang).Coupon
+                ) *
+                    JSON.parse(product.soluong);
+        });
+        position.innerText = ` ${formatNumberWithCommas(sum)} đ`;
+        var str = "";
+        list_incart.forEach(function (product, index) {
+            str += `<div class="cart-box">
+                <img
+                    src="${JSON.parse(product.hang).img[0]}"
+                    alt=""
+                    class="cart-img"
+                />
+                <div class="detail">
+                    <div class="product-name product_name">
+                        ${JSON.parse(product.hang).TenSP}
+                    </div>
+                    <div class="product-price">${formatNumberWithCommas(
+                        GiamGia(
+                            JSON.parse(product.hang).Gia,
+                            JSON.parse(product.hang).Coupon
+                        )
+                    )}</div>
+                    <input
+                        type="number"
+                        value="${JSON.parse(product.soluong)}"
+                        class="cart-quality"
+                        min="1" 
+                        max="99"
+                        onchange = "check_input(); set_soluong(value,${index})"
+                    />
+                </div>
+                <button class="btn_remove" onclick="removeitem(value)" value="${
+                    JSON.parse(product.hang).maSP
+                }"><i class="fa-solid fa-trash"></i></button>
+            </div>`;
+        });
+    }
+
     document.querySelector(".cart-content").innerHTML = str;
 };
 function set_soluong(value, index) {

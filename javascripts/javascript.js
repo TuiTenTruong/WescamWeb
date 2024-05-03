@@ -808,7 +808,7 @@ var show_order = function () {
                 if (order.hang[i].trangthai == null) {
                     order.hang[i].trangthai = "Chuẩn bị hàng";
                     hienthi = "Chuẩn bị hàng";
-                    hienthi = "Chuẩn bị hàng";
+                    
                     
                 }
                 if (order.hang[i].trangthai === "Đã Nhận hàng") {

@@ -640,7 +640,7 @@ var cart = JSON.parse(localStorage.getItem("cart"))
     : [];
 localStorage.setItem("cart", JSON.stringify(cart));
 var add_product = (value) => {
-    if (!localStorage.getItem('loggedInUser')){
+    if (!localStorage.getItem("loggedInUser")) {
         return;
     }
     var data = JSON.parse(localStorage.getItem("cart"));
@@ -691,9 +691,11 @@ var total = function () {
                 <div class="product-name">
                     ${JSON.parse(product.hang).TenSP}
                 </div>
-                <div class="product-price">${GiamGia(
-                    JSON.parse(product.hang).Gia,
-                    JSON.parse(product.hang).Coupon
+                <div class="product-price">${formatNumberWithCommas(
+                    GiamGia(
+                        JSON.parse(product.hang).Gia,
+                        JSON.parse(product.hang).Coupon
+                    )
                 )}</div>
                 <input
                     type="number"
@@ -704,6 +706,7 @@ var total = function () {
             <i class="fa-solid fa-trash"></i>
         </div>`;
     });
+    document.querySelector(".cart-content").innerHTML = str;
 };
 
 function add_cart() {

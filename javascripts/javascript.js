@@ -634,22 +634,20 @@ function open_cart() {
 function close_cart() {
     document.getElementById("cart").style.right = "-100%";
 }
-var buy_order = function (){
-    var dress = document.querySelector('#diachi');
-    console.log(dress.value.trim() !=="")
-    if (dress.value.trim() !==""){
-    var cart = document.getElementById('cart');
-    var data = JSON.parse(localStorage.getItem("cart"));
-    var loginuser = JSON.parse(localStorage.getItem("loggedInUser"));
-    var tmp2 = data;
-    var tmp = { user: loginuser, hang: tmp2 };
-    console.log(JSON.stringify(tmp));
-    localStorage.setItem("listOrder", JSON.stringify(tmp));
+var buy_order = function () {
+    var dress = document.querySelector("#diachi");
+    console.log(dress.value.trim() !== "");
+    if (dress.value.trim() !== "") {
+        var data = JSON.parse(localStorage.getItem("cart"));
+        var loginuser = JSON.parse(localStorage.getItem("loggedInUser"));
+        var tmp2 = data;
+        var tmp = { user: loginuser, hang: tmp2 };
 
-    localStorage.removeItem('cart');
-    total();
+        localStorage.setItem("listOrder", JSON.stringify(tmp));
+        localStorage.removeItem("cart");
+        total();
     }
-}
+};
 var cart = JSON.parse(localStorage.getItem("cart"))
     ? JSON.parse(localStorage.getItem("cart"))
     : [];
@@ -671,13 +669,15 @@ var add_product = (value) => {
     }
     if (found == 0) data.push({ hang: value, soluong: 1 });
     localStorage.setItem("cart", JSON.stringify(data));
-    
 };
 //
 var total = function () {
     var list_incart = JSON.parse(localStorage.getItem("cart"));
     var position = document.querySelector(".total-price");
     var sum = 0;
+    if (list_incart.length === 0) {
+        return;
+    }
     list_incart.forEach(function (product) {
         //    console.log(JSON.parse(product.hang).Gia)
         sum =

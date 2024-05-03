@@ -627,6 +627,7 @@ var buy_order = function () {
     btn.innerHTML = "Xem Đơn Hàng";
     var dc = document.querySelector(".diachi_an");
     dc.classList.add("d-none");
+    btn.removeAttribute('onclick');
     console.log(dc);
     btn.addEventListener("click", function () {
       window.open("user.html", "_self");

@@ -163,12 +163,11 @@
           var newRow = document.createElement("tr");
           newRow.innerHTML = `
               <td >${index + 1}</td>
-              <td class="orderID">${listOrder.maDonHang}</td>
-              <td>${listOrder.maKH}</td>
-              <td>${listOrder.hoTen} </td>
-              <td>${listOrder.TenSP}</td>
-              <td>${listOrder.Gia}</td>
-
+              <td class="accountId">${listOrder.hang}</td>
+              <td>${listOrder.user.username}</td>
+              <td>${listOrder.user.fullname}</td>
+              <td>${listOrder.diachi}</td>
+              <td>${listOrder.user.phone}</td>
               
               <td> 
                 <select name="brand" class="brand_sp trangthai-select">

@@ -126,7 +126,7 @@ logoutBtn.addEventListener("click", function () {
             localStorage.removeItem("loggedInUser");
             var cart = document.querySelector('#cart-icon');
             cart.classList.remove('disabled');
-            localStorage.removeItem('listOrder');
+          
         }
         window.location.href = "trangchu.html";
     }

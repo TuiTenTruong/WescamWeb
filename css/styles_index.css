@@ -55,7 +55,7 @@ body {
     --bs-bg-opacity: 1;
     background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity));
 }
-.logo{
+.logo {
     max-width: 200px;
     width: 100%;
 }
@@ -192,6 +192,17 @@ div.product .card {
     background-image: url(../images/index/bglaptop.png);
     color: #dfe2e2;
 }
+section img {
+    width: 100%;
+}
+#section_hotsale {
+    background-image: linear-gradient(
+        to bottom right,
+        rgba(255, 196, 4, 0.988),
+        rgba(255, 104, 53, 0.919)
+    );
+    margin-bottom: 10px;
+}
 article {
     max-width: 1024px;
     margin: 0 auto;
@@ -275,7 +286,7 @@ article {
     color: #ff0000;
 }
 
-.user_img{
+.user_img {
     max-width: 200px;
     width: 100%;
     display: block;
@@ -285,24 +296,24 @@ article {
     margin: 0 auto;
     width: 100%;
     padding: 12px 0;
-  }
-  
-  .user__table table,
-  th,
-  td {
+}
+
+.user__table table,
+th,
+td {
     text-align: center;
-  }
-  
-  .user__table table th {
+}
+
+.user__table table th {
     background-color: #b4d4ff;
     color: black;
     padding: 10px 0px;
-  }
-  
-  .user__table table tr td {
+}
+
+.user__table table tr td {
     padding-top: 10px;
-  }
-  .user__table table img {
+}
+.user__table table img {
     width: 70px;
     height: 100%;
-  }
+}

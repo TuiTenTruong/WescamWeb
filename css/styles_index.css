@@ -203,9 +203,9 @@ article {
 }
 .btn_remove {
     border: none;
-    background-color: #eef5ff;
     width: 20px;
     padding: 0;
+    background-color: #bcf9f9;
 }
 .cart {
     position: fixed;
@@ -214,7 +214,7 @@ article {
     width: 400px;
     min-height: 100vh;
     padding: 20px;
-    background: #eef5ff;
+    background-image: linear-gradient(to bottom right, #fff, #c5fff8, #5fbdff);
     z-index: 100;
     border: 1px solid #555;
     transition: 0.3s;

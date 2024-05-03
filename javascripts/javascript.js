@@ -676,9 +676,7 @@ var total = function () {
     var list_incart = JSON.parse(localStorage.getItem("cart"));
     var position = document.querySelector(".total-price");
     var sum = 0;
-    // if (list_incart.length === 0) {
-    //     return;
-    // }
+    
     list_incart.forEach(function (product) {
         //    console.log(JSON.parse(product.hang).Gia)
         sum =
@@ -771,8 +769,8 @@ function removeitem(btn_rm) {
 
 //Đơn hàng
 
-var tmp = [];
-console.log(tmp.length === 0);
+
+
 var listOrder = JSON.parse(localStorage.getItem("listOrder"))
     ? JSON.parse(localStorage.getItem("listOrder"))
     : [];
@@ -780,8 +778,6 @@ localStorage.setItem("listOrder", JSON.stringify(listOrder));
 
 function addListOrder(order) {
     var listOrder1 = JSON.parse(localStorage.getItem("listOrder"));
-
-    listOrder.push(order);
-    localStorage.setItem("listOrder", JSON.stringify(listOrder));
-   
+    listOrder1.push(order);
+    localStorage.setItem("listOrder", JSON.stringify(listOrder1));
 }

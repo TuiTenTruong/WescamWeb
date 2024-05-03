@@ -130,3 +130,6 @@ div.product .card {
     text-decoration: line-through;
     color: #000;
 }
+.fa-chevron-left {
+    font-size: 25px;
+}

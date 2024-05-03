@@ -32,10 +32,7 @@
                     <a href="index_list_order.html"><i class="fa-solid fa fa-chevron-right"></i> Danh
                       sách</a>
                   </li>
-                  <li class="cancle">
-                    <a href="index_list_order_detail.html"><i class="fa-solid fa fa-chevron-right"></i> Chi tiết
-                      sản phẩm</a>
-                  </li>
+                  
                 </div>
               </ul>
             </li>
@@ -94,8 +91,9 @@
                   <th>Họ và tên</th>
                   <th>Sản phẩm</th>
                   <th>Giá tiền</th>
+                  <th>Số lượng</th>
                   <th>Trạng thái</th>
-                  <th>Tùy chỉnh</th>
+
                   <!-- <th>Địa chỉ</th> -->
                 </tr>
               </thead>
@@ -161,6 +159,7 @@
               <td>${JSON.parse(order.hang[k].hang).TenSP}</td>
               <td>${formatNumberWithCommas(GiamGia(JSON.parse(order.hang[k].hang).Gia, JSON.parse(order.hang[k].hang).Coupon))}</td>
               
+              <td>${order.hang[k].soluong}</td>
               
               <td> 
                 <select name="brand" class="brand_sp trangthai-select" onchange="trangthai(this.value,${index},${k})">
@@ -174,9 +173,7 @@
               </td>
 
 
-              <td>
-                  <a class="delete-class" href="">Xóa</a>
-              </td>
+
           `;
             tableBody.appendChild(newRow);
           }

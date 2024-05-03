@@ -14,10 +14,7 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         />
 
-        <script
-            src="https://kit.fontawesome.com/a076d05399.js"
-            crossorigin="anonymous"
-        ></script>
+       
     </head>
 
     <body>
@@ -597,7 +594,7 @@
 
             let objtmp = window.localStorage.getItem("key_product");
             const objSP = JSON.parse(objtmp);
-            console.log(objSP);
+            // console.log(objSP);
             // for (let i = 0; i < objSP.Hinh.length; i++) {
             var str = `<div class="carousel-item active">
                                         <img src="${objSP.img[0]}" class="d-block" style="width:100%">
@@ -616,7 +613,7 @@
             ).innerHTML = `${formatNumberWithCommas(
                 GiamGia(objSP.Gia, objSP.Coupon)
             )} Đ`;
-            console.log(objSP.Gia);
+            // console.log(objSP.Gia);
 
             // document.querySelector(".manhinh").innerHTML = objSP.ManHinh
             // document.querySelector(".cpu").innerHTML = objSP.CPU

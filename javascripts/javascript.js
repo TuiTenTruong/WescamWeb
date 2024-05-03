@@ -578,14 +578,14 @@ var add_product = (value) => {
 // 
 var total = function (){
     var list_incart = JSON.parse(localStorage.getItem("cart"));
-    var position = document.querySelector('.product-price');
+    var position = document.querySelector('.total-price');
     var sum  = 0;
     list_incart.forEach(function(product){
-       
-        sum = sum + GiamGia(JSON.parse(product.hang).Gia,JSON.parse(product.hang).Coupn).JSON.parse(product.soluong);
+    //    console.log(JSON.parse(product.hang).Gia)
+        sum = sum + GiamGia(JSON.parse(product.hang).Gia,JSON.parse(product.hang).Coupon)*JSON.parse(product.soluong);
+        
     });
-
-    console.log(sum);
+    console.log(position);
     position.innerText =  `${formatNumberWithCommas(sum)}`;
 }
 

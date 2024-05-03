@@ -676,6 +676,9 @@ var total = function () {
     var list_incart = JSON.parse(localStorage.getItem("cart"));
     var position = document.querySelector(".total-price");
     var sum = 0;
+    if (list_incart.length === 0 ){
+        return ;
+    }
     list_incart.forEach(function (product) {
         //    console.log(JSON.parse(product.hang).Gia)
         sum =

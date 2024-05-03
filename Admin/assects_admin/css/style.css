@@ -1,5 +1,5 @@
 :root {
-  --main-bg-color: #414e66;
+  --main-bg-color: #5fbdff;
   --sub-bg-color: #f2f7fb;
   --top-height: 70px;
   --main-transition: all 0.3s ease;
@@ -26,8 +26,7 @@ li {
 
 .main-btn {
   padding: 6px 12px;
-  background-color: black;
-  color: white;
+  background: #fff;
   border-radius: 5px;
   border: 1px solid black;
   cursor: pointer;
@@ -35,6 +34,10 @@ li {
   margin-top: 20px;
   height: 50px;
   width: 200px;
+}
+
+.main-btn:hover {
+  color: #ff0000;
 }
 
 .delete-class {
@@ -125,7 +128,7 @@ li {
 
 /* admin-content */
 .admin-content {
-  background-color: var(--sub-bg-color);
+  background-image: linear-gradient(to bottom right, #fff, #c5fff8, #5fbdff);
 }
 
 .admin-content-main-title h1 {
@@ -235,8 +238,6 @@ td {
 } */
 
 .admin-content-main-content-product-list table th {
-  background-color: black;
-  color: #f2f7fb;
   padding: 10px 0px;
 }
 

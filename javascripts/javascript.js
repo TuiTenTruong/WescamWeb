@@ -780,5 +780,29 @@ function addListOrder(order) {
     localStorage.setItem("listOrder", JSON.stringify(listOrder1));
 }
 var trangthai = function(value_trangthai){
+    var tble = document.querySelector('.user__table');
+console.log(tble)
+var listOrder = JSON.parse(localStorage.getItem("listOrder"));
+listOrder.forEach(function (order, index) {
+    var newRow = document.createElement("tr");
+    newRow.innerHTML = `
+        <td >${index + 1}</td>
+        <td class="accountId">MADH0${index}</td>
+        <td>${order.user.username}</td>
+        <td>${order.user.fullname}</td>
+        <td>${JSON.parse(order.hang[0].hang).TenSP}</td>
+        <td>${formatNumberWithCommas(GiamGia(JSON.parse(order.hang[0].hang).Gia,JSON.parse(order.hang[0].hang).Coupon))}</td>
+        
+        
+        <td> 
+         
+        </td>
+
+
     
-  }
+    `;
+    tble.appendChild(newRow);
+  });
+}
+    
+  

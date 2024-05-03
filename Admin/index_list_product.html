@@ -133,6 +133,7 @@
     </script>
     <script>
       //index
+      var firstIndex = 1;
       var lastIndex = 0;
       //hiển thị lap top
       document.addEventListener("DOMContentLoaded", function () {
@@ -140,12 +141,12 @@
 
         // Lấy dữ liệu từ localStorage
         var list_lap = JSON.parse(localStorage.getItem("list_lap")) || [];
-        lastIndex = 1;
+
         // Hiển thị dữ liệu trong bảng
         list_lap.forEach(function (list, index) {
           var newRow = document.createElement("tr");
           newRow.innerHTML = `
-              <td >${index + lastIndex}</td>
+              <td >${index + firstIndex}</td>
               <td class="productID">${list.maSP}</td>
               <td><img src="${list.img[0]}" alt="img"></td>
               <td class="product-name">${list.TenSP}</td>
@@ -157,9 +158,8 @@
               </td>
           `;
           tableBody.appendChild(newRow);
+          lastIndex = index;
         });
-
-        console.log(lastIndex);
       });
 
       //hiển thị điện thoại
@@ -173,7 +173,7 @@
         list_phone.forEach(function (list, index) {
           var newRow = document.createElement("tr");
           newRow.innerHTML = `
-              <td >${index + lastIndex}</td>
+              <td >${index + lastIndex + 2}</td>
               <td class="productID">${list.maSP}</td>
               <td><img src="${list.img[0]}" alt="img"></td>
               <td>${list.TenSP}</td>

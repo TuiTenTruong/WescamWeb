@@ -779,25 +779,32 @@ function addListOrder(order) {
     listOrder1.push(order);
     localStorage.setItem("listOrder", JSON.stringify(listOrder1));
 }
-var trangthai = function(trangthai_value){
+var trangthai = function (trangthai_value) {};
+var show_order = function () {
+    var tble = document.querySelector(".user__table");
 
-}
-var show_order = function(){
-    var tble = document.querySelector('.user__table');
-
-var listOrder = JSON.parse(localStorage.getItem("listOrder"));
-const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-listOrder.forEach(function (order, index) {
- 
-    if (order.user.username ===loggedInUser.username &&order.user.password === loggedInUser.password){
-        for (i=0; i< order.hang.length;i++ ){
-            var newRow = document.createElement("tr");
-            newRow.innerHTML = `
+    var listOrder = JSON.parse(localStorage.getItem("listOrder"));
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    listOrder.forEach(function (order, index) {
+        if (
+            order.user.username === loggedInUser.username &&
+            order.user.password === loggedInUser.password
+        ) {
+            for (i = 0; i < order.hang.length; i++) {
+                var newRow = document.createElement("tr");
+                newRow.innerHTML = `
     <td >${i + 1}</td>
     <td class="accountId">MADH0${index}</td>
     <td>${JSON.parse(order.hang[i].hang).TenSP}</td>
-    <td><img src="${JSON.parse(order.hang[i].hang).img[i]}" alt="img" style="width:100%; max-width:150px;"></td>
-    <td>${formatNumberWithCommas(GiamGia(JSON.parse(order.hang[i].hang).Gia, JSON.parse(order.hang[i].hang).Coupon))}</td>
+    <td><img src="${
+        JSON.parse(order.hang[i].hang).img[i]
+    }" alt="img" style="width:100%; max-width:150px;"></td>
+    <td>${formatNumberWithCommas(
+        GiamGia(
+            JSON.parse(order.hang[i].hang).Gia,
+            JSON.parse(order.hang[i].hang).Coupon
+        )
+    )}</td>
     <td>${order.hang[i].soluong}</td>
     
     
@@ -805,11 +812,8 @@ listOrder.forEach(function (order, index) {
         <span> Chuẩn bị hàng </span>
     </td>
 `;
-            tble.appendChild(newRow);
+                tble.appendChild(newRow);
+            }
         }
-    
- }
-  });
-
-}
-    
+    });
+};

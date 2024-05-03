@@ -688,9 +688,9 @@ var total = function () {
                 JSON.parse(product.soluong);
     });
    
-    position.innerText = ` ${formatNumberWithCommas(sum)} đ`;
+    position.innerText = `  ${formatNumberWithCommas(sum)} đ`;
     var str = "";
-    list_incart.forEach(function (product) {
+    list_incart.forEach(function (product, index) {
    
         str += `<div class="cart-box">
             <img

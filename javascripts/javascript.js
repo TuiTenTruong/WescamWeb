@@ -645,7 +645,8 @@ var buy_order = function (){
     console.log(JSON.stringify(tmp));
     addListOrder(tmp);
     // localStorage.setItem("listOrder", JSON.stringify(tmp));
-    localStorage.removeItem('cart');
+    var cart = [];
+    localStorage.setItem('cart',JSON.stringify(cart));
     total();
     }
 };
@@ -676,9 +677,9 @@ var total = function () {
     var list_incart = JSON.parse(localStorage.getItem("cart"));
     var position = document.querySelector(".total-price");
     var sum = 0;
-    if (list_incart.length === 0) {
-        return;
-    }
+    // if (list_incart.length === 0) {
+    //     return;
+    // }
     list_incart.forEach(function (product) {
         //    console.log(JSON.parse(product.hang).Gia)
         sum =
@@ -750,7 +751,9 @@ function removeitem(btn_rm) {
         }
     });
     localStorage.setItem("cart", JSON.stringify(list_incart));
+    open_cart();
     total();
+    
 }
 
 

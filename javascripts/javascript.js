@@ -139,8 +139,7 @@ function showsearch() {
     if (found === 0) {
         for (var i = 0; i < list_products_phone.length; i++) {
             if (
-                list_products_phone[i].Brand.toLowerCase().includes(
-                    kw.toLowerCase()
+                list_products_phone[i].Brand.toLowerCase().includes(kw.toLowerCase()
                 )
             ) {
                 type = "phone";
@@ -785,7 +784,15 @@ var trangthai = function (trangthai_value,indexdonhang,donhang) {
     listOrder[indexdonhang].hang[donhang].trangthai = trangthai_value;
     localStorage.setItem("listOrder", JSON.stringify(listOrder));
 };
+var check_accepted = function(indexlist, indexorder){
+    var listOrder = JSON.parse(localStorage.getItem("listOrder"));
 
+    var i = parseInt(indexlist);
+    var k = parseInt(indexorder);
+    listOrder[i].hang.splice(k,1);
+    localStorage.setItem("listOrder", JSON.stringify(listOrder));
+    location.reload();
+}
 var show_order = function () {
     var tble = document.querySelector(".user__table");
    
@@ -796,14 +803,21 @@ var show_order = function () {
             order.user.username === loggedInUser.username &&
             order.user.password === loggedInUser.password
         ) {
+           
             for (i = 0; i < order.hang.length; i++) {
+                var hienthi = order.hang[i].trangthai;
                 if (order.hang[i].trangthai === undefined){
                     order.hang[i].trangthai = "Chuẩn bị hàng";
+                  hienthi = "Chuẩn bị hàng";
+                }
+                if (order.hang[i].trangthai === "Đã Nhận hàng"){
+                    hienthi = `<button type="button" onclick="check_accepted(${index},${i})">Đã nhận Hàng</button>`;
                 }
                 var newRow = document.createElement("tr");
+             
                 newRow.innerHTML = `
     <td >${i + 1}</td>
-    <td class="accountId">MADH0${index}</td>
+    <td class="accountId">MADH0${i}</td>
     <td>${JSON.parse(order.hang[i].hang).TenSP}</td>
     <td><img src="${
         JSON.parse(order.hang[i].hang).img[i]
@@ -818,7 +832,7 @@ var show_order = function () {
     
     
     <td> 
-        <span class="tt">${order.hang[i].trangthai}</span>
+        <span class="tt">${hienthi}</span>
     </td>
 `;
                 tble.appendChild(newRow);

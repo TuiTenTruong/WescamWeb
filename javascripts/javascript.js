@@ -634,18 +634,19 @@ function open_cart() {
 function close_cart() {
     document.getElementById("cart").style.right = "-100%";
 }
-var buy_order = function () {
-    var dress = document.querySelector("#diachi");
-    console.log(dress.value.trim() !== "");
-    if (dress.value.trim() !== "") {
-        var data = JSON.parse(localStorage.getItem("cart"));
-        var loginuser = JSON.parse(localStorage.getItem("loggedInUser"));
-        var tmp2 = data;
-        var tmp = { user: loginuser, hang: tmp2 };
-
-        localStorage.setItem("listOrder", JSON.stringify(tmp));
-        localStorage.removeItem("cart");
-        total();
+var buy_order = function (){
+    var dress = document.querySelector('#diachi');
+    console.log(dress.value.trim() !=="")
+    if (dress.value.trim() !==""){
+    var data = JSON.parse(localStorage.getItem("cart"));
+    var loginuser = JSON.parse(localStorage.getItem("loggedInUser"));
+    var tmp2 = data;
+    var tmp = { user: loginuser, hang: tmp2 };
+    console.log(JSON.stringify(tmp));
+    addListOrder(tmp);
+    // localStorage.setItem("listOrder", JSON.stringify(tmp));
+    localStorage.removeItem('cart');
+    total();
     }
 };
 var cart = JSON.parse(localStorage.getItem("cart"))
@@ -751,3 +752,17 @@ function removeitem(btn_rm) {
     localStorage.setItem("cart", JSON.stringify(list_incart));
     total();
 }
+
+//Đơn hàng
+var listOrder = JSON.parse(localStorage.getItem("listOrder"))
+    ? JSON.parse(localStorage.getItem("listOrder"))
+    : [];
+localStorage.setItem("listOrder", JSON.stringify(listOrder));
+
+function addListOrder(order){
+    var listOrder = JSON.parse(localStorage.getItem("listOrder"));
+    listOrder.push(order);
+    localStorage.setItem("listOrder", JSON.stringify(listOrder));
+    console.log(listOrder);
+}
+

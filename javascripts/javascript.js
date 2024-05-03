@@ -635,6 +635,7 @@ var buy_order = function () {
         var data = JSON.parse(localStorage.getItem("cart"));
         var loginuser = JSON.parse(localStorage.getItem("loggedInUser"));
         var tmp2 = data;
+        loginuser.diachi = dress.value.trim();
         var tmp = { user: loginuser, hang: tmp2 };
 
         addListOrder(tmp);
@@ -723,7 +724,7 @@ var total = function () {
     document.querySelector(".cart-content").innerHTML = str;
 };
 function set_soluong(value, index) {
-    console.log(value);
+
     var list_incart = JSON.parse(localStorage.getItem("cart"));
     // list_incart.forEach(function (product, index) {
     //     if (JSON.parse(product.hang).maSP === maSP) {
@@ -779,10 +780,15 @@ function addListOrder(order) {
     listOrder1.push(order);
     localStorage.setItem("listOrder", JSON.stringify(listOrder1));
 }
-var trangthai = function (trangthai_value) {};
+var trangthai = function (trangthai_value,indexdonhang,donhang) {
+    var listOrder = JSON.parse(localStorage.getItem("listOrder"));
+    listOrder[indexdonhang].hang[donhang].trangthai = trangthai_value;
+    localStorage.setItem("listOrder", JSON.stringify(listOrder));
+};
+
 var show_order = function () {
     var tble = document.querySelector(".user__table");
-
+   
     var listOrder = JSON.parse(localStorage.getItem("listOrder"));
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
     listOrder.forEach(function (order, index) {
@@ -791,6 +797,9 @@ var show_order = function () {
             order.user.password === loggedInUser.password
         ) {
             for (i = 0; i < order.hang.length; i++) {
+                if (order.hang[i].trangthai === undefined){
+                    order.hang[i].trangthai = "Chuẩn bị hàng";
+                }
                 var newRow = document.createElement("tr");
                 newRow.innerHTML = `
     <td >${i + 1}</td>
@@ -809,7 +818,7 @@ var show_order = function () {
     
     
     <td> 
-        <span> Chuẩn bị hàng </span>
+        <span class="tt">${order.hang[i].trangthai}</span>
     </td>
 `;
                 tble.appendChild(newRow);

@@ -145,6 +145,7 @@
       </div>
     </section>
     <script src="assects_admin/assets_admin/js/script.js"></script>
+    <script src="/javascripts/javascript.js"></script>
     <script>
       function currentpage() {
         const currentPage = localStorage.getItem("currentPage");
@@ -156,24 +157,26 @@
         var tableBody = document.querySelector("#order-table tbody");
 
         // Lấy dữ liệu từ localStorage
-        var listOrder = JSON.parse(localStorage.getItem("listOrder")) || [];
+        var listOrder = JSON.parse(localStorage.getItem("listOrder")) ;
 
         // Hiển thị dữ liệu trong bảng
-        listOrder.forEach(function (listOrder, index) {
+        listOrder.forEach(function (order, index) {
           var newRow = document.createElement("tr");
           newRow.innerHTML = `
               <td >${index + 1}</td>
-              <td class="accountId">${listOrder.hang}</td>
-              <td>${listOrder.user.username}</td>
-              <td>${listOrder.user.fullname}</td>
-              <td>${listOrder.diachi}</td>
-              <td>${listOrder.user.phone}</td>
+              <td class="accountId">MADH0${index}</td>
+              <td>${order.user.username}</td>
+              <td>${order.user.fullname}</td>
+              <td>${JSON.parse(order.hang[0].hang).TenSP}</td>
+              <td>${formatNumberWithCommas(GiamGia(JSON.parse(order.hang[0].hang).Gia,JSON.parse(order.hang[0].hang).Coupon))}</td>
+              
               
               <td> 
-                <select name="brand" class="brand_sp trangthai-select">
-                      <option value="">--select--</option>
-                      <option value="trangthai">Đã giao</option>
-                      <option value="trangthai">Chưa giao</option>
+                <select name="brand" class="brand_sp trangthai-select" onchange="trangthai(this.value)">
+                  <option value="">--select--</option>
+                  <option value="cbhang">Chuẩn bị hàng</option>
+                  <option value="danggiao">Đang trên đường giao hàng</option>
+                      <option value="dagiao">Đã giao hàng</option>
                   </select>
               </td>
 
@@ -214,6 +217,6 @@
         });
       });
     </script>
-    <script src="/javascripts/javascript.js"></script>
+
   </body>
 </html>

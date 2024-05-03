@@ -126,6 +126,10 @@ li {
   color: bisque;
 }
 
+.sub-menu:first-child{
+  height: 30px;
+}
+
 /* admin-content */
 .admin-content {
   background-image: linear-gradient(to bottom right, #fff, #c5fff8, #5fbdff);

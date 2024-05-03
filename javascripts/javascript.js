@@ -621,7 +621,8 @@ function showsale() {
         },
     });
 }
-localStorage.setItem("currentPage", location.href);
+if (!location.href.includes("index_list"))
+    localStorage.setItem("currentPage", location.href);
 function open_cart() {
     document.getElementById("cart").style.right = 0;
 }

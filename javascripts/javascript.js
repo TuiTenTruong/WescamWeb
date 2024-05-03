@@ -634,19 +634,19 @@ function open_cart() {
 function close_cart() {
     document.getElementById("cart").style.right = "-100%";
 }
-var buy_order = function (){
-    var dress = document.querySelector('#diachi');
-    console.log(dress.value.trim() !=="")
-    if (dress.value.trim() !==""){
-    var data = JSON.parse(localStorage.getItem("cart"));
-    var loginuser = JSON.parse(localStorage.getItem("loggedInUser"));
-    var tmp2 = data;
-    var tmp = { user: loginuser, hang: tmp2 };
-    console.log(JSON.stringify(tmp));
-    addListOrder(tmp);
-    // localStorage.setItem("listOrder", JSON.stringify(tmp));
-    localStorage.removeItem('cart');
-    total();
+var buy_order = function () {
+    var dress = document.querySelector("#diachi");
+    console.log(dress.value.trim() !== "");
+    if (dress.value.trim() !== "") {
+        var data = JSON.parse(localStorage.getItem("cart"));
+        var loginuser = JSON.parse(localStorage.getItem("loggedInUser"));
+        var tmp2 = data;
+        var tmp = { user: loginuser, hang: tmp2 };
+        console.log(JSON.stringify(tmp));
+        addListOrder(tmp);
+        // localStorage.setItem("listOrder", JSON.stringify(tmp));
+        localStorage.removeItem("cart");
+        total();
     }
 };
 var cart = JSON.parse(localStorage.getItem("cart"))
@@ -689,11 +689,9 @@ var total = function () {
             ) *
                 JSON.parse(product.soluong);
     });
-    console.log(position);
     position.innerText = ` ${formatNumberWithCommas(sum)} đ`;
     var str = "";
-    list_incart.forEach(function (product) {
-        console.log(1);
+    list_incart.forEach(function (product, index) {
         str += `<div class="cart-box">
             <img
                 src="${JSON.parse(product.hang).img[0]}"
@@ -714,6 +712,9 @@ var total = function () {
                     type="number"
                     value="${JSON.parse(product.soluong)}"
                     class="cart-quality"
+                    min="1" 
+                    max="99"
+                    onchange = "check_input(); set_soluong(value,${index})"
                 />
             </div>
             <button class="btn_remove" onclick="removeitem(value)" value="${
@@ -723,13 +724,25 @@ var total = function () {
     });
     document.querySelector(".cart-content").innerHTML = str;
 };
-
+function set_soluong(value, index) {
+    console.log(value);
+    var list_incart = JSON.parse(localStorage.getItem("cart"));
+    // list_incart.forEach(function (product, index) {
+    //     if (JSON.parse(product.hang).maSP === maSP) {
+    list_incart[index].soluong = value;
+    //     }
+    // });
+    localStorage.setItem("cart", JSON.stringify(list_incart));
+}
 function add_cart() {
     var hanghoa = window.localStorage.getItem("key_product");
     add_product(hanghoa);
     total();
 }
-
+function check_input() {
+    var input = document.querySelector(".cart-quality");
+    if (input.value <= 0) input.value = 1;
+}
 var show_user = function () {
     var userlogin = JSON.parse(localStorage.getItem("loggedInUser"));
     var hoten = document.querySelector(".hoten span");
@@ -752,7 +765,6 @@ function removeitem(btn_rm) {
     localStorage.setItem("cart", JSON.stringify(list_incart));
     open_cart();
     total();
-    
 }
 
 //Đơn hàng
@@ -761,10 +773,9 @@ var listOrder = JSON.parse(localStorage.getItem("listOrder"))
     : [];
 localStorage.setItem("listOrder", JSON.stringify(listOrder));
 
-function addListOrder(order){
+function addListOrder(order) {
     var listOrder = JSON.parse(localStorage.getItem("listOrder"));
     listOrder.push(order);
     localStorage.setItem("listOrder", JSON.stringify(listOrder));
     console.log(listOrder);
 }
-

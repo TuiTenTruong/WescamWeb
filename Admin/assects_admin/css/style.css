@@ -151,7 +151,7 @@ li {
 }
 
 .admin-content-main-content-left input {
-  height: 30px;
+  /* height: 30px; */
   border: none;
   background-color: aliceblue;
   margin: 20px;
@@ -189,7 +189,7 @@ li {
 .admin-content-main-content-right textarea {
   height: 100px;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 50px;
   margin-left: 10px;
   padding-left: 6px;
   padding-top: 6px;
@@ -215,7 +215,7 @@ li {
 
 /* product list */
 .admin-content-main-content-product-list table {
-  margin: 0 auto;
+  margin-left: 0 auto;
   width: 100%;
   padding: 12px 0;
 }

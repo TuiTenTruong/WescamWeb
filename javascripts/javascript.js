@@ -643,7 +643,8 @@ var buy_order = function (){
     var tmp2 = data;
     var tmp = { user: loginuser, hang: tmp2 };
     console.log(JSON.stringify(tmp));
-    localStorage.setItem("listOrder", JSON.stringify(tmp));
+    addListOrder(tmp);
+    // localStorage.setItem("listOrder", JSON.stringify(tmp));
     localStorage.removeItem('cart');
     total();
     }
@@ -753,4 +754,16 @@ function removeitem(btn_rm) {
     total();
 }
 
+//Đơn hàng
+var listOrder = JSON.parse(localStorage.getItem("listOrder"))
+    ? JSON.parse(localStorage.getItem("listOrder"))
+    : [];
+localStorage.setItem("listOrder", JSON.stringify(listOrder));
+
+function addListOrder(order){
+    var listOrder = JSON.parse(localStorage.getItem("listOrder"));
+    listOrder.push(order);
+    localStorage.setItem("listOrder", JSON.stringify(listOrder));
+    console.log(listOrder);
+}
 

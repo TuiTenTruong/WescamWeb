@@ -634,7 +634,21 @@ function open_cart() {
 function close_cart() {
     document.getElementById("cart").style.right = "-100%";
 }
+var buy_order = function (){
+    
+    var cart = document.getElementById('cart');
+    
+    var data = JSON.parse(localStorage.getItem("cart"));
+    var loginuser = JSON.parse(localStorage.getItem("loggedInUser"));
+    var tmp2 = data;
+    var tmp = { user: loginuser, hang: tmp2 };
+    console.log(JSON.stringify(tmp));
+    localStorage.setItem("listOrder", JSON.stringify(tmp));
 
+    localStorage.removeItem('cart');
+    total();
+    
+}
 var cart = JSON.parse(localStorage.getItem("cart"))
     ? JSON.parse(localStorage.getItem("cart"))
     : [];
@@ -656,11 +670,7 @@ var add_product = (value) => {
     }
     if (found == 0) data.push({ hang: value, soluong: 1 });
     localStorage.setItem("cart", JSON.stringify(data));
-    // var loginuser = JSON.parse(localStorage.getItem("loggedInUser"));
-    // var tmp2 = data;
-    // var tmp = { user: loginuser, hang: tmp2 };
-    // console.log(JSON.stringify(tmp));
-    // localStorage.setItem("listOrder", JSON.stringify(tmp));
+    
 };
 //
 var total = function () {
@@ -681,6 +691,7 @@ var total = function () {
     position.innerText = ` ${formatNumberWithCommas(sum)} đ`;
     var str = "";
     list_incart.forEach(function (product) {
+        console.log(1);
         str += `<div class="cart-box">
             <img
                 src="${JSON.parse(product.hang).img[0]}"

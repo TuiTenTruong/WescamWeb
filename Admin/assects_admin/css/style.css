@@ -256,7 +256,8 @@ td {
   font-size: 30px;
 }
 
-
-.trangthai-select{
+.trangthai-select {
   height: 27px;
+  border-radius: 5px;
+  margin-left: 10px;
 }

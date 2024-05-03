@@ -663,27 +663,17 @@ var total = function () {
   position.innerText = ` ${formatNumberWithCommas(sum)} đ`;
   var str = "";
   list_incart.forEach(function (product) {
-   
-    var list_incart = JSON.parse(localStorage.getItem("cart"));
-    var position = document.querySelector(".total-price");
-    var sum = 0;
-    
-    list_incart.forEach(function (product) {
-        //    console.log(JSON.parse(product.hang).Gia)
-        sum =
-            sum +
-            GiamGia(
-                JSON.parse(product.hang).Gia,
-                JSON.parse(product.hang).Coupon
-            ) *
-                JSON.parse(product.soluong);
-    });
-   
-    position.innerText = `  ${formatNumberWithCommas(sum)} đ`;
-    var str = "";
-    list_incart.forEach(function (product, index) {
-   
-        str += `<div class="cart-box">
+    //    console.log(JSON.parse(product.hang).Gia)
+    sum =
+      sum +
+      GiamGia(JSON.parse(product.hang).Gia, JSON.parse(product.hang).Coupon) *
+        JSON.parse(product.soluong);
+  });
+
+  position.innerText = `  ${formatNumberWithCommas(sum)} đ`;
+  var str = "";
+  list_incart.forEach(function (product, index) {
+    str += `<div class="cart-box">
             <img
                 src="${JSON.parse(product.hang).img[0]}"
                 alt=""

@@ -753,16 +753,25 @@ function removeitem(btn_rm) {
     total();
 }
 
+
+
 //Đơn hàng
+
+
+var tmp = [];
+console.log(tmp.length === 0)
 var listOrder = JSON.parse(localStorage.getItem("listOrder"))
     ? JSON.parse(localStorage.getItem("listOrder"))
     : [];
 localStorage.setItem("listOrder", JSON.stringify(listOrder));
 
 function addListOrder(order){
-    var listOrder = JSON.parse(localStorage.getItem("listOrder"));
-    listOrder.push(order);
-    localStorage.setItem("listOrder", JSON.stringify(listOrder));
-    console.log(listOrder);
+    var listOrder1 = JSON.parse(localStorage.getItem("listOrder"));
+
+   
+        listOrder.push(order);
+        localStorage.setItem("listOrder", JSON.stringify(listOrder1));
+        console.log(listOrder1);
+    
 }
 

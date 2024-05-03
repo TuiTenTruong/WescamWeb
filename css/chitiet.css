@@ -179,3 +179,7 @@ table tr td {
 /* .product-dentail-content-right-bottom-content-danhgia{
     display: none;
 }  */
+.links {
+    text-decoration: none;
+    color: #000;
+}

@@ -155,83 +155,92 @@
                 </div>
             </div>
 
+            <div class="cart" id="cart">
+                <h2>Your Cart</h2>
+                <div class="cart-content">
+                    <div class="cart_empty">
+                        <img src="./images/index/empty-cart.png" alt="" />
+                    </div>
+                </div>
+                <div class="Total">
+                    <div class="total-tittle">Total:</div>
+                    <div class="total-price"></div>
+                </div>
 
-    </div>
-    </div>
-    </div>
-    <div class="cart" id="cart">
-      <h2>Your Cart</h2>
-      <div class="cart-content">
-        
-      </div>
-      <div class="Total">
-        <div class="total-tittle">Total:</div>
-        <div class="total-price"></div>
-      </div>
-      <button class="buy">Buy Now</button>
-      <i onclick="close_cart()" class="fa-solid fa-x" id="close-cart"></i>
-    </div>
-  </header>
-  <main>
-    <div class="home row user_show">
-      <div class="col-lg-4 m-2 bg-white">
-        <h4>Tài Khoản</h4>
-        <div>
-          <img src="/images/index/user1.png" alt="" class="user_img">
-        </div>
-        <div>
-          <div class="hoten">
-            <p>Họ Tên: <span></span></p>
+                <i
+                    onclick="close_cart()"
+                    class="fa-solid fa-x"
+                    id="close-cart"
+                ></i>
 
-          </div>
-          <div class="taikhoan">
-            <p>Tài Khoản: <span></span></p>
+                <div class="m-2 border">
+                    <label for="diachi" class="mb-1">Địa Chỉ Giao Hàng: </label>
+                    <br />
+                    <input type="text" name="diachi" id="diachi" />
+                    <label for="diachi" class="mt-1"
+                        >Điền Đủ :số nhà, tên đường, xã, thành phố, tỉnh.</label
+                    >
+                </div>
+                <button class="btn-buy float-lg-end" onclick="buy_order()">
+                    Buy Now
+                </button>
+            </div>
+        </header>
+        <main>
+            <div class="home row user_show">
+                <div class="taikhoan col-lg-4 p-0">
+                    <h4>Tài Khoản</h4>
+                    <div class="icon_user">
+                        <img src="" alt="" class="user_img" />
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div>
+                        <div class="hoten">
+                            <p>Họ Tên: <span></span></p>
+                        </div>
+                        <div class="taikhoan">
+                            <p>Tài Khoản: <span></span></p>
+                        </div>
+                        <div>
+                            <div class="email">
+                                <p>Email: <span></span></p>
+                            </div>
 
-          </div>
-        <div>
-          <div class="email">
-            <p>Email: <span></span></p>
-
-          </div>
-         
-          <div class="sdt">
-            <p>Số Điện Thoại:<span></span></p>
-
-          </div>
-        </div>
-      </div>
-      </div>
-      <div class="col-lg-7 m-2 bg-white">
-        <h4>Đơn Hàng</h4>
-        <div class="user__table">
-          <table>
-            <tr> 
-              <th>STT</th>
-              <th>Mã đơn hàng</th>
-              <th>Tên Sản phẩm</th>
-              <th>Hình Ảnh</th>
-              <th>Giá Tiền</th>
-              <th>Số lượng</th>
-              <th>Trạng thái</th>
-            </tr>
-          </table>
-
-        </div>
-      </div>
-    
-
-  </main>
-  <footer>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-3">
-          <h5 class="m-1 mb-0 p-2 ps-1">WeScam</h5>
-          <p>
-            Wescam - địa chỉ tin cậy cho laptop và điện thoại cũ chất lượng.
-            Đảm bảo nhu cầu đa dạng với sản phẩm kiểm định và dịch vụ hậu mãi
-            tốt, giá cả phải chăng.
-          </p>
-        </div>
+                            <div class="sdt">
+                                <p>Số Điện Thoại:<span></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <h4>Đơn Hàng</h4>
+                    <div class="user__table">
+                        <table>
+                            <tr>
+                                <th>STT</th>
+                                <th>Mã đơn hàng</th>
+                                <th>Tên Sản phẩm</th>
+                                <th>Hình Ảnh</th>
+                                <th>Giá Tiền</th>
+                                <th>Số Lượng</th>
+                                <th>Trạng thái</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <h5 class="m-1 mb-0 p-2 ps-1">WeScam</h5>
+                        <p>
+                            Wescam - địa chỉ tin cậy cho laptop và điện thoại cũ
+                            chất lượng. Đảm bảo nhu cầu đa dạng với sản phẩm
+                            kiểm định và dịch vụ hậu mãi tốt, giá cả phải chăng.
+                        </p>
+                    </div>
 
                     <div class="col-lg-3">
                         <h6 class="m-3">SẢN PHẨM</h6>
@@ -327,22 +336,18 @@
                 </section>
             </div>
 
-    <!-- Section: Social media -->
-    <!-- Grid container -->
-  </footer>
-  <script src="./javascripts/javascript.js"></script>
-  <script src="/javascripts/dangky_dangnhap_js/dangnhap.js"></script>
-  <script>
-    window.onload = function () {
-      displayLoggedInUser();
-      show_user();
-      total();
-      show_order();
-    };
-  </script>
-
-
-
-</body>
-
+            <!-- Section: Social media -->
+            <!-- Grid container -->
+        </footer>
+        <script src="./javascripts/javascript.js"></script>
+        <script src="/javascripts/dangky_dangnhap_js/dangnhap.js"></script>
+        <script>
+            window.onload = function () {
+                displayLoggedInUser();
+                show_user();
+                total();
+                show_order();
+            };
+        </script>
+    </body>
 </html>

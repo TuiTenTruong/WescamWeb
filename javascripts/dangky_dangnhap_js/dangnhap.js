@@ -78,7 +78,7 @@ form.addEventListener("submit", function (e) {
 
             // Kiểm tra trạng thái trang trước đó từ localStorage
             const currentPage = localStorage.getItem("currentPage");
-            if (currentPage === "chitiet.html") {
+            if (currentPage.includes("chitiet.html")) {
                 // Nếu trước đó đang ở trang chi tiết, chuyển hướng đến trang chi tiết
                 window.location.href = "chitiet.html";
             } else {

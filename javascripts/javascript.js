@@ -1,8 +1,7 @@
 var list_products_lap = JSON.parse(localStorage.getItem("list_lap"));
 var list_products_phone = JSON.parse(localStorage.getItem("list_phone"));
 
-console.log(list_products_lap);
-console.log(list_products_phone);
+
 var GiamGia = function (Gia, Coupn) {
     var discount = Gia * (1 - Coupn / 100);
     return parseFloat(discount.toFixed(2));
@@ -68,7 +67,7 @@ var show_Out_products = function (products) {
     document.querySelector(".products").innerHTML = str;
     var pagi = document.querySelectorAll(".pagination button");
     pagi.forEach(function (tmp, index) {
-        console.log(index + 1 === indexpage);
+       
         if (index + 1 === indexpage) tmp.classList.add("active");
     });
     var card_tmp = document.querySelectorAll(".card");
@@ -127,7 +126,7 @@ function showsearch() {
     var url = new URL(window.location);
     var list = [];
     var kw = url.searchParams.get("keywords");
-    console.log(kw);
+  
 
     var type = "";
     var found = 0;
@@ -166,7 +165,7 @@ var on_load = function () {
         location.href.includes("Search.html")
     ) {
         var tmp = document.querySelectorAll(".home span, h5");
-        console.log(tmp);
+      
         for (var i = 0; i < tmp.length; i++) {
             tmp[i].innerText = "Laptop - Máy tính xách tay";
         }
@@ -178,7 +177,7 @@ var on_load = function () {
         location.href.includes("Search.html")
     ) {
         var tmp = document.querySelectorAll(".home span, h5");
-        console.log(tmp);
+        
         for (var i = 0; i < tmp.length; i++) {
             tmp[i].innerText = "Điện thoại";
         }
@@ -358,13 +357,13 @@ var sort = function (button) {
         list.sort(function (a, b) {
             return GiamGia(a.Gia, a.Coupon) - GiamGia(b.Gia, b.Coupon);
         });
-        console.log(list);
+     
     }
     if (sapxap === "Giam") {
         list.sort(function (a, b) {
             return GiamGia(b.Gia, b.Coupon) - GiamGia(a.Gia, a.Coupon);
         });
-        console.log(list);
+      
     }
 
     show_In_products();
@@ -634,20 +633,20 @@ function open_cart() {
 function close_cart() {
     document.getElementById("cart").style.right = "-100%";
 }
-var buy_order = function () {
-    var dress = document.querySelector("#diachi");
-    console.log(dress.value.trim() !== "");
-    if (dress.value.trim() !== "") {
-        var data = JSON.parse(localStorage.getItem("cart"));
-        var loginuser = JSON.parse(localStorage.getItem("loggedInUser"));
-        var tmp2 = data;
-        var tmp = { user: loginuser, hang: tmp2 };
-        console.log(JSON.stringify(tmp));
-        addListOrder(tmp);
-        // localStorage.setItem("listOrder", JSON.stringify(tmp));
-        var cart = [];
-        localStorage.setItem("cart", JSON.stringify(cart));
-        total();
+var buy_order = function (){
+    var dress = document.querySelector('#diachi');
+  
+    if (dress.value.trim() !==""){
+    var data = JSON.parse(localStorage.getItem("cart"));
+    var loginuser = JSON.parse(localStorage.getItem("loggedInUser"));
+    var tmp2 = data;
+    var tmp = { user: loginuser, hang: tmp2 };
+ 
+    addListOrder(tmp);
+    // localStorage.setItem("listOrder", JSON.stringify(tmp));
+    var cart = [];
+    localStorage.setItem('cart',JSON.stringify(cart));
+    total();
     }
 };
 var cart = JSON.parse(localStorage.getItem("cart"))
@@ -662,7 +661,7 @@ var add_product = (value) => {
     var found = 0;
 
     for (var i = 0; i < data.length; i++) {
-        console.log(JSON.parse(data[i].hang).maSP);
+     
         if (JSON.parse(value).maSP === JSON.parse(data[i].hang).maSP) {
             data[i].soluong++;
             found = 1;
@@ -690,9 +689,11 @@ var total = function () {
             ) *
                 JSON.parse(product.soluong);
     });
+   
     position.innerText = ` ${formatNumberWithCommas(sum)} đ`;
     var str = "";
-    list_incart.forEach(function (product, index) {
+    list_incart.forEach(function (product) {
+   
         str += `<div class="cart-box">
             <img
                 src="${JSON.parse(product.hang).img[0]}"
@@ -750,7 +751,7 @@ var show_user = function () {
     var taikhoan = document.querySelector(".taikhoan span");
     var email = document.querySelector(".email span");
     var sdt = document.querySelector(".sdt span");
-    console.log(hoten);
+   
     taikhoan.innerText = userlogin.username;
     email.innerText = userlogin.email;
     hoten.innerText = userlogin.fullname;
@@ -781,6 +782,6 @@ function addListOrder(order) {
     var listOrder1 = JSON.parse(localStorage.getItem("listOrder"));
 
     listOrder.push(order);
-    localStorage.setItem("listOrder", JSON.stringify(listOrder1));
-    console.log(listOrder1);
+    localStorage.setItem("listOrder", JSON.stringify(listOrder));
+   
 }

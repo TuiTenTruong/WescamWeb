@@ -84,7 +84,7 @@ form.addEventListener("submit", function (e) {
                 window.location.href = "chitiet.html";
             } else {
                 // Ngược lại, chuyển hướng về trang chính
-                window.location.href = "trangchu.html";
+                window.location.href = `${currentPage}`;
             }
         } else {
             alert("Đăng nhập thất bại, tài khoản chưa tồn tại!");

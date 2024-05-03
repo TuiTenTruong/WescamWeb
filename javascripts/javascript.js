@@ -662,28 +662,19 @@ var total = function () {
 
   position.innerText = ` ${formatNumberWithCommas(sum)} đ`;
   var str = "";
+
   list_incart.forEach(function (product) {
-   
-    var list_incart = JSON.parse(localStorage.getItem("cart"));
-    var position = document.querySelector(".total-price");
-    var sum = 0;
-    
-    list_incart.forEach(function (product) {
-        //    console.log(JSON.parse(product.hang).Gia)
-        sum =
-            sum +
-            GiamGia(
-                JSON.parse(product.hang).Gia,
-                JSON.parse(product.hang).Coupon
-            ) *
-                JSON.parse(product.soluong);
-    });
-   
-    position.innerText = ` ${formatNumberWithCommas(sum)} đ`;
-    var str = "";
-    list_incart.forEach(function (product) {
-   
-        str += `<div class="cart-box">
+    //    console.log(JSON.parse(product.hang).Gia)
+    sum =
+      sum +
+      GiamGia(JSON.parse(product.hang).Gia, JSON.parse(product.hang).Coupon) *
+        JSON.parse(product.soluong);
+  });
+
+  position.innerText = ` ${formatNumberWithCommas(sum)} đ`;
+  var str = "";
+  list_incart.forEach(function (product) {
+    str += `<div class="cart-box">
             <img
                 src="${JSON.parse(product.hang).img[0]}"
                 alt=""
@@ -760,8 +751,6 @@ function removeitem(btn_rm) {
 
 //Đơn hàng
 
-
-
 var listOrder = JSON.parse(localStorage.getItem("listOrder"))
   ? JSON.parse(localStorage.getItem("listOrder"))
   : [];
@@ -772,7 +761,7 @@ function addListOrder(order) {
 
   listOrder.push(order);
   localStorage.setItem("listOrder", JSON.stringify(listOrder));
-    var listOrder1 = JSON.parse(localStorage.getItem("listOrder"));
-    listOrder1.push(order);
-    localStorage.setItem("listOrder", JSON.stringify(listOrder1));
+  var listOrder1 = JSON.parse(localStorage.getItem("listOrder"));
+  listOrder1.push(order);
+  localStorage.setItem("listOrder", JSON.stringify(listOrder1));
 }

@@ -353,3 +353,14 @@ a {
 .lienhe img {
     width: 50px;
 }
+.user__table tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr 4fr 2fr 2fr 1fr 1fr;
+    margin-top: 5px;
+    border-top: 1px solid #0000000e;
+    align-items: center;
+}
+.user__table tr td img {
+    width: 100px;
+    height: 100px;
+}

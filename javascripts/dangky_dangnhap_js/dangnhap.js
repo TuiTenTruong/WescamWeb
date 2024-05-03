@@ -2,8 +2,7 @@ var usernameInput = document.querySelector("#username");
 var passwordInput = document.querySelector("#password");
 var form = document.querySelector("form");
 // Trang chủ
-// var taikhoan = [{ username: "admin123", password: "Admin@123" }];
-// localStorage.setItem("users", JSON.stringify(taikhoan));
+
 var usernameDisplay = document.getElementById("username-display");
 var logoutBtn = document.getElementById("logout-btn");
 

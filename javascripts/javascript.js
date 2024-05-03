@@ -267,11 +267,13 @@ var s_brand = function (string, products) {
 };
 var s_purpose = function (string, products) {
     var list_tmp = [];
+    
     for (var key = 1; key < string.children.length; key++) {
         if (string.children[key].className.includes("purpose")) {
-            // console.log(string.children[key].id);
+            
             for (var i = 0; i < products.length; i++) {
-                if (products[i].NhuCau === string.children[key].id) {
+                console.log(products[i].NhuCau);
+                if (products[i].NhuCau == string.children[key].id) {
                     list_tmp.push(products[i]);
                 }
             }
@@ -282,21 +284,25 @@ var s_purpose = function (string, products) {
 var list_fillter = [];
 var search_product = function () {
     // list_fillter = [];
-    if (window.localStorage.getItem("type_product") === "laptop")
+    if (window.localStorage.getItem("type_product") == "laptop")
         var list = list_products_lap;
-    if (window.localStorage.getItem("type_product") === "phone")
+    if (window.localStorage.getItem("type_product") == "phone")
         var list = list_products_phone;
     var string = document.querySelector(".fillter");
 
-    if (string.children.length === 0) {
+    if (string.children.length == 0) {
         list_fillter = list;
-    } else if (string.children.length < 3) {
+    } 
+    else if (string.children.length < 3) {
         var key = string.children[1].className.slice(
             string.children[1].className.indexOf("choose") + 7
         );
         if (key === "prieces") list_fillter = s_priese(string, list);
         else if (key === "brand") list_fillter = s_brand(string, list);
-        else if (key === "purpose") list_fillter = s_purpose(string, list);
+        else if (key === "purpose") {
+            
+            list_fillter = s_purpose(string, list);
+        }
     } else if (string.children.length === 3) {
         var key = string.children[1].className.slice(
             string.children[1].className.indexOf("choose") + 7
@@ -630,15 +636,13 @@ var buy_order = function () {
         var tmp = { user: loginuser, hang: tmp2 };
 
         addListOrder(tmp);
-        // localStorage.setItem("listOrder", JSON.stringify(tmp));
         var cart = [];
         localStorage.setItem("cart", JSON.stringify(cart));
-
         var btn = document.querySelector('.buy')
         btn.innerHTML = 'Xem Đơn Hàng';
         var dc = document.querySelector('.diachi_an');
         dc.classList.add('d-none');
-        console.log(dc);
+        btn.removeAttribute('onclick');
         btn.addEventListener('click', function () {
             window.open("user.html", "_self");;
         });
@@ -766,22 +770,23 @@ function removeitem(btn_rm) {
 
 // var tmp = [];
 // console.log(tmp.length === 0)
-if (localStorage.getItem("listOrder") === null) {
+if (localStorage.getItem("listOrder") == null) {
+    console.log(1000);
     var tmp = [];
     localStorage.setItem("listOrder", JSON.stringify(tmp));
 }
 
 function addListOrder(order) {
-    var listOrder1 = JSON.parse(localStorage.getItem("listOrder"));
-    listOrder1.push(order);
-    localStorage.setItem("listOrder", JSON.stringify(listOrder1));
+    var listOrder = JSON.parse(localStorage.getItem("listOrder"));
+    listOrder.push(order);
+    localStorage.setItem("listOrder", JSON.stringify(listOrder));
 }
 var trangthai = function (trangthai_value, indexdonhang, donhang) {
     var listOrder = JSON.parse(localStorage.getItem("listOrder"));
     listOrder[indexdonhang].hang[donhang].trangthai = trangthai_value;
     localStorage.setItem("listOrder", JSON.stringify(listOrder));
 };
-if (!localStorage.getItem('listHistory')) {
+if (localStorage.getItem('listHistory')==null) {
     var tmp = [];
     localStorage.setItem('listHistory', JSON.stringify(tmp));
 }

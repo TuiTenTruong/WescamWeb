@@ -193,32 +193,7 @@
     });
 
     // xóa don hang
-    document.addEventListener("DOMContentLoaded", function () {
-      var deleteButtons = document.querySelectorAll(".delete-class");
-
-      deleteButtons.forEach(function (button) {
-        button.addEventListener("click", function (e) {
-          e.preventDefault();
-
-          var row = e.target.closest("tr");
-          var orderID = row.querySelector(".orderID").textContent;
-
-          console.log(orderID.value);
-          var listOrder = JSON.parse(localStorage.getItem("listOrder")) || [];
-          var index = listOrder.find(function (maDonHang) {
-            return listOrder.maDonHang === orderID.trim();
-          });
-
-          if (index !== -1) {
-            console.log("hello");
-            listOrder.splice(index, 1); // Xóa người dùng khỏi mảng
-            localStorage.setItem("listOrder", JSON.stringify(listOrder));
-          }
-          row.parentNode.removeChild(row); // Xóa hàng khỏi bảng
-          location.reload();
-        });
-      });
-    });
+   
   </script>
 
 </body>

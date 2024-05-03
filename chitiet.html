@@ -563,15 +563,17 @@
             <!-- Section: Social media -->
             <!-- Grid container -->
         </footer>
-
+        <script src="javascripts/CSDL.js"></script>
         <script src="javascripts/dangky_dangnhap_js/dangnhap.js"></script>
         <!-- check dang nhap chưa -->
         <script src="javascripts/javascript.js"></script>
         <script>
-            window.onload = function () {
+            window.onload = function () {  
+                 displayLoggedInUser();
                 total();
+             
             };
-            displayLoggedInUser();
+            
             //check đăng nhập bên trang chi tiết
             var buy_cart_bnt = document.querySelector("#buy_cart_bnt");
             // var buy_bnt = document.querySelector("#buy_bnt");

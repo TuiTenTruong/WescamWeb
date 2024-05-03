@@ -687,7 +687,7 @@ var total = function () {
                 ) *
                     JSON.parse(product.soluong);
         });
-
+        position.innerText = ` ${formatNumberWithCommas(sum)} đ`;
         var str = "";
         list_incart.forEach(function (product, index) {
             str += `<div class="cart-box">
@@ -721,7 +721,7 @@ var total = function () {
             </div>`;
         });
     }
-    position.innerText = ` ${formatNumberWithCommas(sum)} đ`;
+
     document.querySelector(".cart-content").innerHTML = str;
 };
 function set_soluong(value, index) {

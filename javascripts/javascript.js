@@ -631,19 +631,22 @@ localStorage.setItem("currentPage", location.href);
 function open_cart() {
     document.getElementById("cart").style.right = 0;
 }
-
+function close_cart() {
+    document.getElementById("cart").style.right = "-100%";
+}
 var buy_order = function () {
-    var cart = document.getElementById("cart");
+    var dress = document.querySelector("#diachi");
+    console.log(dress.value.trim() !== "");
+    if (dress.value.trim() !== "") {
+        var data = JSON.parse(localStorage.getItem("cart"));
+        var loginuser = JSON.parse(localStorage.getItem("loggedInUser"));
+        var tmp2 = data;
+        var tmp = { user: loginuser, hang: tmp2 };
 
-    var data = JSON.parse(localStorage.getItem("cart"));
-    var loginuser = JSON.parse(localStorage.getItem("loggedInUser"));
-    var tmp2 = data;
-    var tmp = { user: loginuser, hang: tmp2 };
-
-    localStorage.setItem("listOrder", JSON.stringify(tmp));
-
-    localStorage.removeItem("cart");
-    total();
+        localStorage.setItem("listOrder", JSON.stringify(tmp));
+        localStorage.removeItem("cart");
+        total();
+    }
 };
 var cart = JSON.parse(localStorage.getItem("cart"))
     ? JSON.parse(localStorage.getItem("cart"))
@@ -672,6 +675,9 @@ var total = function () {
     var list_incart = JSON.parse(localStorage.getItem("cart"));
     var position = document.querySelector(".total-price");
     var sum = 0;
+    if (list_incart.length === 0) {
+        return;
+    }
     list_incart.forEach(function (product) {
         //    console.log(JSON.parse(product.hang).Gia)
         sum =

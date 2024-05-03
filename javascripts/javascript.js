@@ -1,4 +1,3 @@
-
 var list_products_lap = JSON.parse(localStorage.getItem("list_lap"));
 var list_products_phone = JSON.parse(localStorage.getItem("list_phone"));
 
@@ -544,6 +543,91 @@ function showproduct() {
         },
     });
 }
+function showsale() {
+    var products = list_products_lap;
+    var str = '<div class="owl-carousel">';
+    for (var i = 0; i < products.length; ++i) {
+        var obj = JSON.stringify(products[i]);
+
+        if (products[i].Coupon >= 20) {
+            str += `<div class="product" style="height: 300px;">
+                <div class="card" ondblclick=\'call_funtion(${obj})\' id="#" >
+                <div style="height: 150px;"><img src="${
+                    products[i].img[0]
+                }" alt="image"> </div>
+                <div class="card--contents">
+                <div class="card--contents card__contents--title">
+                <span class="text-secondary d-block">${products[i].Brand}</span>
+                <span>${products[i].TenSP}</span>
+                </div>
+                <div class="card__contents--prices"> <span class="Giam">${formatNumberWithCommas(
+                    GiamGia(products[i].Gia, products[i].Coupon)
+                )} đ</span>
+                <span class="Goc">${formatNumberWithCommas(
+                    products[i].Gia
+                )} đ <span class="text-decoration-none ps-2 text-danger"> -${
+                products[i].Coupon
+            }%</span></span>
+                </div>
+                </div>
+                </div>
+                </div>`;
+        }
+    }
+
+    products = list_products_phone;
+    for (var i = 0; i < products.length; ++i) {
+        var obj = JSON.stringify(products[i]);
+
+        if (products[i].Coupon >= 20) {
+            str += `<div class="product" style="height: 300px;">
+                <div class="card" ondblclick=\'call_funtion(${obj})\' id="#" >
+                <div style="height: 150px;"><img src="${
+                    products[i].img[0]
+                }" alt="image"> </div>
+                <div class="card--contents">
+                <div class="card--contents card__contents--title">
+                <span class="text-secondary d-block">${products[i].Brand}</span>
+                <span>${products[i].TenSP}</span>
+                </div>
+                <div class="card__contents--prices"> <span class="Giam">${formatNumberWithCommas(
+                    GiamGia(products[i].Gia, products[i].Coupon)
+                )} đ</span>
+                <span class="Goc">${formatNumberWithCommas(
+                    products[i].Gia
+                )} đ <span class="text-decoration-none ps-2 text-danger"> -${
+                products[i].Coupon
+            }%</span></span>
+                </div>
+                </div>
+                </div>
+                </div>`;
+        }
+    }
+    str += "</div>";
+    document.querySelector(".showproducts_sale").innerHTML = str;
+
+    $(document).ready(function () {
+        $(".owl-carousel").owlCarousel();
+    });
+    $(".owl-carousel").owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: false,
+        responsive: {
+            0: {
+                items: 2,
+            },
+            600: {
+                items: 4,
+            },
+            1000: {
+                items: 5,
+            },
+        },
+    });
+}
+
 function open_cart() {
     document.getElementById("cart").style.right = 0;
 }
@@ -575,27 +659,29 @@ var add_product = (value) => {
     // console.log(JSON.stringify(tmp));
     // localStorage.setItem("listOrder", JSON.stringify(tmp));
 };
-// 
-var total = function (){
+//
+var total = function () {
     var list_incart = JSON.parse(localStorage.getItem("cart"));
-    var position = document.querySelector('.product-price');
-    var sum  = 0;
-    list_incart.forEach(function(product){
-       
-        sum = sum + GiamGia(JSON.parse(product.hang).Gia,JSON.parse(product.hang).Coupn).JSON.parse(product.soluong);
+    var position = document.querySelector(".product-price");
+    var sum = 0;
+    list_incart.forEach(function (product) {
+        sum =
+            sum +
+            GiamGia(
+                JSON.parse(product.hang).Gia,
+                JSON.parse(product.hang).Coupn
+            ).JSON.parse(product.soluong);
     });
 
     console.log(sum);
-    position.innerText =  `${formatNumberWithCommas(sum)}`;
-}
+    position.innerText = `${formatNumberWithCommas(sum)}`;
+};
 
 function add_cart() {
     var hanghoa = window.localStorage.getItem("key_product");
     add_product(hanghoa);
     total();
 }
-
-
 
 var show_user = function () {
     var userlogin = JSON.parse(localStorage.getItem("loggedInUser"));

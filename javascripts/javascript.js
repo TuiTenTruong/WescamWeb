@@ -550,28 +550,24 @@ function open_cart() {
 function close_cart() {
     document.getElementById("cart").style.right = "-100%";
 }
-// const cart = JSON.parse(localStorage.getItem("cart"))
-//     ? JSON.parse(localStorage.getItem("cart"))
-//     : [];
-// localStorage.setItem("cart", JSON.stringify(cart));
-// const add_cart = (value) => {
-//     const data = JSON.parse(localStorage.getItem("cart"));
-//     data.push(value);
-//     localStorage.setItem("cart", JSON.stringify(data));
-// };
 
-// function add_cart() {
-//     var hanghoa = JSON.parse(window.localStorage.getItem("key_product"));
-//     add_cart(hanghoa);
-//     console.log(hanghoa);
-// }
 var cart = JSON.parse(localStorage.getItem("cart"))
     ? JSON.parse(localStorage.getItem("cart"))
     : [];
 localStorage.setItem("cart", JSON.stringify(cart));
 var add_product = (value) => {
     var data = JSON.parse(localStorage.getItem("cart"));
-    data.push(value);
+    var found = 0;
+
+    for (var i = 0; i < data.length; i++) {
+        console.log(JSON.parse(data[i].hang).maSP);
+        if (JSON.parse(value).maSP === JSON.parse(data[i].hang).maSP) {
+            data[i].soluong++;
+            found = 1;
+            break;
+        }
+    }
+    if (found == 0) data.push({ hang: value, soluong: 1 });
     localStorage.setItem("cart", JSON.stringify(data));
     // var loginuser = JSON.parse(localStorage.getItem("loggedInUser"));
     // var tmp2 = data;
@@ -582,10 +578,12 @@ var add_product = (value) => {
 // 
 var total = function (){
     var list_incart = JSON.parse(localStorage.getItem("cart"));
-    var sum = document.querySelector('.product-price')
+    var position = document.querySelector('.product-price');
+    var sum  = 0;
     list_incart.forEach(function(product){
-
+        sum = sum + GiamGia(product.Gia,product.Coupon);
     });
+    position.innerText =  `${formatNumberWithCommas(sum)}`;
 }
 
 function add_cart() {

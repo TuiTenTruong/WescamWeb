@@ -581,8 +581,11 @@ var total = function (){
     var position = document.querySelector('.product-price');
     var sum  = 0;
     list_incart.forEach(function(product){
-        sum = sum + GiamGia(product.Gia,product.Coupon);
+       
+        sum = sum + GiamGia(JSON.parse(product.hang).Gia,JSON.parse(product.hang).Coupn).JSON.parse(product.soluong);
     });
+
+    console.log(sum);
     position.innerText =  `${formatNumberWithCommas(sum)}`;
 }
 

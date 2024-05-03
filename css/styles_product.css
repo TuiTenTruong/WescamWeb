@@ -108,6 +108,7 @@ div.product .card {
     margin: 0 auto;
     height: 70%;
     object-fit: cover;
+    background: none;
 }
 .img-max {
     height: 150px;

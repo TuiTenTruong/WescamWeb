@@ -18,7 +18,7 @@ var show_Out_products = function (products) {
         var img = "./images/Product/NO_Search.png";
         str = `
         <div>
-            <img class="NO_RESULT bg-light p-5" src="${img}">
+            <img class="NO_RESULT p-5" src="${img}">
             <p class="text-center fw-bold text-black p-3">Không tìm thấy kết quả</p>
         </div>`;
     }

@@ -126,7 +126,7 @@ li {
   color: bisque;
 }
 
-.sub-menu:first-child{
+.sub-menu:first-child {
   height: 30px;
 }
 
@@ -270,4 +270,16 @@ td {
   height: 27px;
   border-radius: 5px;
   margin-left: 10px;
+}
+
+.donhang {
+  padding: 5px 5px 8px 6.5px;
+  margin-bottom: 15px;
+  font-size: 17px;
+}
+.donhang .fa-list-ul {
+  padding-right: 6px;
+}
+.donhang:hover {
+  background-color: rgb(49, 111, 246);
 }

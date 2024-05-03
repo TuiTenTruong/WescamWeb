@@ -165,7 +165,9 @@
           var newRow = document.createElement("tr");
           newRow.innerHTML = `
               <td >${index + 1}</td>
-              <td class="accountId">${listOrder.maDonHang}</td>
+              <td class="accountId">${
+                listOrder.user.username + "MH" + index
+              }</td>
               <td>${listOrder.user.username}</td>
               <td>${listOrder.user.fullname}</td>
               <td>${listOrder.diachi}</td>

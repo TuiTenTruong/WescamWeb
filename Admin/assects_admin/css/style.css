@@ -228,6 +228,10 @@ th,
 td {
   text-align: center;
 }
+/* 
+.product-name {
+  text-align: left;
+} */
 
 .admin-content-main-content-product-list table th {
   background-color: black;

@@ -78,6 +78,7 @@ li {
   margin-right: 15px;
 }
 .admin-sidebar-top img {
+  cursor: pointer;
   max-width: 150px;
   width: 100%;
 }

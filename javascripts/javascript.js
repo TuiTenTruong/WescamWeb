@@ -638,14 +638,12 @@ var buy_order = function (){
     var dress = document.querySelector('#diachi');
     console.log(dress.value.trim() !=="")
     if (dress.value.trim() !==""){
-    var cart = document.getElementById('cart');
     var data = JSON.parse(localStorage.getItem("cart"));
     var loginuser = JSON.parse(localStorage.getItem("loggedInUser"));
     var tmp2 = data;
     var tmp = { user: loginuser, hang: tmp2 };
     console.log(JSON.stringify(tmp));
     localStorage.setItem("listOrder", JSON.stringify(tmp));
-
     localStorage.removeItem('cart');
     total();
     }

@@ -207,6 +207,12 @@ article {
     max-width: 1024px;
     margin: 0 auto;
 }
+.btn_remove {
+    border: none;
+    background-color: #eef5ff;
+    width: 20px;
+    padding: 0;
+}
 .cart {
     position: fixed;
     top: 0;
@@ -245,6 +251,7 @@ article {
     text-align: left;
     font-size: 14px;
 }
+
 #cart-icon {
     cursor: pointer;
 }

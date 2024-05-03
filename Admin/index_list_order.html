@@ -166,14 +166,13 @@
           newRow.innerHTML = `
               <td >${index + 1}</td>
               <td class="accountId">${listOrder.maDonHang}</td>
-              <td>${listOrder.maKH}</td>
-              <td>${listOrder.hoTen}</td>
+              <td>${listOrder.user.username}</td>
+              <td>${listOrder.user.fullname}</td>
               <td>${listOrder.diachi}</td>
-              <td>${listOrder.soDT}</td>
+              <td>${listOrder.user.phone}</td>
               
               <td>
                   <a style="background-color:green" class="edit-class" href="index_list_order_detail.html">Xem</a> 
-
               </td>
           `;
           tableBody.appendChild(newRow);

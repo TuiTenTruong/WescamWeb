@@ -779,30 +779,37 @@ function addListOrder(order) {
     listOrder1.push(order);
     localStorage.setItem("listOrder", JSON.stringify(listOrder1));
 }
-var trangthai = function(value_trangthai){
+var trangthai = function(trangthai_value){
+
+}
+var show_order = function(){
     var tble = document.querySelector('.user__table');
-console.log(tble)
+
 var listOrder = JSON.parse(localStorage.getItem("listOrder"));
+const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 listOrder.forEach(function (order, index) {
-    var newRow = document.createElement("tr");
-    newRow.innerHTML = `
-        <td >${index + 1}</td>
-        <td class="accountId">MADH0${index}</td>
-        <td>${order.user.username}</td>
-        <td>${order.user.fullname}</td>
-        <td>${JSON.parse(order.hang[0].hang).TenSP}</td>
-        <td>${formatNumberWithCommas(GiamGia(JSON.parse(order.hang[0].hang).Gia,JSON.parse(order.hang[0].hang).Coupon))}</td>
-        
-        
-        <td> 
-         
-        </td>
-
-
+ 
+    if (order.user.username ===loggedInUser.username &&order.user.password === loggedInUser.password){
+        for (i=0; i< order.hang.length;i++ ){
+            var newRow = document.createElement("tr");
+            newRow.innerHTML = `
+    <td >${i + 1}</td>
+    <td class="accountId">MADH0${index}</td>
+    <td>${JSON.parse(order.hang[i].hang).TenSP}</td>
+    <td><img src="${JSON.parse(order.hang[i].hang).img[i]}" alt="img" style="width:100%; max-width:150px;"></td>
+    <td>${formatNumberWithCommas(GiamGia(JSON.parse(order.hang[i].hang).Gia, JSON.parse(order.hang[i].hang).Coupon))}</td>
+    <td>${order.hang[i].soluong}</td>
     
-    `;
-    tble.appendChild(newRow);
+    
+    <td> 
+        <span> Chuẩn bị hàng </span>
+    </td>
+`;
+            tble.appendChild(newRow);
+        }
+    
+ }
   });
+
 }
     
-  

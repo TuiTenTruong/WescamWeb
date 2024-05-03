@@ -700,7 +700,7 @@ var total = function () {
                 class="cart-img"
             />
             <div class="detail">
-                <div class="product-name">
+                <div class="product-name product_name">
                     ${JSON.parse(product.hang).TenSP}
                 </div>
                 <div class="product-price">${formatNumberWithCommas(
@@ -715,7 +715,9 @@ var total = function () {
                     class="cart-quality"
                 />
             </div>
-            <i class="fa-solid fa-trash"></i>
+            <button class="btn_remove" onclick="removeitem(value)" value="${
+                JSON.parse(product.hang).maSP
+            }"><i class="fa-solid fa-trash"></i></button>
         </div>`;
     });
     document.querySelector(".cart-content").innerHTML = str;
@@ -739,3 +741,13 @@ var show_user = function () {
     hoten.innerText = userlogin.fullname;
     sdt.innerText = userlogin.phone;
 };
+function removeitem(btn_rm) {
+    var list_incart = JSON.parse(localStorage.getItem("cart"));
+    list_incart.forEach(function (product, index) {
+        if (JSON.parse(product.hang).maSP === btn_rm) {
+            list_incart.splice(index, 1);
+        }
+    });
+    localStorage.setItem("cart", JSON.stringify(list_incart));
+    total();
+}

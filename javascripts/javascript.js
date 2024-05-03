@@ -635,9 +635,10 @@ function close_cart() {
     document.getElementById("cart").style.right = "-100%";
 }
 var buy_order = function (){
-    
+    var dress = document.querySelector('#diachi');
+    console.log(dress.value.trim() !=="")
+    if (dress.value.trim() !==""){
     var cart = document.getElementById('cart');
-    
     var data = JSON.parse(localStorage.getItem("cart"));
     var loginuser = JSON.parse(localStorage.getItem("loggedInUser"));
     var tmp2 = data;
@@ -647,7 +648,7 @@ var buy_order = function (){
 
     localStorage.removeItem('cart');
     total();
-    
+    }
 }
 var cart = JSON.parse(localStorage.getItem("cart"))
     ? JSON.parse(localStorage.getItem("cart"))

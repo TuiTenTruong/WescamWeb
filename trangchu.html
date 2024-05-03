@@ -170,49 +170,35 @@
                 </div>
             </div>
 
-            <div class="cart" id="cart">
-                <h2>Your Cart</h2>
-                <div class="cart-content"></div>
-                <div class="Total">
-                    <div class="total-tittle">Total:</div>
-                    <div class="total-price"></div>
-                </div>
-
-                <button class="btn-buy" onclick="buy_order()">Buy Now</button>
-
-                <i
-                    onclick="close_cart()"
-                    class="fa-solid fa-x"
-                    id="close-cart"
-                ></i>
+        <div class="cart" id="cart">
+            <h2>Your Cart</h2>
+            <div class="cart-content"></div>
+            <div class="Total">
+                <div class="total-tittle">Total:</div>
+                <div class="total-price"></div>
             </div>
-        </header>
-        <main class="m-auto">
-            <div class="m-2">
-                <div
-                    id="demo"
-                    class="carousel slide w-75 m-auto"
-                    data-bs-ride="carousel"
-                >
-                    <!-- Indicators/dots -->
-                    <div class="carousel-indicators">
-                        <button
-                            type="button"
-                            data-bs-target="#demo"
-                            data-bs-slide-to="0"
-                            class="active"
-                        ></button>
-                        <button
-                            type="button"
-                            data-bs-target="#demo"
-                            data-bs-slide-to="1"
-                        ></button>
-                        <button
-                            type="button"
-                            data-bs-target="#demo"
-                            data-bs-slide-to="2"
-                        ></button>
-                    </div>
+
+
+            <i onclick="close_cart()" class="fa-solid fa-x" id="close-cart"></i>
+            
+            <div class=" m-2 border">
+                <label for="diachi" class="mb-1">Địa Chỉ Giao Hàng: </label> <br> 
+                <input type="text" name="diachi" id="diachi">
+                <label for="diachi" class="mt-1">Điền Đủ :số nhà, tên đường, xã, thành phố, tỉnh.</label>
+            </div>
+            <button class="btn-buy float-lg-end" onclick="buy_order()">Buy Now</button>
+        </div>
+
+    </header>
+    <main class="m-auto">
+        <div class="m-2">
+            <div id="demo" class="carousel slide w-75 m-auto" data-bs-ride="carousel">
+                <!-- Indicators/dots -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+                </div>
 
                     <div class="carousel-inner">
                         <div class="carousel-item active">

@@ -644,6 +644,14 @@ var buy_order = function () {
         var cart = [];
         localStorage.setItem("cart", JSON.stringify(cart));
         total();
+        var btn = document.querySelector('.buy')
+        btn.innerHTML = 'Xem Đơn Hàng';
+        var dc = document.querySelector('.diachi_an');
+        dc.classList.add('d-none');
+        console.log(dc);
+        btn.addEventListener('click',function(){
+            window.open("user.html", "_self");;
+        })
     }
 };
 var cart = JSON.parse(localStorage.getItem("cart"))
@@ -783,13 +791,20 @@ var trangthai = function (trangthai_value, indexdonhang, donhang) {
     listOrder[indexdonhang].hang[donhang].trangthai = trangthai_value;
     localStorage.setItem("listOrder", JSON.stringify(listOrder));
 };
+if (!localStorage.getItem('listHistory')){
+    var tmp =[];
+    localStorage.setItem('listHistory',JSON.stringify(tmp));
+}
 var check_accepted = function (indexlist, indexorder) {
     var listOrder = JSON.parse(localStorage.getItem("listOrder"));
-
+    var listHistory = localStorage.getItem('listHistory');
     var i = parseInt(indexlist);
     var k = parseInt(indexorder);
+   var tmp = {user :listOrder[i].user,  Ordered : istOrder[i].hang[k]};
+    listHistory.push(tmp);
     listOrder[i].hang.splice(k, 1);
     localStorage.setItem("listOrder", JSON.stringify(listOrder));
+    localStorage.setItem("listHistory", JSON.stringify(listHistory));
     location.reload();
 };
 var show_order = function () {
@@ -812,7 +827,7 @@ var show_order = function () {
                     
                 }
                 if (order.hang[i].trangthai === "Đã Nhận hàng") {
-                    hienthi = `<button type="button" onclick="check_accepted(${index},${i})">Đã nhận Hàng</button>`;
+                    hienthi = `<button type="button" class="btn btn-success" onclick="check_accepted(${index},${i})">Đã nhận Hàng</button>`;
                 }
                 var newRow = document.createElement("tr");
 
@@ -834,6 +849,47 @@ var show_order = function () {
     
     <td> 
         <span class="tt">${hienthi}</span>
+    </td>
+`;
+                tble.appendChild(newRow);
+            }
+        }
+    });
+};
+
+var show_history = function () {
+    var tble = document.querySelector(".history__table");
+
+    var listHistory = JSON.parse(localStorage.getItem("listHistory"));
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    listHistory.forEach(function (order, index) {
+       
+        if (
+            order.user.username === loggedInUser.username &&
+            order.user.password === loggedInUser.password
+        ) {
+            for (i = 0; i < order.Ordered.length; i++) {
+               
+                var newRow = document.createElement("tr");
+
+                newRow.innerHTML = `
+    <td >${i + 1}</td>
+    <td class="accountId">MADH0${i}</td>
+    <td>${JSON.parse(order.Ordered[i].Ordered).TenSP}</td>
+    <td><img src="${
+        JSON.parse(order.Ordered[i].Ordered).img[i]
+    }" alt="img" style="width:100%; max-width:150px;"></td>
+    <td>${formatNumberWithCommas(
+        GiamGia(
+            JSON.parse(order.Ordered[i].Ordered).Gia,
+            JSON.parse(order.Ordered[i].Ordered).Coupon
+        )
+    )}</td>
+    <td>${order.Ordered[i].soluong}</td>
+    
+    
+    <td> 
+        <span class="tt">Đã mua</span>
     </td>
 `;
                 tble.appendChild(newRow);

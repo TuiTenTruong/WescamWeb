@@ -173,7 +173,7 @@
                     id="close-cart"
                 ></i>
 
-                <div class="m-2 border">
+                <div class="m-2 border diachi_an">
                     <label for="diachi" class="mb-1">Địa Chỉ Giao Hàng: </label>
                     <br />
                     <input type="text" name="diachi" id="diachi" />
@@ -213,6 +213,20 @@
                 <div class="col-lg-8">
                     <h4>Đơn Hàng</h4>
                     <div class="user__table">
+                        <table>
+                            <tr>
+                                <th>STT</th>
+                                <th>Mã đơn hàng</th>
+                                <th>Tên Sản phẩm</th>
+                                <th>Hình Ảnh</th>
+                                <th>Giá Tiền</th>
+                                <th>Số Lượng</th>
+                                <th>Trạng thái</th>
+                            </tr>
+                        </table>
+                    </div>
+                    <h4>Lịch sử mua hàng</h4>
+                    <div class="history__table">
                         <table>
                             <tr>
                                 <th>STT</th>
@@ -345,6 +359,7 @@
                 show_user();
                 total();
                 show_order();
+                show_history();
             };
         </script>
     </body>

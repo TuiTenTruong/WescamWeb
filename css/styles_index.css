@@ -369,3 +369,71 @@ a {
     width: 100px;
     height: 100px;
 }
+
+
+.user_img {
+    max-width: 200px;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+.history__table table {
+    margin: 0 auto;
+    width: 100%;
+    padding: 12px 0;
+}
+
+.history__table table,
+th,
+td {
+    text-align: center;
+}
+
+.history__table table th {
+    color: black;
+    padding: 10px 0px;
+}
+
+.history__table table tr td {
+    padding-top: 10px;
+}
+.history__table table img {
+    width: 70px;
+    height: 100%;
+}
+.icon_user {
+    text-align: center;
+    font-size: 100px;
+    border-radius: 5px;
+    border: 1px solid #000;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+.lienhe {
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    z-index: 1;
+    width: 50px;
+}
+.lienhe img {
+    width: 50px;
+}
+
+/* Them  */
+#username-display {
+    cursor: pointer;
+}
+.history__table tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr 4fr 2fr 2fr 1fr 1fr;
+    margin-top: 5px;
+    border-top: 1px solid #0000000e;
+    align-items: center;
+}
+.history__table tr td img {
+    width: 100px;
+    height: 100px;
+}

@@ -1,123 +1,129 @@
-:root{
-    --success-color:#2691d9;
-    --error-color:#e7423c;
+:root {
+  --success-color: #2691d9;
+  --error-color: #e7423c;
 }
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-body{
-    background-color: #eef5ff;
+body {
+  background-color: #eef5ff;
 }
-main{
-    height: 100vh;
-    /* background: linear-gradient(120deg, #3ca7ee, #9b408f ); */
-    overflow: hidden;
-    font-family: 'Poppins';
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.container_1{
-    width: 420px;
-    /* border: none; */
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    background: white;
-    padding: 40px;
+main {
+  height: 100vh;
+  /* background: linear-gradient(120deg, #3ca7ee, #9b408f ); */
+  overflow: hidden;
+  font-family: "Poppins";
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.container_1 h1{
-    text-align: center;
+.container_1 {
+  width: 420px;
+  /* border: none; */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: white;
+  padding: 40px;
 }
 
-.form-control_1{
-    width: 100%;
-    position: relative;
-    margin-top: 15px;
+.container_1 h1 {
+  text-align: center;
 }
 
-.form-control_1 input{
-    width: 100%;
-    height: 40px;
-    font-size: 16px;
-    border: none;
-    outline: none;
-    border-bottom: 2px solid #adadad;
+.form-control_1 {
+  width: 100%;
+  position: relative;
+  margin-top: 15px;
 }
 
-.form-control_1 span{
-    position: absolute;
-    border-bottom: 3px solid var(--success-color);
-    left: 0;
-    top: 38px;
-    width: 0%;
-    transition: 0.3s;
+.form-control_1 input {
+  width: 100%;
+  height: 40px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #adadad;
+}
+
+.form-control_1 span {
+  position: absolute;
+  border-bottom: 3px solid var(--success-color);
+  left: 0;
+  top: 38px;
+  width: 0%;
+  transition: 0.3s;
 }
 
 /* kich hoat khi input focus vi input va span cung cha */
-.form-control_1 input:focus ~ span{
-    width: 100%;
+.form-control_1 input:focus ~ span {
+  width: 100%;
 }
 
-.form-control_1.error small{
-    color: var(--error-color);
+.form-control_1.error small {
+  color: var(--error-color);
 }
 
-.form-control_1.error input{
-    border-bottom: 2px solid var(--error-color);
+.form-control_1.error input {
+  border-bottom: 2px solid var(--error-color);
 }
 
 .eye {
-    position: absolute;
-    top: 12px;
-    right: 10px;
-    cursor: pointer;
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  cursor: pointer;
 }
 
 .eye i {
-    font-size: 20px;
-    color: #888;
+  font-size: 20px;
+  color: #888;
 }
 
 .eye i:hover {
-    color: #333;
+  color: #333;
 }
 
-
-
-.btn-submit_1{
-    width: 100%;
-    height: 50px;
-    border-radius: 25px;
-    border: none;
-    outline: none;
-    background: var(--success-color);
-    font-size: 18px;
-    color: white;
-    font-weight: bold;
-    margin: 25px 0;
-    transition: 0.3s;
+.btn-submit_1 {
+  width: 100%;
+  height: 50px;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  background: var(--success-color);
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+  margin: 25px 0;
+  transition: 0.3s;
 }
 
-.btn-submit_1:hover{
-    background: #08609a;
-    cursor: pointer;
+.btn-submit_1:hover {
+  background: #08609a;
+  cursor: pointer;
 }
 
-.sigup-link{
-    text-align: center;
+.sigup-link {
+  text-align: center;
 }
 
-.sigup-link a{
-    color: var(--success-color);
-    text-decoration: none;
-    cursor: pointer;
+.sigup-link a {
+  color: var(--success-color);
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.sigup-link a:hover{
-    text-decoration: underline;
+.sigup-link a:hover {
+  text-decoration: underline;
+}
+
+.home {
+  position: fixed;
+  left: 30px;
+  top: 30px;
+  font-size: 25px;
+  cursor: pointer;
 }

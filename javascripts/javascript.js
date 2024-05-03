@@ -645,7 +645,8 @@ var buy_order = function (){
     console.log(JSON.stringify(tmp));
     addListOrder(tmp);
     // localStorage.setItem("listOrder", JSON.stringify(tmp));
-    localStorage.removeItem('cart');
+    var cart = [];
+    localStorage.setItem('cart',JSON.stringify(cart));
     total();
     }
 };

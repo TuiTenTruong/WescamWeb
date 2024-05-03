@@ -779,7 +779,7 @@ function addListOrder(order) {
     listOrder1.push(order);
     localStorage.setItem("listOrder", JSON.stringify(listOrder1));
 }
-var trangthai = function(trangthai_value){
+var trangthai = function(trangthai_value, index){
 
 }
 var show_order = function(){

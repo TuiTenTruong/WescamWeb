@@ -146,7 +146,6 @@
       </div>
     </section>
     <script src="assects_admin/assets_admin/js/script.js"></script>
-    <script src="assects_admin/assets_admin/js/detail_product.js"></script>
     <script>
       function currentpage() {
         const currentPage = localStorage.getItem("currentPage");
@@ -172,7 +171,7 @@
               <td>${listOrder.user.phone}</td>
               
               <td>
-                  <a style="background-color:green" class="edit-class" href="index_list_order_detail.html">Xem</a> 
+                  <a style="background-color:green" class="edit-class" href="#"  onclick="chitiet(${index})">Xem</a> 
               </td>
           `;
           tableBody.appendChild(newRow);

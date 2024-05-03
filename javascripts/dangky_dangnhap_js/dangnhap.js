@@ -72,6 +72,7 @@ form.addEventListener("submit", function (e) {
         );
         if (user) {
             alert("Đăng nhập thành công!");
+            
 
             localStorage.setItem("loggedInUser", JSON.stringify(user));
             //dua loggedInUser để xuống hàm displayLoggedInUser lấy ra
@@ -101,7 +102,10 @@ function displayLoggedInUser() {
         logoutBtn.textContent = "Đăng xuất";
         usernameDisplay.style.display = "block"; // Hiển thị tên người dùng
         logoutBtn.style.display = "block"; // Hiển thị nút "Đăng xuất"
-
+        var cart = document.querySelector('#cart-icon');
+            if (loggedInUser.username === 'admin123' && loggedInUser.password ==='Admin@123'){
+                cart.classList.add('disabled');
+            }
         document
             .querySelector("#username-display")
             .removeAttribute("href", "./dangnhap.html");
@@ -118,7 +122,10 @@ logoutBtn.addEventListener("click", function () {
     // Hiển thị hộp thoại xác nhận
     if (logoutBtn.textContent == "Đăng xuất") {
         if (confirm("Bạn có chắc muốn đăng xuất không?")) {
+
             localStorage.removeItem("loggedInUser");
+            var cart = document.querySelector('#cart-icon');
+            cart.classList.remove('disabled');
         }
         window.location.href = "trangchu.html";
     }

@@ -197,7 +197,7 @@ section img {
 }
 #section_hotsale {
     background-image: linear-gradient(
-        to bottom right,
+        to right,
         rgba(255, 196, 4, 0.988),
         rgba(255, 104, 53, 0.919)
     );
@@ -226,12 +226,24 @@ article {
     align-items: center;
     gap: 1rem;
     margin-top: 1 rem;
+    border-top: 1px solid #00000013;
 }
 .cart-img {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     object-fit: contain;
-    padding: 10px;
+    margin: 10px;
+    padding: 3px;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid #00000092;
+}
+.cart-box input {
+    margin-top: -5px;
+    height: 20px;
+    width: 60px;
+    text-align: left;
+    font-size: 14px;
 }
 #cart-icon {
     cursor: pointer;
@@ -245,7 +257,8 @@ article {
     text-transform: uppercase;
 }
 .product-price {
-    font-weight: 500;
+    font-weight: 200;
+    font-size: 14px;
 }
 .cart-quality {
     border: 1px solid #555;

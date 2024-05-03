@@ -39,7 +39,6 @@
                         sách</a
                       >
                     </li>
-                    
                   </div>
                 </ul>
               </li>
@@ -141,12 +140,12 @@
 
         // Lấy dữ liệu từ localStorage
         var list_lap = JSON.parse(localStorage.getItem("list_lap")) || [];
-
+        lastIndex = 1;
         // Hiển thị dữ liệu trong bảng
         list_lap.forEach(function (list, index) {
           var newRow = document.createElement("tr");
           newRow.innerHTML = `
-              <td >${index + 1}</td>
+              <td >${index + lastIndex}</td>
               <td class="productID">${list.maSP}</td>
               <td><img src="${list.img[0]}" alt="img"></td>
               <td class="product-name">${list.TenSP}</td>
@@ -158,7 +157,6 @@
               </td>
           `;
           tableBody.appendChild(newRow);
-          lastIndex = index + 1;
         });
 
         console.log(lastIndex);
@@ -190,7 +188,7 @@
         });
       });
       // <a class="edit-class" href="index_add_account.html">Sửa</a> |
-      // xóa sản phẩm
+      // xóa tài khoản
       document.addEventListener("DOMContentLoaded", function () {
         var deleteButtons = document.querySelectorAll(".delete-class");
 
@@ -200,16 +198,38 @@
 
             var row = e.target.closest("tr");
             var productID = row.querySelector(".productID").textContent;
-            var list_lap = JSON.parse(localStorage.getItem("list_lap")) || [];
-            var index = list_lap.find(function (maSP) {
-              return list_lap.maSP === productID.trim();
-            });
+            const list_lap = JSON.parse(localStorage.getItem("list_lap")) || [];
+            var indexs = -1;
 
-            if (index !== -1) {
+            for (let i = 0; i < list_lap.length; i++) {
+              if (list_lap[i].maSP == productID) {
+                indexs = i;
+              }
+            }
+
+            if (indexs !== -1) {
               console.log("hello");
-              list_lap.splice(index, 1); // Xóa người dùng khỏi mảng
+              list_lap.splice(indexs, 1); // Xóa người dùng khỏi mảng
               localStorage.setItem("list_lap", JSON.stringify(list_lap));
             }
+
+            //xoa phone
+            const list_phone =
+              JSON.parse(localStorage.getItem("list_phone")) || [];
+            var indexs = -1;
+
+            for (let i = 0; i < list_phone.length; i++) {
+              if (list_phone[i].maSP == productID) {
+                indexs = i;
+              }
+            }
+
+            if (indexs !== -1) {
+              console.log("hello");
+              list_phone.splice(indexs, 1); // Xóa người dùng khỏi mảng
+              localStorage.setItem("list_phone", JSON.stringify(list_phone));
+            }
+
             row.parentNode.removeChild(row); // Xóa hàng khỏi bảng
             location.reload();
           });

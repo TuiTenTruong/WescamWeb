@@ -139,8 +139,7 @@ function showsearch() {
     if (found === 0) {
         for (var i = 0; i < list_products_phone.length; i++) {
             if (
-                list_products_phone[i].Brand.toLowerCase().includes(
-                    kw.toLowerCase()
+                list_products_phone[i].Brand.toLowerCase().includes(kw.toLowerCase()
                 )
             ) {
                 type = "phone";
@@ -621,7 +620,8 @@ function showsale() {
         },
     });
 }
-localStorage.setItem("currentPage", location.href);
+if (!location.href.includes("index_list"))
+    localStorage.setItem("currentPage", location.href);
 function open_cart() {
     document.getElementById("cart").style.right = 0;
 }
@@ -711,7 +711,7 @@ var total = function () {
                         class="cart-quality"
                         min="1" 
                         max="99"
-                        onchange = "check_input(); set_soluong(value,${index})"
+                        onchange = "set_soluong(value,${index})"
                     />
                 </div>
                 <button class="btn_remove" onclick="removeitem(value)" value="${
@@ -724,7 +724,7 @@ var total = function () {
     document.querySelector(".cart-content").innerHTML = str;
 };
 function set_soluong(value, index) {
-    console.log(value);
+    if (value <= 0) value = 1;
     var list_incart = JSON.parse(localStorage.getItem("cart"));
     // list_incart.forEach(function (product, index) {
     //     if (JSON.parse(product.hang).maSP === maSP) {
@@ -732,15 +732,12 @@ function set_soluong(value, index) {
     //     }
     // });
     localStorage.setItem("cart", JSON.stringify(list_incart));
+    total();
 }
 function add_cart() {
     var hanghoa = window.localStorage.getItem("key_product");
     add_product(hanghoa);
     total();
-}
-function check_input() {
-    var input = document.querySelector(".cart-quality");
-    if (input.value <= 0) input.value = 1;
 }
 var show_user = function () {
     var userlogin = JSON.parse(localStorage.getItem("loggedInUser"));
@@ -780,15 +777,23 @@ function addListOrder(order) {
     listOrder1.push(order);
     localStorage.setItem("listOrder", JSON.stringify(listOrder1));
 }
-var trangthai = function (trangthai_value,indexdonhang,donhang) {
+var trangthai = function (trangthai_value, indexdonhang, donhang) {
     var listOrder = JSON.parse(localStorage.getItem("listOrder"));
     listOrder[indexdonhang].hang[donhang].trangthai = trangthai_value;
     localStorage.setItem("listOrder", JSON.stringify(listOrder));
 };
+var check_accepted = function(indexlist, indexorder){
+    var listOrder = JSON.parse(localStorage.getItem("listOrder"));
 
+    var i = parseInt(indexlist);
+    var k = parseInt(indexorder);
+    listOrder[i].hang.splice(k,1);
+    localStorage.setItem("listOrder", JSON.stringify(listOrder));
+    location.reload();
+}
 var show_order = function () {
     var tble = document.querySelector(".user__table");
-   
+
     var listOrder = JSON.parse(localStorage.getItem("listOrder"));
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
     listOrder.forEach(function (order, index) {
@@ -796,14 +801,20 @@ var show_order = function () {
             order.user.username === loggedInUser.username &&
             order.user.password === loggedInUser.password
         ) {
+           
             for (i = 0; i < order.hang.length; i++) {
-                if (order.hang[i].trangthai === undefined){
+                if (order.hang[i].trangthai === undefined) {
                     order.hang[i].trangthai = "Chuẩn bị hàng";
+                  hienthi = "Chuẩn bị hàng";
+                }
+                if (order.hang[i].trangthai === "Đã Nhận hàng"){
+                    hienthi = `<button type="button" onclick="check_accepted(${index},${i})">Đã nhận Hàng</button>`;
                 }
                 var newRow = document.createElement("tr");
+             
                 newRow.innerHTML = `
     <td >${i + 1}</td>
-    <td class="accountId">MADH0${index}</td>
+    <td class="accountId">MADH0${i}</td>
     <td>${JSON.parse(order.hang[i].hang).TenSP}</td>
     <td><img src="${
         JSON.parse(order.hang[i].hang).img[i]
@@ -818,7 +829,7 @@ var show_order = function () {
     
     
     <td> 
-        <span class="tt">${order.hang[i].trangthai}</span>
+        <span class="tt">${hienthi}</span>
     </td>
 `;
                 tble.appendChild(newRow);

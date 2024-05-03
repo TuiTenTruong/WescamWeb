@@ -42,22 +42,20 @@ var show_Out_products = function (products) {
         var obj = JSON.stringify(products[i]);
         str += `<div class="col-12 product col-xl-3  col-lg-3 col-md-4 col-sm-6 p-0">
                 <div class="card" onclick=\'call_funtion(${obj})\' id="#" >
-                <div class="img-max"><img src="${
-                    products[i].img[0]
-                }" alt="image"> </div>
+                <div class="img-max"><img src="${products[i].img[0]
+            }" alt="image"> </div>
                 <div class="card--contents">
                 <div class="card--contents card__contents--title">
                 <span class="text-secondary d-block">${products[i].Brand}</span>
                 <span>${products[i].TenSP}</span>
                 </div>
                 <div class="card__contents--prices"> <span class="Giam">${formatNumberWithCommas(
-                    GiamGia(products[i].Gia, products[i].Coupon)
-                )} đ</span>
+                GiamGia(products[i].Gia, products[i].Coupon)
+            )} đ</span>
                 <span class="Goc">${formatNumberWithCommas(
-                    products[i].Gia
-                )} đ <span class="text-decoration-none ps-2 text-danger"> -${
-            products[i].Coupon
-        }%</span></span>
+                products[i].Gia
+            )} đ <span class="text-decoration-none ps-2 text-danger"> -${products[i].Coupon
+            }%</span></span>
                 </div>
                 </div>
                 </div>
@@ -202,9 +200,9 @@ var s_priese = function (string, products) {
                     for (var i = 0; i < products.length; i++) {
                         if (
                             GiamGia(products[i].Gia, products[i].Coupon) >=
-                                10000000 &&
+                            10000000 &&
                             GiamGia(products[i].Gia, products[i].Coupon) <
-                                15000000
+                            15000000
                         )
                             list_tmp.push(products[i]);
                     }
@@ -213,9 +211,9 @@ var s_priese = function (string, products) {
                     for (var i = 0; i < products.length; i++) {
                         if (
                             GiamGia(products[i].Gia, products[i].Coupon) >=
-                                15000000 &&
+                            15000000 &&
                             GiamGia(products[i].Gia, products[i].Coupon) <
-                                20000000
+                            20000000
                         )
                             list_tmp.push(products[i]);
                     }
@@ -224,9 +222,9 @@ var s_priese = function (string, products) {
                     for (var i = 0; i < products.length; i++) {
                         if (
                             GiamGia(products[i].Gia, products[i].Coupon) >=
-                                20000000 &&
+                            20000000 &&
                             GiamGia(products[i].Gia, products[i].Coupon) <
-                                25000000
+                            25000000
                         )
                             list_tmp.push(products[i]);
                     }
@@ -462,22 +460,20 @@ function showproduct() {
 
         str += `<div class="product" style="height: 300px;">
                 <div class="card" ondblclick=\'call_funtion(${obj})\' id="#" >
-                <div style="height: 150px;"><img src="${
-                    products[i].img[0]
-                }" alt="image"> </div>
+                <div style="height: 150px;"><img src="${products[i].img[0]
+            }" alt="image"> </div>
                 <div class="card--contents">
                 <div class="card--contents card__contents--title">
                 <span class="text-secondary d-block">${products[i].Brand}</span>
                 <span>${products[i].TenSP}</span>
                 </div>
                 <div class="card__contents--prices"> <span class="Giam">${formatNumberWithCommas(
-                    GiamGia(products[i].Gia, products[i].Coupon)
-                )} đ</span>
+                GiamGia(products[i].Gia, products[i].Coupon)
+            )} đ</span>
                 <span class="Goc">${formatNumberWithCommas(
-                    products[i].Gia
-                )} đ <span class="text-decoration-none ps-2 text-danger"> -${
-            products[i].Coupon
-        }%</span></span>
+                products[i].Gia
+            )} đ <span class="text-decoration-none ps-2 text-danger"> -${products[i].Coupon
+            }%</span></span>
                 </div>
                 </div>
                 </div>
@@ -493,22 +489,20 @@ function showproduct() {
 
         str += `<div class="product" style="height: 300px;">
                 <div class="card" ondblclick=\'call_funtion(${obj})\' id="#" >
-                <div style="height: 150px;"><img src="${
-                    products[i].img[0]
-                }" alt="image"> </div>
+                <div style="height: 150px;"><img src="${products[i].img[0]
+            }" alt="image"> </div>
                 <div class="card--contents">
                 <div class="card--contents card__contents--title">
                 <span class="text-secondary d-block">${products[i].Brand}</span>
                 <span>${products[i].TenSP}</span>
                 </div>
                 <div class="card__contents--prices"> <span class="Giam">${formatNumberWithCommas(
-                    GiamGia(products[i].Gia, products[i].Coupon)
-                )} đ</span>
+                GiamGia(products[i].Gia, products[i].Coupon)
+            )} đ</span>
                 <span class="Goc">${formatNumberWithCommas(
-                    products[i].Gia
-                )} đ <span class="text-decoration-none ps-2 text-danger"> -${
-            products[i].Coupon
-        }%</span></span>
+                products[i].Gia
+            )} đ <span class="text-decoration-none ps-2 text-danger"> -${products[i].Coupon
+            }%</span></span>
                 </div>
                 </div>
                 </div>
@@ -546,8 +540,7 @@ function showsale() {
         if (products[i].Coupon >= 20) {
             str += `<div class="product" style="height: 300px;">
                 <div class="card" ondblclick=\'call_funtion(${obj})\' id="#" >
-                <div style="height: 150px;"><img src="${
-                    products[i].img[0]
+                <div style="height: 150px;"><img src="${products[i].img[0]
                 }" alt="image"> </div>
                 <div class="card--contents">
                 <div class="card--contents card__contents--title">
@@ -559,9 +552,8 @@ function showsale() {
                 )} đ</span>
                 <span class="Goc">${formatNumberWithCommas(
                     products[i].Gia
-                )} đ <span class="text-decoration-none ps-2 text-danger"> -${
-                products[i].Coupon
-            }%</span></span>
+                )} đ <span class="text-decoration-none ps-2 text-danger"> -${products[i].Coupon
+                }%</span></span>
                 </div>
                 </div>
                 </div>
@@ -576,8 +568,7 @@ function showsale() {
         if (products[i].Coupon >= 20) {
             str += `<div class="product" style="height: 300px;">
                 <div class="card" ondblclick=\'call_funtion(${obj})\' id="#" >
-                <div style="height: 150px;"><img src="${
-                    products[i].img[0]
+                <div style="height: 150px;"><img src="${products[i].img[0]
                 }" alt="image"> </div>
                 <div class="card--contents">
                 <div class="card--contents card__contents--title">
@@ -589,9 +580,8 @@ function showsale() {
                 )} đ</span>
                 <span class="Goc">${formatNumberWithCommas(
                     products[i].Gia
-                )} đ <span class="text-decoration-none ps-2 text-danger"> -${
-                products[i].Coupon
-            }%</span></span>
+                )} đ <span class="text-decoration-none ps-2 text-danger"> -${products[i].Coupon
+                }%</span></span>
                 </div>
                 </div>
                 </div>
@@ -643,15 +633,16 @@ var buy_order = function () {
         // localStorage.setItem("listOrder", JSON.stringify(tmp));
         var cart = [];
         localStorage.setItem("cart", JSON.stringify(cart));
-        total();
+
         var btn = document.querySelector('.buy')
         btn.innerHTML = 'Xem Đơn Hàng';
         var dc = document.querySelector('.diachi_an');
         dc.classList.add('d-none');
         console.log(dc);
-        btn.addEventListener('click',function(){
+        btn.addEventListener('click', function () {
             window.open("user.html", "_self");;
-        })
+        });
+        total();
     }
 };
 var cart = JSON.parse(localStorage.getItem("cart"))
@@ -693,7 +684,7 @@ var total = function () {
                     JSON.parse(product.hang).Gia,
                     JSON.parse(product.hang).Coupon
                 ) *
-                    JSON.parse(product.soluong);
+                JSON.parse(product.soluong);
         });
         position.innerText = ` ${formatNumberWithCommas(sum)} đ`;
         var str = "";
@@ -709,11 +700,11 @@ var total = function () {
                         ${JSON.parse(product.hang).TenSP}
                     </div>
                     <div class="product-price">${formatNumberWithCommas(
-                        GiamGia(
-                            JSON.parse(product.hang).Gia,
-                            JSON.parse(product.hang).Coupon
-                        )
-                    )}</div>
+                GiamGia(
+                    JSON.parse(product.hang).Gia,
+                    JSON.parse(product.hang).Coupon
+                )
+            )}</div>
                     <input
                         type="number"
                         value="${JSON.parse(product.soluong)}"
@@ -723,8 +714,7 @@ var total = function () {
                         onchange = "set_soluong(value,${index})"
                     />
                 </div>
-                <button class="btn_remove" onclick="removeitem(value)" value="${
-                    JSON.parse(product.hang).maSP
+                <button class="btn_remove" onclick="removeitem(value)" value="${JSON.parse(product.hang).maSP
                 }"><i class="fa-solid fa-trash"></i></button>
             </div>`;
         });
@@ -791,109 +781,117 @@ var trangthai = function (trangthai_value, indexdonhang, donhang) {
     listOrder[indexdonhang].hang[donhang].trangthai = trangthai_value;
     localStorage.setItem("listOrder", JSON.stringify(listOrder));
 };
-if (!localStorage.getItem('listHistory')){
-    var tmp =[];
-    localStorage.setItem('listHistory',JSON.stringify(tmp));
+if (!localStorage.getItem('listHistory')) {
+    var tmp = [];
+    localStorage.setItem('listHistory', JSON.stringify(tmp));
 }
 var check_accepted = function (indexlist, indexorder) {
     var listOrder = JSON.parse(localStorage.getItem("listOrder"));
-    var listHistory = localStorage.getItem('listHistory');
+    var listHistory = JSON.parse(localStorage.getItem('listHistory'));
     var i = parseInt(indexlist);
     var k = parseInt(indexorder);
-   var tmp = {user :listOrder[i].user,  Ordered : istOrder[i].hang[k]};
+    var tmp = { user: listOrder[i].user, Ordered: listOrder[i].hang[k] };
     listHistory.push(tmp);
-    listOrder[i].hang.splice(k, 1);
+    listOrder[i].hang[k].trangthai ="Giao hàng thành công";
     localStorage.setItem("listOrder", JSON.stringify(listOrder));
     localStorage.setItem("listHistory", JSON.stringify(listHistory));
     location.reload();
 };
 var show_order = function () {
     var tble = document.querySelector(".user__table");
-
+    var check = 0;
     var listOrder = JSON.parse(localStorage.getItem("listOrder"));
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
     listOrder.forEach(function (order, index) {
-       
-        if (
-            order.user.username === loggedInUser.username &&
-            order.user.password === loggedInUser.password
-        ) {
-            for (i = 0; i < order.hang.length; i++) {
-                var hienthi =order.hang[i].trangthai;
+
+        if (order.user.username === loggedInUser.username &&
+            order.user.password === loggedInUser.password ) {
+            for (i = 0; i < order.hang.length; i++) { 
+                var hienthi = order.hang[i].trangthai;
+                if (order.hang[i].trangthai == "Giao hàng thành công"){
+                    continue;
+                }
                 if (order.hang[i].trangthai == null) {
                     order.hang[i].trangthai = "Chuẩn bị hàng";
                     hienthi = "Chuẩn bị hàng";
-                    
-                    
                 }
-                if (order.hang[i].trangthai === "Đã Nhận hàng") {
-                    hienthi = `<button type="button" class="btn btn-success" onclick="check_accepted(${index},${i})">Đã nhận Hàng</button>`;
+                if (order.hang[i].trangthai === "Đã giao hàng") {
+                    hienthi = `<button type="button" class="btn btn-warning" onclick="check_accepted(${index},${i})">Đã nhận Đơn Hàng</button>`;
                 }
+                check++; console.log(check)
                 var newRow = document.createElement("tr");
-
-                newRow.innerHTML = `
-    <td >${i + 1}</td>
-    <td class="accountId">MADH0${i}</td>
-    <td>${JSON.parse(order.hang[i].hang).TenSP}</td>
-    <td><img src="${
-        JSON.parse(order.hang[i].hang).img[i]
-    }" alt="img" style="width:100%; max-width:150px;"></td>
-    <td>${formatNumberWithCommas(
-        GiamGia(
-            JSON.parse(order.hang[i].hang).Gia,
-            JSON.parse(order.hang[i].hang).Coupon
-        )
-    )}</td>
-    <td>${order.hang[i].soluong}</td>
-    
-    
-    <td> 
-        <span class="tt">${hienthi}</span>
-    </td>
-`;
+               
+                newRow.innerHTML = ` <td >${i + 1}</td>
+                                    <td class="accountId">MADH0${i}</td>
+                                    <td>${JSON.parse(order.hang[i].hang).TenSP}</td>
+                                    <td><img src="${JSON.parse(order.hang[i].hang).img[0]
+                                                    }" alt="img" style="width:100%; max-width:150px;"></td>
+                                    <td>${formatNumberWithCommas(
+                                                        GiamGia(
+                                                            JSON.parse(order.hang[i].hang).Gia,
+                                                            JSON.parse(order.hang[i].hang).Coupon
+                                                        )
+                                                    )}</td>
+                                    <td>${order.hang[i].soluong}</td>
+                                    
+                                    
+                                    <td> 
+                                        <span class="tt">${hienthi}</span>
+                                    </td>`;
                 tble.appendChild(newRow);
             }
         }
     });
+
+    if (check == 0 ){
+        var newRow = document.createElement("tr");
+        newRow.innerHTML = `<td></td><td></td><td></td><td><img id="img_rong" class="d-block" src="/images/index/donhangrong.png" alt=""></td>
+                            <td></td><td></td><td></td>`
+        tble.appendChild(newRow);
+    }
 };
+
+
+
 
 var show_history = function () {
     var tble = document.querySelector(".history__table");
-
     var listHistory = JSON.parse(localStorage.getItem("listHistory"));
+    var check = 0;
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
     listHistory.forEach(function (order, index) {
-       
-        if (
-            order.user.username === loggedInUser.username &&
-            order.user.password === loggedInUser.password
-        ) {
-            for (i = 0; i < order.Ordered.length; i++) {
-               
+        
+        if (order.user.username === loggedInUser.username && order.user.password === loggedInUser.password) {
                 var newRow = document.createElement("tr");
-
+                check++; console.log(check)
                 newRow.innerHTML = `
-    <td >${i + 1}</td>
-    <td class="accountId">MADH0${i}</td>
-    <td>${JSON.parse(order.Ordered[i].Ordered).TenSP}</td>
-    <td><img src="${
-        JSON.parse(order.Ordered[i].Ordered).img[i]
-    }" alt="img" style="width:100%; max-width:150px;"></td>
-    <td>${formatNumberWithCommas(
-        GiamGia(
-            JSON.parse(order.Ordered[i].Ordered).Gia,
-            JSON.parse(order.Ordered[i].Ordered).Coupon
-        )
-    )}</td>
-    <td>${order.Ordered[i].soluong}</td>
-    
-    
-    <td> 
-        <span class="tt">Đã mua</span>
-    </td>
-`;
+                                    <td >${index+1}</td>
+                                    <td class="accountId">MADH0${i}</td>
+                                    <td>${JSON.parse(order.Ordered.hang).TenSP}</td>
+                                    <td><img src="${JSON.parse(order.Ordered.hang).img[0]
+                                                    }" alt="img" style="width:100%; max-width:150px;"></td>
+                                    <td>${formatNumberWithCommas(
+                                                        GiamGia(
+                                                            JSON.parse(order.Ordered.hang).Gia,
+                                                            JSON.parse(order.Ordered.hang).Coupon
+                                                        )
+                                                    )}</td>
+                                    <td>${order.Ordered.soluong}</td>
+                                    
+                                    
+                                    <td> 
+                                        <span class="tt">Đã mua</span>
+                                    </td>`;
+                    
                 tble.appendChild(newRow);
             }
+        
+    
+        });
+        if (check == 0 ){
+            var newRow = document.createElement("tr");
+            newRow.innerHTML = `<td></td><td></td><td></td><td><img id="img_rong" class="d-block" src="/images/index/donhangrong.png" alt=""></td>
+                                <td></td><td></td><td></td>`
+            tble.appendChild(newRow);
         }
-    });
 };

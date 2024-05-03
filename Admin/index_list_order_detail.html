@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WesCam_Admin</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet" href="/bootstrap/bootstrap.min.css" />
+  <script src="/javascripts/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="assects_admin/css/style.css" />
 </head>
 
@@ -145,11 +147,24 @@
           
         if (index === parseInt(i)) {
          
+          var tmp = "";
           for (k = 0; k < order.hang.length; k++) {
-            if (order.hang[k].trangthai === undefined){
+            var status = order.hang[k].trangthai;
+           
+            if (order.hang[k].trangthai == null){
                     order.hang[k].trangthai = "Chuẩn bị hàng";
-                  
+                    status = "Chuẩn bị hàng";
                 }
+                tmp = `<select name="brand" class="brand_sp trangthai-select" onchange="trangthai(this.value,${index},${k})">
+                  <option value="${status}">${status}</option>
+                      <option value="Chuẩn bị hàng">Chuẩn bị hàng</option>
+                      <option value="Đang trên đường giao hàng">Đang trên đường giao hàng</option>
+                      <option value="Đã giao hàng">Đã giao hàng</option>
+                  </select>`;
+
+                if (order.hang[k].trangthai == "Giao hàng thành công"){
+                    tmp = `<a  class="btn btn-success" href="#">Giao hàng thành công</a>`
+                } 
             var newRow = document.createElement("tr");
             newRow.innerHTML = `
               <td >${k + 1}</td>
@@ -162,14 +177,7 @@
               <td>${order.hang[k].soluong}</td>
               
               <td> 
-                <select name="brand" class="brand_sp trangthai-select" onchange="trangthai(this.value,${index},${k})">
-
-                  <option value="${order.hang[k].trangthai}">${order.hang[k].trangthai}</option>
-                  <option value="Chuẩn bị hàng">Chuẩn bị hàng</option>
-                  <option value="Đang trên đường giao hàng">Đang trên đường giao hàng</option>
-                      <option value="Đã giao hàng">Đã giao hàng</option>
-                      <option value="Đã Nhận hàng">Đã Nhận hàng</option>
-                  </select>
+                ${tmp}
               </td>
 
 

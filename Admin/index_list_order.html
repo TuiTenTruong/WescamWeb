@@ -159,11 +159,7 @@
 
         // Hiển thị dữ liệu trong bảng
         listOrder.forEach(function (order, index) {
-          var tmp =`<a  class="btn btn-success" href="#"  onclick="chitiet(${index})">Xem chi tiết</a>`;
-          if (order.hang.length== 0){
-           
-              tmp = `<a  class="btn btn-secondary  disabled" href="#">Hoàn thành</a> `;
-          }
+          
           var newRow = document.createElement("tr");
           newRow.innerHTML = `
               <td >${index + 1}</td>
@@ -174,7 +170,7 @@
               <td>${order.user.phone}</td>
               
               <td >
-                  ${tmp}
+                <a  class="btn btn-success" href="#"  onclick="chitiet(${index})">Xem chi tiết</a>
               </td>
           `;
           tableBody.appendChild(newRow);

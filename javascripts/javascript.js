@@ -631,24 +631,20 @@ localStorage.setItem("currentPage", location.href);
 function open_cart() {
     document.getElementById("cart").style.right = 0;
 }
-function close_cart() {
-    document.getElementById("cart").style.right = "-100%";
-}
-var buy_order = function (){
-    
-    var cart = document.getElementById('cart');
-    
+
+var buy_order = function () {
+    var cart = document.getElementById("cart");
+
     var data = JSON.parse(localStorage.getItem("cart"));
     var loginuser = JSON.parse(localStorage.getItem("loggedInUser"));
     var tmp2 = data;
     var tmp = { user: loginuser, hang: tmp2 };
-    console.log(JSON.stringify(tmp));
+
     localStorage.setItem("listOrder", JSON.stringify(tmp));
 
-    localStorage.removeItem('cart');
+    localStorage.removeItem("cart");
     total();
-    
-}
+};
 var cart = JSON.parse(localStorage.getItem("cart"))
     ? JSON.parse(localStorage.getItem("cart"))
     : [];
@@ -670,7 +666,6 @@ var add_product = (value) => {
     }
     if (found == 0) data.push({ hang: value, soluong: 1 });
     localStorage.setItem("cart", JSON.stringify(data));
-    
 };
 //
 var total = function () {

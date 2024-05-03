@@ -662,16 +662,46 @@ var add_product = (value) => {
 //
 var total = function () {
     var list_incart = JSON.parse(localStorage.getItem("cart"));
-    var position = document.querySelector('.total-price');
-    var sum  = 0;
-    list_incart.forEach(function(product){
-    //    console.log(JSON.parse(product.hang).Gia)
-        sum = sum + GiamGia(JSON.parse(product.hang).Gia,JSON.parse(product.hang).Coupon)*JSON.parse(product.soluong);
-        
+    var position = document.querySelector(".total-price");
+    var sum = 0;
+    list_incart.forEach(function (product) {
+        //    console.log(JSON.parse(product.hang).Gia)
+        sum =
+            sum +
+            GiamGia(
+                JSON.parse(product.hang).Gia,
+                JSON.parse(product.hang).Coupon
+            ) *
+                JSON.parse(product.soluong);
     });
     console.log(position);
-    position.innerText =  `${formatNumberWithCommas(sum)}`;
-}
+    position.innerText = ` ${formatNumberWithCommas(sum)} đ`;
+    var str = "";
+    list_incart.forEach(function (product) {
+        str += `<div class="cart-box">
+            <img
+                src="${JSON.parse(product.hang).img[0]}"
+                alt=""
+                class="cart-img"
+            />
+            <div class="detail">
+                <div class="product-name">
+                    ${JSON.parse(product.hang).TenSP}
+                </div>
+                <div class="product-price">${GiamGia(
+                    JSON.parse(product.hang).Gia,
+                    JSON.parse(product.hang).Coupon
+                )}</div>
+                <input
+                    type="number"
+                    value="${JSON.parse(product.soluong)}"
+                    class="cart-quality"
+                />
+            </div>
+            <i class="fa-solid fa-trash"></i>
+        </div>`;
+    });
+};
 
 function add_cart() {
     var hanghoa = window.localStorage.getItem("key_product");

@@ -138,13 +138,15 @@
       }
     </script>
     <script>
+      //index
+      var lastIndex = 0;
       //hiển thị lap top
       document.addEventListener("DOMContentLoaded", function () {
         var tableBody = document.querySelector("#product-table tbody");
 
         // Lấy dữ liệu từ localStorage
         var list_lap = JSON.parse(localStorage.getItem("list_lap")) || [];
-        console.log(list_lap);
+
         // Hiển thị dữ liệu trong bảng
         list_lap.forEach(function (list, index) {
           var newRow = document.createElement("tr");
@@ -161,7 +163,10 @@
               </td>
           `;
           tableBody.appendChild(newRow);
+          lastIndex = index + 1;
         });
+
+        console.log(lastIndex);
       });
 
       //hiển thị điện thoại
@@ -170,12 +175,12 @@
 
         // Lấy dữ liệu từ localStorage
         var list_phone = JSON.parse(localStorage.getItem("list_phone")) || [];
-        console.log(list_phone);
+
         // Hiển thị dữ liệu trong bảng
         list_phone.forEach(function (list, index) {
           var newRow = document.createElement("tr");
           newRow.innerHTML = `
-              <td >${index + 1}</td>
+              <td >${index + lastIndex}</td>
               <td class="productID">${list.maSP}</td>
               <td><img src="${list.img[0]}" alt="img"></td>
               <td>${list.TenSP}</td>

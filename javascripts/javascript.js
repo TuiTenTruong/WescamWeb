@@ -752,3 +752,5 @@ function removeitem(btn_rm) {
     localStorage.setItem("cart", JSON.stringify(list_incart));
     total();
 }
+
+

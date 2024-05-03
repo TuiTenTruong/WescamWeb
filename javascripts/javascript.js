@@ -645,7 +645,8 @@ var buy_order = function () {
         console.log(JSON.stringify(tmp));
         addListOrder(tmp);
         // localStorage.setItem("listOrder", JSON.stringify(tmp));
-        localStorage.removeItem("cart");
+        var cart = [];
+        localStorage.setItem("cart", JSON.stringify(cart));
         total();
     }
 };
@@ -768,14 +769,18 @@ function removeitem(btn_rm) {
 }
 
 //Đơn hàng
+
+var tmp = [];
+console.log(tmp.length === 0);
 var listOrder = JSON.parse(localStorage.getItem("listOrder"))
     ? JSON.parse(localStorage.getItem("listOrder"))
     : [];
 localStorage.setItem("listOrder", JSON.stringify(listOrder));
 
 function addListOrder(order) {
-    var listOrder = JSON.parse(localStorage.getItem("listOrder"));
+    var listOrder1 = JSON.parse(localStorage.getItem("listOrder"));
+
     listOrder.push(order);
-    localStorage.setItem("listOrder", JSON.stringify(listOrder));
-    console.log(listOrder);
+    localStorage.setItem("listOrder", JSON.stringify(listOrder1));
+    console.log(listOrder1);
 }

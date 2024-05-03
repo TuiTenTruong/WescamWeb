@@ -1,232 +1,348 @@
 <!DOCTYPE html>
 <html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="shortcut icon"
+            href="./images/favicon_io/android-chrome-192x192.png"
+            type="image/x-icon"
+        />
+        <title></title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" href="./images/favicon_io/android-chrome-192x192.png" type="image/x-icon" />
-  <title></title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./images/favicon_io/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="./images/favicon_io/favicon-16x16.png"
+        />
+        <!-- <link rel="stylesheet" href="reset.css" /> -->
+        <link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+        <script src="javascripts/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="./css/styles_index.css" />
+    </head>
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon_io/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon_io/favicon-16x16.png" />
-  <!-- <link rel="stylesheet" href="reset.css" /> -->
-  <link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
-  <script src="javascripts/bootstrap.bundle.min.js"></script>
-  <link rel="stylesheet" href="./css/styles_index.css" />
-</head>
+    <body>
+        <header>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img
+                                class="logo"
+                                onclick="window.open('trangchu.html','_self')"
+                                src="./images/index/logo.png"
+                            />
+                        </div>
+                        <div class="col-md-5 m-auto sebox">
+                            <form
+                                class="sbox"
+                                action="Search.html"
+                                method="get"
+                                name="form_search"
+                            >
+                                <input
+                                    onkeypress="kt()"
+                                    class="stext"
+                                    type="text"
+                                    name="keywords"
+                                    placeholder="Tìm kiếm sản phẩm..."
+                                />
+                                <a
+                                    class="sbutton"
+                                    type="submit"
+                                    href="javascript:void(0);"
+                                >
+                                    <i
+                                        onclick="search()"
+                                        class="fa fa-search"
+                                    ></i>
+                                </a>
+                            </form>
+                        </div>
+                        <div class="col-md-4 d-md-flex justify-content-center">
+                            <nav class="navbar navbar-expand-sm">
+                                <button
+                                    class="navbar-toggler"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#mynavbar"
+                                >
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div
+                                    class="collapse navbar-collapse"
+                                    id="mynavbar"
+                                >
+                                    <ul class="navbar-nav me-auto">
+                                        <li class="nav-item">
+                                            <div class="dropdown">
+                                                <div
+                                                    type="button"
+                                                    class="text-secondary mt-2 ms-2"
+                                                    data-bs-toggle="dropdown"
+                                                >
+                                                    Sản Phẩm
+                                                </div>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a
+                                                            class="dropdown-item"
+                                                            onclick="open_product('laptop')"
+                                                            href="#"
+                                                            >Laptop</a
+                                                        >
+                                                    </li>
+                                                    <li>
+                                                        <a
+                                                            class="dropdown-item"
+                                                            onclick="open_product('phone')"
+                                                            href="#"
+                                                            >Điện Thoại</a
+                                                        >
+                                                    </li>
+                                                    <li>
+                                                        <a
+                                                            class="dropdown-item"
+                                                            onclick="window.alert('Chức năng đang bảo trì.')"
+                                                            href="#"
+                                                            >Linh Kiện</a
+                                                        >
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
 
-<body class="bg-light">
-  <header>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="bg row">
-          <div class="col-md-3">
-            <img class="logo" onclick="window.open('trangchu.html','_self')" src="./images/index/logo.png" />
-          </div>
-          <div class="col-md-5 m-auto sebox">
-            <form class="sbox" action="Search.html" method="get" name="form_search">
-              <input onkeypress="kt()" class="stext" type="text" name="keywords" placeholder="Tìm kiếm sản phẩm..." />
-              <a class="sbutton" type="submit" href="javascript:void(0);">
-                <i onclick="search()" class="fa fa-search"></i>
-              </a>
-            </form>
-          </div>
-          <div class="col-md-4 d-md-flex justify-content-center">
-            <nav class="navbar navbar-expand-sm">
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="mynavbar">
-                <ul class="navbar-nav me-auto">
-                  <li class="nav-item">
-                    <div class="dropdown">
-                      <div type="button" class="text-secondary mt-2 ms-2" data-bs-toggle="dropdown">
-                        Sản Phẩm
-                      </div>
-                      <ul class="dropdown-menu">
-                        <li><a class="dropdown-item " onclick="open_product('laptop')" href="#">Laptop</a></li>
-                        <li><a class="dropdown-item " onclick="open_product('phone')" href="#">Điện Thoại</a></li>
-                        <li><a class="dropdown-item " onclick="window.alert('Chức năng đang bảo trì.')" href="#">Linh
-                            Kiện</a></li>
-                      </ul>
+                                        <li class="nav-item">
+                                            <a
+                                                id="username-display"
+                                                class="nav-link"
+                                                href="./dangnhap.html"
+                                                >Đăng Nhập</a
+                                            >
+                                        </li>
+                                        <li class="nav-item">
+                                            <a
+                                                id="logout-btn"
+                                                class="nav-link"
+                                                href="./dangky.html"
+                                                >Đăng kí</a
+                                            >
+                                        </li>
+                                        <li class="nav-item">
+                                            <a
+                                                class="nav-link"
+                                                id="cart-icon"
+                                                onclick="open_cart()"
+                                                >Giỏ Hàng</a
+                                            >
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
                     </div>
-                  </li>
-
-                  <li class="nav-item">
-                    <a id="username-display" class="nav-link" href="./dangnhap.html">Đăng Nhập</a>
-                  </li>
-                  <li class="nav-item">
-                    <a id="logout-btn" class="nav-link" href="./dangky.html">Đăng kí</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" id="cart-icon" onclick="open_cart()">Giỏ Hàng</a>
-                  </li>
-                </ul>
-              </div>
-            </nav>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    </div>
-    </div>
-    </div>
-    <div class="cart" id="cart">
-      <h2>Your Cart</h2>
-      <div class="cart-content">
-        <div class="cart-box">
-          <img src="./images/index/unnamed (2).webp" alt="" class="cart-img" />
-          <div class="detail">
-            <div class="product-name">
-              Laptop HP Pavilion 14-dv2075TU (7C0W2PA) (i5-1235U)
+                </div>
             </div>
-            <div class="product-price">12000000</div>
-            <input type="number" value="1" class="cart-quality" />
-          </div>
-          <i class="fa-solid fa-trash"></i>
-        </div>
-      </div>
-      <div class="Total">
-        <div class="total-tittle">Total:</div>
-        <div class="total-price">$25</div>
-      </div>
-      <button class="buy">Buy Now</button>
-      <i onclick="close_cart()" class="fa-solid fa-x" id="close-cart"></i>
-    </div>
-  </header>
-  <main>
-    <div class="home row user_show">
-      <div class="col-lg-4 m-2 bg-white">
-        <h4>Tài Khoản</h4>
-        <div>
-          <img src="/images/index/user1.png" alt="" class="user_img">
-        </div>
-        <div>
-          <div class="hoten">
-            <p>Họ Tên: <span></span></p>
 
-          </div>
-          <div class="taikhoan">
-            <p>Tài Khoản: <span></span></p>
+            <div class="cart" id="cart">
+                <h2>Your Cart</h2>
+                <div class="cart-content">
+                    <div class="cart_empty">
+                        <img src="./images/index/empty-cart.png" alt="" />
+                    </div>
+                </div>
+                <div class="Total">
+                    <div class="total-tittle">Total:</div>
+                    <div class="total-price"></div>
+                </div>
 
-          </div>
-        <div>
-          <div class="email">
-            <p>Email: <span></span></p>
+                <i
+                    onclick="close_cart()"
+                    class="fa-solid fa-x"
+                    id="close-cart"
+                ></i>
 
-          </div>
-         
-          <div class="sdt">
-            <p>Số Điện Thoại:<span></span></p>
+                <div class="m-2 border">
+                    <label for="diachi" class="mb-1">Địa Chỉ Giao Hàng: </label>
+                    <br />
+                    <input type="text" name="diachi" id="diachi" />
+                    <label for="diachi" class="mt-1"
+                        >Điền Đủ :số nhà, tên đường, xã, thành phố, tỉnh.</label
+                    >
+                </div>
+                <button class="btn-buy float-lg-end" onclick="buy_order()">
+                    Buy Now
+                </button>
+            </div>
+        </header>
+        <main>
+            <div class="home row user_show">
+                <div class="taikhoan col-lg-4 m-2">
+                    <h4>Tài Khoản</h4>
+                    <div class="icon_user">
+                        <img src="" alt="" class="user_img" />
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div>
+                        <div class="hoten">
+                            <p>Họ Tên: <span></span></p>
+                        </div>
+                        <div class="taikhoan">
+                            <p>Tài Khoản: <span></span></p>
+                        </div>
+                        <div>
+                            <div class="email">
+                                <p>Email: <span></span></p>
+                            </div>
 
-          </div>
-        </div>
-      </div>
-      </div>
-      <div class="col-lg-7 m-2 bg-white">
-        <h4>Đơn Hàng</h4>
-        <div class="user__table">
-          <table>
-            <tr> 
-              <th>STT</th>
-              <th>Mã đơn hàng</th>
-              <th>Tên Sản phẩm</th>
-              <th>Hình Ảnh</th>
-              <th>Giá Tiền</th>
-              <th>Trạng thái</th>
-          </table>
-        </div>
-      </div>
-    
+                            <div class="sdt">
+                                <p>Số Điện Thoại:<span></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 m-2">
+                    <h4>Đơn Hàng</h4>
+                    <div class="user__table">
+                        <table>
+                            <tr>
+                                <th>STT</th>
+                                <th>Mã đơn hàng</th>
+                                <th>Tên Sản phẩm</th>
+                                <th>Hình Ảnh</th>
+                                <th>Giá Tiền</th>
+                                <th>Trạng thái</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <h5 class="m-1 mb-0 p-2 ps-1">WeScam</h5>
+                        <p>
+                            Wescam - địa chỉ tin cậy cho laptop và điện thoại cũ
+                            chất lượng. Đảm bảo nhu cầu đa dạng với sản phẩm
+                            kiểm định và dịch vụ hậu mãi tốt, giá cả phải chăng.
+                        </p>
+                    </div>
 
-  </main>
-  <footer>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-3">
-          <h5 class="m-1 mb-0 p-2 ps-1">WeScam</h5>
-          <p>
-            Wescam - địa chỉ tin cậy cho laptop và điện thoại cũ chất lượng.
-            Đảm bảo nhu cầu đa dạng với sản phẩm kiểm định và dịch vụ hậu mãi
-            tốt, giá cả phải chăng.
-          </p>
-        </div>
+                    <div class="col-lg-3">
+                        <h6 class="m-3">SẢN PHẨM</h6>
+                        <ul>
+                            <li onclick="open_product('laptop')">LapTop Cũ</li>
+                            <li onclick="open_product('phone')">
+                                Điện Thoại Cũ
+                            </li>
+                            <li
+                                onclick="window.alert('Chức năng đang bảo trì.')"
+                            >
+                                Khác
+                            </li>
+                        </ul>
+                    </div>
 
-        <div class="col-lg-3">
-          <h6 class="m-3">SẢN PHẨM</h6>
-          <ul>
-            <li onclick="open_product('laptop')">LapTop Cũ</li>
-            <li onclick="open_product('phone')">Điện Thoại Cũ</li>
-            <li onclick="window.alert('Chức năng đang bảo trì.')">Khác</li>
-          </ul>
-        </div>
+                    <div class="col-lg-3">
+                        <h6 class="m-3">LIÊN KẾT</h6>
+                        <ul>
+                            <li onclick="">Tài Khoản Của Bạn</li>
+                            <li onclick="">Giỏ Hàng</li>
+                            <li>Giao Hàng</li>
+                            <li>Trợ Giúp</li>
+                        </ul>
+                    </div>
 
-        <div class="col-lg-3">
-          <h6 class="m-3">LIÊN KẾT</h6>
-          <ul>
-            <li onclick="">Tài Khoản Của Bạn</li>
-            <li onclick="">Giỏ Hàng</li>
-            <li>Giao Hàng</li>
-            <li>Trợ Giúp</li>
-          </ul>
-        </div>
+                    <div class="col-lg-3">
+                        <h6 class="m-3">Liên Hệ</h6>
+                        <ul>
+                            <li>ĐC: KTX A ĐHCT</li>
+                            <li>email:khangb220581@student.ctu.edu.vn</li>
+                            <li>SĐT: 0362385725</li>
+                        </ul>
+                    </div>
+                </div>
 
-        <div class="col-lg-3">
-          <h6 class="m-3">Liên Hệ</h6>
-          <ul>
-            <li>ĐC: KTX A ĐHCT</li>
-            <li>email:khangb220581@student.ctu.edu.vn</li>
-            <li>SĐT: 0362385725</li>
-          </ul>
-        </div>
-      </div>
+                <!-- Section: CTA -->
 
-      <!-- Section: CTA -->
+                <hr class="mb-4" />
 
-      <hr class="mb-4" />
+                <!-- Section: Social media -->
+                <section class="mb-4 text-center">
+                    <!-- Facebook -->
+                    <a
+                        class="btn btn-outline-primary btn-floating m-1"
+                        href="#!"
+                        role="button"
+                        ><i class="fab fa-facebook-f"></i
+                    ></a>
 
-      <!-- Section: Social media -->
-      <section class="mb-4 text-center">
-        <!-- Facebook -->
-        <a class="btn btn-outline-primary btn-floating m-1" href="#!" role="button"><i
-            class="fab fa-facebook-f"></i></a>
+                    <!-- Twitter -->
+                    <a
+                        class="btn btn-outline-primary btn-floating m-1"
+                        href="#!"
+                        role="button"
+                        ><i class="fab fa-twitter"></i
+                    ></a>
 
-        <!-- Twitter -->
-        <a class="btn btn-outline-primary btn-floating m-1" href="#!" role="button"><i class="fab fa-twitter"></i></a>
+                    <!-- Google -->
+                    <a
+                        class="btn btn-outline-primary btn-floating m-1"
+                        href="#!"
+                        role="button"
+                        ><i class="fab fa-google"></i
+                    ></a>
 
-        <!-- Google -->
-        <a class="btn btn-outline-primary btn-floating m-1" href="#!" role="button"><i class="fab fa-google"></i></a>
+                    <!-- Instagram -->
+                    <a
+                        class="btn btn-outline-primary btn-floating m-1"
+                        href="#!"
+                        role="button"
+                        ><i class="fab fa-instagram"></i
+                    ></a>
 
-        <!-- Instagram -->
-        <a class="btn btn-outline-primary btn-floating m-1" href="#!" role="button"><i class="fab fa-instagram"></i></a>
+                    <!-- Linkedin -->
+                    <a
+                        class="btn btn-outline-primary btn-floating m-1"
+                        href="#!"
+                        role="button"
+                        ><i class="fab fa-linkedin-in"></i
+                    ></a>
 
-        <!-- Linkedin -->
-        <a class="btn btn-outline-primary btn-floating m-1" href="#!" role="button"><i
-            class="fab fa-linkedin-in"></i></a>
+                    <!-- Github -->
+                    <a
+                        class="btn btn-outline-primary btn-floating m-1"
+                        href="#!"
+                        role="button"
+                        ><i class="fab fa-github"></i
+                    ></a>
+                </section>
+            </div>
 
-        <!-- Github -->
-        <a class="btn btn-outline-primary btn-floating m-1" href="#!" role="button"><i class="fab fa-github"></i></a>
-      </section>
-    </div>
-
-    <!-- Section: Social media -->
-    <!-- Grid container -->
-  </footer>
-  <script src="./javascripts/javascript.js"></script>
-  <script src="/javascripts/dangky_dangnhap_js/dangnhap.js"></script>
-  <script>
-    window.onload = function () {
-      displayLoggedInUser();
-      show_user();
-      total();
-    };
-  </script>
-
-
-
-</body>
-
+            <!-- Section: Social media -->
+            <!-- Grid container -->
+        </footer>
+        <script src="./javascripts/javascript.js"></script>
+        <script src="/javascripts/dangky_dangnhap_js/dangnhap.js"></script>
+        <script>
+            window.onload = function () {
+                displayLoggedInUser();
+                show_user();
+                total();
+            };
+        </script>
+    </body>
 </html>

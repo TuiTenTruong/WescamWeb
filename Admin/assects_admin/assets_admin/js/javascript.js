@@ -48,6 +48,22 @@ var nhaphang = function (form) {
     return false;
   }
   console.log(masp);
+
+  for (let i = 0; i < list_products_lap.length; i++) {
+    if (list_products_lap[i].maSP === masp) {
+      console.log(list_products_lap[i].maSP === masp);
+      alert("Ma san pham da ton tai");
+      return false;
+    }
+  }
+
+  for (let i = 0; i < list_products_phone.length; i++) {
+    if (list_products_phone[i].maSP === masp) {
+      alert("Ma san pham da ton tai");
+      return false;
+    }
+  }
+
   if (tensp.trim() === "") {
     alert("Vui long nhap ten san pham");
     form.tensp.focus();
@@ -126,8 +142,8 @@ var nhaphang = function (form) {
     XuatXu: xuatxu,
     DanhGia: danhgia,
   };
-  if (loaisp === "laptop") list_products_lap.push(obj);
-  if (loaisp === "phone") list_products_phone.push(obj);
+  // if (loaisp === "laptop") list_products_lap.push(obj);
+  // if (loaisp === "phone") list_products_phone.push(obj);
   if (loaisp === "laptop") {
     list_products_lap.push(obj);
     localStorage.setItem("list_lap", JSON.stringify(list_products_lap));

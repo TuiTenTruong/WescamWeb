@@ -787,7 +787,7 @@ var check_accepted = function (indexlist, indexorder) {
 };
 var show_order = function () {
   var tble = document.querySelector(".user__table");
-  var check = 0;
+  var check = 0; var stt =1;
   var listOrder = JSON.parse(localStorage.getItem("listOrder"));
   const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
   listOrder.forEach(function (order, index) {
@@ -811,7 +811,7 @@ var show_order = function () {
         console.log(check);
         var newRow = document.createElement("tr");
 
-        newRow.innerHTML = ` <td >${i + 1}</td>
+        newRow.innerHTML = ` <td >${stt}</td>
                                     <td class="accountId">MADH0${i}</td>
                                     <td>${
                                       JSON.parse(order.hang[i].hang).TenSP
@@ -832,6 +832,7 @@ var show_order = function () {
                                         <span class="tt">${hienthi}</span>
                                     </td>`;
         tble.appendChild(newRow);
+        stt++;
       }
     }
   });

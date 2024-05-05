@@ -207,6 +207,7 @@ article {
     padding: 0;
     background-color: #bcf9f9;
 }
+
 .cart {
     position: fixed;
     top: 0;
@@ -369,7 +370,6 @@ a {
     width: 100px;
     height: 100px;
 }
-
 
 .user_img {
     max-width: 200px;

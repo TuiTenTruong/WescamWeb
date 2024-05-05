@@ -456,7 +456,7 @@ var call_funtion = function (local) {
 };
 function showproduct() {
     var products = list_products_lap;
-    var str = '<div class="owl-carousel">';
+    var str = '<div class="owl-carousel owl-theme">';
     for (var i = 0; i < products.length; ++i) {
         var obj = JSON.stringify(products[i]);
 
@@ -487,7 +487,7 @@ function showproduct() {
     document.querySelector(".showproducts_lap").innerHTML = str;
 
     products = list_products_phone;
-    str = '<div class="owl-carousel">';
+    str = '<div class="owl-carousel owl-theme">';
     for (var i = 0; i < products.length; ++i) {
         var obj = JSON.stringify(products[i]);
 
@@ -521,7 +521,7 @@ function showproduct() {
         $(".owl-carousel").owlCarousel();
     });
     $(".owl-carousel").owlCarousel({
-        center: true,
+        dots: true,
         loop: true,
         margin: 10,
         nav: false,
@@ -533,14 +533,14 @@ function showproduct() {
                 items: 4,
             },
             1000: {
-                items: 6,
+                items: 5,
             },
         },
     });
 }
 function showsale() {
     var products = list_products_lap;
-    var str = '<div class="owl-carousel">';
+    var str = '<div class="owl-carousel owl-theme">';
     for (var i = 0; i < products.length; ++i) {
         var obj = JSON.stringify(products[i]);
 
@@ -606,10 +606,11 @@ function showsale() {
         $(".owl-carousel").owlCarousel();
     });
     $(".owl-carousel").owlCarousel({
-        center: true,
         loop: true,
         margin: 10,
-        nav: false,
+        dots: true,
+        autoplay: true,
+        autoplayTimeout: 3000,
         responsive: {
             0: {
                 items: 2,
@@ -617,8 +618,8 @@ function showsale() {
             600: {
                 items: 4,
             },
-            1000: {
-                items: 6,
+            1024: {
+                items: 5,
             },
         },
     });
